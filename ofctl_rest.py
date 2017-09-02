@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+#/home/shengliu/.local/lib/python2.7/site-packages/ryu
+
 import logging
 
 import json
@@ -430,14 +432,16 @@ class StatsController(ControllerBase):
             'discard': ofp.OFPBCT_DISCARD_REQUEST,
         }
         mod_cmd = cmd_convert.get(cmd, None)
+        if mod_cmd is None:
+            raise CommandNotFoundError(cmd=cmd)
 	bdid = int(flow.get('bdid',0))
-        msg = ofp_parser.OFPBundleCtrlMsg(dp, bdid, mod_cmd, ofp.OFPBF_ATOMIC | ofp.OFPBF_ORDERED, [])
-        ofctl_utils.send_msg(dp, msg, LOG)
+        bundle_msg = ofp_parser.OFPBundleCtrlMsg(dp, bdid, mod_cmd, ofp.
+	    OFPBF_ATOMIC | ofp.OFPBF_ORDERED, [])
+        ofctl_utils.send_msg(dp, bundle_msg, LOG)
 
 
     @command_method
     def send_bundle_add_message(self, req, dp, ofctl, flow, cmd, **kwargs):
-        print "bundle add"
         ofp = dp.ofproto
         ofp_parser = dp.ofproto_parser
         cmd_convert = {
@@ -492,33 +496,7 @@ class StatsController(ControllerBase):
         if mod_cmd is None:
             raise CommandNotFoundError(cmd=cmd)
 
-        ofp = dp.ofproto
-        ofp_parser = dp.ofproto_parser
-        UTIL = ofctl_utils.OFCtlUtil(ofp)
-
-        cookie = int(flow.get('cookie', 0))
-        cookie_mask = int(flow.get('cookie_mask', 0))
-        table_id = UTIL.ofp_table_from_user(flow.get('table_id', 0))
-        idle_timeout = int(flow.get('idle_timeout', 0))
-        hard_timeout = int(flow.get('hard_timeout', 0))
-        priority = int(flow.get('priority', 0))
-        buffer_id = UTIL.ofp_buffer_from_user(
-            flow.get('buffer_id', ofp.OFP_NO_BUFFER))
-        out_port = UTIL.ofp_port_from_user(
-            flow.get('out_port', ofp.OFPP_ANY))
-        out_group = UTIL.ofp_group_from_user(
-            flow.get('out_group', ofp.OFPG_ANY))
-        importance = int(flow.get('importance', 0))
-        flags = int(flow.get('flags', 0))
-        match = ofctl.to_match(dp, flow.get('match', {}))
-        inst = ofctl.to_instructions(dp, flow.get('instructions', []))
-
-        flow_mod = ofp_parser.OFPFlowMod(
-            dp, cookie, cookie_mask, table_id, mod_cmd, idle_timeout,
-            hard_timeout, priority, buffer_id, out_port, out_group,
-            flags, importance, match, inst)
-
-        ofctl_utils.send_msg(dp, flow_mod, LOG)
+        ofctl.mod_flow_entry(dp, flow, mod_cmd)
 
     @command_method
     def delete_flow_entry(self, req, dp, ofctl, flow, **kwargs):

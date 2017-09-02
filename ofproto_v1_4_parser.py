@@ -5729,14 +5729,6 @@ class OFPBundleAddMsg(MsgInMsgBase):
 
         # Finish
         self.buf += tail_buf
-    @classmethod
-    def parser(cls, datapath, version, msg_type, msg_len, xid, buf):
-        msg = super(OFPBundleCtrlMsg, cls).parser(datapath, version, msg_type, msg_len, xid, buf)
-        msg.properties = []
-        (msg.bundle_id, msg.type, msg.flags) = struct.unpack_from(
-	    ofproto.OFP_BUNDLE_CTRL_MSG_PACK_STR, msg.buf,
-            ofproto.OFP_HEADER_SIZE)
-        return msg
 
 
 nx_actions.generate(
