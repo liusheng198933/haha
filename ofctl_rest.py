@@ -30,12 +30,14 @@ from ryu.ofproto import ofproto_v1_2
 from ryu.ofproto import ofproto_v1_3
 from ryu.ofproto import ofproto_v1_4
 from ryu.ofproto import ofproto_v1_5
+from ryu.ofproto.ofproto_v1_4_parser import OFPBundleCtrlMsg
 from ryu.lib import ofctl_v1_0
 from ryu.lib import ofctl_v1_2
 from ryu.lib import ofctl_v1_3
 from ryu.lib import ofctl_v1_4
 from ryu.lib import ofctl_v1_5
 from ryu.app.wsgi import ControllerBase, WSGIApplication
+from ryu.lib import ofctl_utils
 
 
 LOG = logging.getLogger('ryu.app.ofctl_rest')
@@ -418,6 +420,66 @@ class StatsController(ControllerBase):
             return ofctl.get_port_desc(dp, self.waiters, port_no)
 
     @command_method
+    def send_bundle_control(self, req, dp, ofctl, flow, cmd, **kwargs):
+	ofp = dp.ofproto
+        ofp_parser = dp.ofproto_parser
+	cmd_convert = {
+            'open': ofp.OFPBCT_OPEN_REQUEST,
+            'close': ofp.OFPBCT_CLOSE_REQUEST,
+            'commit': ofp.OFPBCT_COMMIT_REQUEST,
+            'discard': ofp.OFPBCT_DISCARD_REQUEST,
+        }
+        mod_cmd = cmd_convert.get(cmd, None)
+	bdid = int(flow.get('bdid',0))
+        msg = ofp_parser.OFPBundleCtrlMsg(dp, bdid, mod_cmd, ofp.OFPBF_ATOMIC | ofp.OFPBF_ORDERED, [])
+        ofctl_utils.send_msg(dp, msg, LOG)
+
+
+    @command_method
+    def send_bundle_add_message(self, req, dp, ofctl, flow, cmd, **kwargs):
+        print "bundle add"
+        ofp = dp.ofproto
+        ofp_parser = dp.ofproto_parser
+        cmd_convert = {
+            'add': ofp.OFPFC_ADD,
+            'modify': ofp.OFPFC_MODIFY,
+            'modify_strict': ofp.OFPFC_MODIFY_STRICT,
+            'delete': ofp.OFPFC_DELETE,
+            'delete_strict': ofp.OFPFC_DELETE_STRICT,
+        }
+        mod_cmd = cmd_convert.get(cmd, None)
+        if mod_cmd is None:
+            raise CommandNotFoundError(cmd=cmd)
+        bdid = int(flow.get('bdid', 0))
+        UTIL = ofctl_utils.OFCtlUtil(ofp)
+
+        cookie = int(flow.get('cookie', 0))
+        cookie_mask = int(flow.get('cookie_mask', 0))
+        table_id = UTIL.ofp_table_from_user(flow.get('table_id', 0))
+        idle_timeout = int(flow.get('idle_timeout', 0))
+        hard_timeout = int(flow.get('hard_timeout', 0))
+        priority = int(flow.get('priority', 0))
+        buffer_id = UTIL.ofp_buffer_from_user(
+            flow.get('buffer_id', ofp.OFP_NO_BUFFER))
+        out_port = UTIL.ofp_port_from_user(
+            flow.get('out_port', ofp.OFPP_ANY))
+        out_group = UTIL.ofp_group_from_user(
+            flow.get('out_group', ofp.OFPG_ANY))
+        importance = int(flow.get('importance', 0))
+        flags = int(flow.get('flags', 0))
+        match = ofctl.to_match(dp, flow.get('match', {}))
+        inst = ofctl.to_instructions(dp, flow.get('instructions', []))
+
+        flow_mod = ofp_parser.OFPFlowMod(
+            dp, cookie, cookie_mask, table_id, mod_cmd, idle_timeout,
+            hard_timeout, priority, buffer_id, out_port, out_group,
+            flags, importance, match, inst)
+
+        bundle_msg = ofp_parser.OFPBundleAddMsg(dp, bdid, ofp.OFPBF_ATOMIC | ofp.OFPBF_ORDERED,
+                                     flow_mod, [])
+        ofctl_utils.send_msg(dp, bundle_msg, LOG)
+
+    @command_method
     def mod_flow_entry(self, req, dp, ofctl, flow, cmd, **kwargs):
         cmd_convert = {
             'add': dp.ofproto.OFPFC_ADD,
@@ -430,7 +492,33 @@ class StatsController(ControllerBase):
         if mod_cmd is None:
             raise CommandNotFoundError(cmd=cmd)
 
-        ofctl.mod_flow_entry(dp, flow, mod_cmd)
+        ofp = dp.ofproto
+        ofp_parser = dp.ofproto_parser
+        UTIL = ofctl_utils.OFCtlUtil(ofp)
+
+        cookie = int(flow.get('cookie', 0))
+        cookie_mask = int(flow.get('cookie_mask', 0))
+        table_id = UTIL.ofp_table_from_user(flow.get('table_id', 0))
+        idle_timeout = int(flow.get('idle_timeout', 0))
+        hard_timeout = int(flow.get('hard_timeout', 0))
+        priority = int(flow.get('priority', 0))
+        buffer_id = UTIL.ofp_buffer_from_user(
+            flow.get('buffer_id', ofp.OFP_NO_BUFFER))
+        out_port = UTIL.ofp_port_from_user(
+            flow.get('out_port', ofp.OFPP_ANY))
+        out_group = UTIL.ofp_group_from_user(
+            flow.get('out_group', ofp.OFPG_ANY))
+        importance = int(flow.get('importance', 0))
+        flags = int(flow.get('flags', 0))
+        match = ofctl.to_match(dp, flow.get('match', {}))
+        inst = ofctl.to_instructions(dp, flow.get('instructions', []))
+
+        flow_mod = ofp_parser.OFPFlowMod(
+            dp, cookie, cookie_mask, table_id, mod_cmd, idle_timeout,
+            hard_timeout, priority, buffer_id, out_port, out_group,
+            flags, importance, match, inst)
+
+        ofctl_utils.send_msg(dp, flow_mod, LOG)
 
     @command_method
     def delete_flow_entry(self, req, dp, ofctl, flow, **kwargs):
@@ -674,6 +762,16 @@ class RestStatsApi(app_manager.RyuApp):
         mapper.connect('stats', uri,
                        controller=StatsController, action='get_port_desc',
                        conditions=dict(method=['GET']))
+
+        uri = path + '/bundlectrl/{cmd}'
+        mapper.connect('stats', uri,
+                       controller=StatsController, action='send_bundle_control',
+                       conditions=dict(method=['POST']))
+
+        uri = path + '/bundleadd/{cmd}'
+        mapper.connect('stats', uri,
+                       controller=StatsController, action='send_bundle_add_message',
+                       conditions=dict(method=['POST']))
 
         uri = path + '/flowentry/{cmd}'
         mapper.connect('stats', uri,
