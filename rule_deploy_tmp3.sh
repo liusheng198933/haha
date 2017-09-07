@@ -7,8 +7,16 @@ curl -X DELETE http://localhost:8080/stats/flowentry/clear/2
 
 curl -X DELETE http://localhost:8080/stats/flowentry/clear/3
 
+
 curl -X POST -d '{ 
     "dpid": 1, 
+    "bdid": 1
+ }' http://localhost:8080/stats/bundlectrl/open
+
+
+curl -X POST -d '{ 
+    "dpid": 1, 
+    "bdid": 1,
     "table_id": 0, 
     "priority": 1, 
     "match":{
@@ -25,19 +33,18 @@ curl -X POST -d '{
             ]
         }
     ]
- }' http://localhost:8080/stats/flowentry/add
-
-
+ }' http://localhost:8080/stats/bundleadd/add
 
 
 curl -X POST -d '{ 
     "dpid": 1, 
+    "bdid": 1,
     "table_id": 0, 
     "priority": 2, 
     "match":{
         "ipv4_dst":"10.0.0.1/255.255.255.255", 
 	"eth_type":2048,
-	"dl_vlan":12
+	"dl_vlan":30
     },
     "instructions": [
         {
@@ -53,11 +60,12 @@ curl -X POST -d '{
             ]
         }
     ]
- }' http://localhost:8080/stats/flowentry/add
+ }' http://localhost:8080/stats/bundleadd/add
 
 
 curl -X POST -d '{ 
     "dpid": 1, 
+    "bdid": 1,
     "table_id": 0, 
     "priority": 2, 
     "match":{
@@ -84,11 +92,12 @@ curl -X POST -d '{
             ]
         }
     ]
- }' http://localhost:8080/stats/flowentry/add
+ }' http://localhost:8080/stats/bundleadd/add
 
 
 curl -X POST -d '{ 
     "dpid": 1, 
+    "bdid": 1,
     "table_id": 0, 
     "priority": 2, 
     "match":{
@@ -106,7 +115,7 @@ curl -X POST -d '{
 		{
             	   "type": "SET_FIELD",
             	   "field": "vlan_vid",     
-            	   "value": 4106            
+            	   "value": 4121            
         	},
         	{
             	   "type": "OUTPUT",
@@ -115,11 +124,23 @@ curl -X POST -d '{
             ]
         }
     ]
- }' http://localhost:8080/stats/flowentry/add
+ }' http://localhost:8080/stats/bundleadd/add
+
+curl -X POST -d '{ 
+    "dpid": 1, 
+    "bdid": 1
+ }' http://localhost:8080/stats/bundlectrl/commit
+
 
 
 curl -X POST -d '{ 
     "dpid": 2, 
+    "bdid": 2
+ }' http://localhost:8080/stats/bundlectrl/open
+
+curl -X POST -d '{ 
+    "dpid": 2, 
+    "bdid": 2,
     "table_id": 0, 
     "priority": 1, 
     "match":{
@@ -136,19 +157,20 @@ curl -X POST -d '{
             ]
         }
     ]
- }' http://localhost:8080/stats/flowentry/add
+ }' http://localhost:8080/stats/bundleadd/add
 
 
 
 
 curl -X POST -d '{ 
     "dpid": 2, 
+    "bdid": 2,
     "table_id": 0, 
     "priority": 2, 
     "match":{
         "ipv4_dst":"10.0.0.2/255.255.255.255", 
 	"eth_type":2048,
-	"dl_vlan":10
+	"dl_vlan":25
     },
     "instructions": [
         {
@@ -164,11 +186,12 @@ curl -X POST -d '{
             ]
         }
     ]
- }' http://localhost:8080/stats/flowentry/add
+ }' http://localhost:8080/stats/bundleadd/add
 
 
 curl -X POST -d '{ 
     "dpid": 2, 
+    "bdid": 2,
     "table_id": 0, 
     "priority": 2, 
     "match":{
@@ -196,11 +219,12 @@ curl -X POST -d '{
             ]
         }
     ]
- }' http://localhost:8080/stats/flowentry/add
+ }' http://localhost:8080/stats/bundleadd/add
 
 
 curl -X POST -d '{ 
     "dpid": 2, 
+    "bdid": 2,
     "table_id": 0, 
     "priority": 2, 
     "match":{
@@ -228,18 +252,19 @@ curl -X POST -d '{
             ]
         }
     ]
- }' http://localhost:8080/stats/flowentry/add
+ }' http://localhost:8080/stats/bundleadd/add
 
 
 curl -X POST -d '{ 
     "dpid": 2, 
+    "bdid": 2,
     "table_id": 0, 
     "priority": 2, 
     "match":{
 	"ipv4_src":"10.0.0.3/255.255.255.255",
         "ipv4_dst":"10.0.0.1/255.255.255.255", 
 	"eth_type":2048,
-	"dl_vlan":19
+	"dl_vlan":29
     },
     "instructions": [
         {
@@ -248,7 +273,7 @@ curl -X POST -d '{
         	{
             	   "type": "SET_FIELD",
             	   "field": "vlan_vid",     
-            	   "value": 4118            
+            	   "value": 4125            
         	},
         	{
             	   "type": "OUTPUT",
@@ -257,17 +282,18 @@ curl -X POST -d '{
             ]
         }
     ]
- }' http://localhost:8080/stats/flowentry/add
+ }' http://localhost:8080/stats/bundleadd/add
 
 curl -X POST -d '{ 
     "dpid": 2, 
+    "bdid": 2,
     "table_id": 0, 
     "priority": 2, 
     "match":{
 	"ipv4_src":"10.0.0.1/255.255.255.255",
         "ipv4_dst":"10.0.0.3/255.255.255.255", 
 	"eth_type":2048,
-	"dl_vlan":20
+	"dl_vlan":26
     },
     "instructions": [
         {
@@ -276,7 +302,7 @@ curl -X POST -d '{
         	{
             	   "type": "SET_FIELD",
             	   "field": "vlan_vid",     
-            	   "value": 4119            
+            	   "value": 4122            
         	},
         	{
             	   "type": "OUTPUT",
@@ -285,10 +311,23 @@ curl -X POST -d '{
             ]
         }
     ]
- }' http://localhost:8080/stats/flowentry/add
+ }' http://localhost:8080/stats/bundleadd/add
+
+curl -X POST -d '{ 
+    "dpid": 2, 
+    "bdid": 2
+ }' http://localhost:8080/stats/bundlectrl/commit
+
+
 
 curl -X POST -d '{ 
     "dpid": 3, 
+    "bdid": 3
+ }' http://localhost:8080/stats/bundlectrl/open
+
+curl -X POST -d '{ 
+    "dpid": 3, 
+    "bdid": 3,
     "table_id": 0, 
     "priority": 1, 
     "match":{
@@ -305,19 +344,20 @@ curl -X POST -d '{
             ]
         }
     ]
- }' http://localhost:8080/stats/flowentry/add
+ }' http://localhost:8080/stats/bundleadd/add
 
 
 
 
 curl -X POST -d '{ 
     "dpid": 3, 
+    "bdid": 3,
     "table_id": 0, 
     "priority": 2, 
     "match":{
         "ipv4_dst":"10.0.0.3/255.255.255.255", 
 	"eth_type":2048,
-	"dl_vlan":17
+	"dl_vlan":25
     },
     "instructions": [
         {
@@ -333,11 +373,12 @@ curl -X POST -d '{
             ]
         }
     ]
- }' http://localhost:8080/stats/flowentry/add
+ }' http://localhost:8080/stats/bundleadd/add
 
 
 curl -X POST -d '{ 
     "dpid": 3, 
+    "bdid": 3,
     "table_id": 0, 
     "priority": 2, 
     "match":{
@@ -355,7 +396,7 @@ curl -X POST -d '{
 		{
             	   "type": "SET_FIELD",
             	   "field": "vlan_vid",     
-            	   "value": 4108            
+            	   "value": 4124            
         	},
         	{
             	   "type": "OUTPUT",
@@ -364,11 +405,12 @@ curl -X POST -d '{
             ]
         }
     ]
- }' http://localhost:8080/stats/flowentry/add
+ }' http://localhost:8080/stats/bundleadd/add
 
 
 curl -X POST -d '{ 
     "dpid": 3, 
+    "bdid": 3,
     "table_id": 0, 
     "priority": 2, 
     "match":{
@@ -395,4 +437,9 @@ curl -X POST -d '{
             ]
         }
     ]
- }' http://localhost:8080/stats/flowentry/add
+ }' http://localhost:8080/stats/bundleadd/add
+
+curl -X POST -d '{ 
+    "dpid": 3, 
+    "bdid": 3
+ }' http://localhost:8080/stats/bundlectrl/commit

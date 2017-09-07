@@ -4,7 +4,7 @@ import os
 if __name__ == '__main__':
     matches = []
     path = "/home/shengliu/Workspace/ovs"
-    search = "OFPBF_ATOMIC"
+    search = "all_bridges"
     find = []
     for (root, dirnames, filenames) in os.walk(path):
         for filename in fnmatch.filter(filenames, '*.c'):
