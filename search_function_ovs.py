@@ -3,8 +3,8 @@ import os
 
 if __name__ == '__main__':
     matches = []
-    path = "/home/shengliu/Workspace/ovs"
-    search = "all_bridges"
+    path = "/home/shengliu/Workspace/ovs_hehe"
+    search = "ofproto pointer"
     find = []
     for (root, dirnames, filenames) in os.walk(path):
         for filename in fnmatch.filter(filenames, '*.c'):
