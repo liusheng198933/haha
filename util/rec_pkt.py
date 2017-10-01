@@ -3,7 +3,6 @@
 
 import socket, sys
 from struct import *
-import time
 
 #create an INET, STREAMing socket
 try:
@@ -13,7 +12,6 @@ except socket.error , msg:
     sys.exit()
 
 print "begin"
-count = 0
 
 # receive a packet
 while True:
@@ -63,6 +61,3 @@ while True:
     print 'Data : ' + data
     if data[0:14] == "This is Sheng!":
         print "Success!"
-	count = count + 1
-	print count
-	print time.time() - float(data.split()[3])

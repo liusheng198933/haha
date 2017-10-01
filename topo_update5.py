@@ -27,22 +27,31 @@ class MyTopod( Topo ):
 
         host1 = self.addHost('h1', ip='10.0.0.1')
         host2 = self.addHost('h2', ip='10.0.0.2')
-	#host3 = self.addHost('h3', ip='10.0.0.3')
+
         
         switch1 = self.addSwitch( 's1', protocols='OpenFlow14' )
 
-	#switch2 = self.addSwitch( 's2', protocols='OpenFlow14' )
+	switch2 = self.addSwitch( 's2', protocols='OpenFlow14' )
 
-        #switch3 = self.addSwitch( 's3', protocols='OpenFlow14' )
+        switch3 = self.addSwitch( 's3', protocols='OpenFlow14' )
+
+        switch4 = self.addSwitch( 's4', protocols='OpenFlow14' )
+       
+	switch5 = self.addSwitch( 's5', protocols='OpenFlow14' )
+
+	switch6 = self.addSwitch( 's6', protocols='OpenFlow14' )
         
         
 
         # Add links
-        self.addLink(host1, switch1, 0, 1)
-	self.addLink(host2, switch1, 0, 2)
-	#self.addLink(host3, switch3, 0, 3)
-	#self.addLink(switch1, switch2, 2, 1)
-        #self.addLink(switch2, switch3, 3, 2)
+        self.addLink(host1, switch6, 0, 1)
+	self.addLink(host2, switch5, 0, 2)
+	self.addLink(switch6, switch1, 2, 1)
+	self.addLink(switch1, switch2, 2, 1)
+        self.addLink(switch1, switch4, 3, 1)
+        self.addLink(switch2, switch3, 2, 1)
+        self.addLink(switch4, switch3, 2, 2)
+        self.addLink(switch3, switch5, 3, 1)
         
         
         
@@ -58,9 +67,10 @@ def simpleTest():
     #print h1.MAC()
 
     net.start()
-    for i in range(1):
+    for i in range(6):
     	s = net.get('s%d' %(i+1))
- 	s.cmd('sudo ovs-vsctl set bridge s%i protocols=OpenFlow14' %(i+1))
+	s.cmd('sudo ovs-vsctl set bridge s%i protocols=OpenFlow14' %(i+1))
+ 	#s.cmd('sudo ovs-vsctl set bridge s%i protocols=OpenFlow14 stp_enable=true' %(i+1))
     # use static ARP configuration to avoid arp broadcast
     # net.staticArp()
 
