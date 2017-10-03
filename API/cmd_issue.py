@@ -77,10 +77,12 @@ def bundleAddMsg(dpid, bdid, match, rtmp, ttmp, out_port, table_id=0, priority=2
     match_para.append('\"dl_vlan\":%s' % str(rtmp))
     match_para.append("},")
 
-    if out_port == "in_port":
+    #if out_port == "in_port":
+    if out_port == -1:
         instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\":\"SET_FIELD\",\"field\":\"vlan_vid\",\"value\": %s},{\"type\": \"OUTPUT\",\"port\": \"in_port\"}]}]' %(str(ttmp+4096))]
     else:
-        if out_port == "drop":
+        #if out_port == "drop":
+        if out_port == 0:
             instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[]}]']
         else:
             instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\":\"SET_FIELD\",\"field\":\"vlan_vid\",\"value\": %s},{\"type\": \"OUTPUT\",\"port\": %s}]}]' %(str(ttmp+4096), str(out_port))]
@@ -189,6 +191,36 @@ def network_drop(dp_range, filepath):
     for i in range(dp_range):
         script_write(filepath, addTMPRule(i+1, {}, 1, 1, 'drop', 0, 0, "add"))
 
+def path_deploy(rule_set, new_path, out_port):
+    bdid = 0
+    filepath = "/home/shengliu/Workspace/mininet/haha/cmd_test.sh"
+    for i in rule_set.keys():
+        bdid = bdid + 1
+        if i == new_path[0]:
+            script_write(filepath, bundleCtrlMsg(i, bdid, "open"))
+            for r in rule_set[i]['del']:
+                script_write(filepath, pushTMP(i, bdid, r.get_match(), r.get_ttmp(), out_port[i], r.get_table_id(), r.get_prt(), "del"))
+            for r in rule_set[i]['add']:
+                script_write(filepath, pushTMP(i, bdid, r.get_match(), r.get_ttmp(), out_port[i], r.get_table_id(), r.get_prt(), "add"))
+
+            script_write(filepath, bundleCtrlMsg(i, bdid, "commit"))
+        else:
+            if i == new_path[len(new_path)]:
+                script_write(filepath, bundleCtrlMsg(i, bdid, "open"))
+                for r in rule_set[i]['del']:
+                    script_write(filepath, popTMP(i, bdid, r.get_match(), r.get_rtmp(), out_port[i], r.get_table_id(), r.get_prt(), "del"))
+                for r in rule_set[i]['add']:
+                    script_write(filepath, popTMP(i, bdid, r.get_match(), r.get_rtmp(), out_port[i], r.get_table_id(), r.get_prt(), "add"))
+
+                script_write(filepath, bundleCtrlMsg(i, bdid, "commit"))
+            else:
+                script_write(filepath, bundleCtrlMsg(i, bdid, "open"))
+                for r in rule_set[i]['del']:
+                    script_write(filepath, bundleAddMsg(i, bdid, r.get_match(), r.get_rtmp(), r.get_ttmp(), out_port[i], r.get_table_id(), r.get_prt(), "del"))
+                for r in rule_set[i]['add']:
+                    script_write(filepath, bundleAddMsg(i, bdid, r.get_match(), r.get_rtmp(), r.get_ttmp(), out_port[i], r.get_table_id(), r.get_prt(), "add"))
+                script_write(filepath, bundleCtrlMsg(i, bdid, "commit"))
+        subprocess.call("%s" %filepath)
 
 if __name__ == '__main__':
     filepath = "/home/shengliu/Workspace/mininet/haha/cmd_test.sh"

@@ -1,4 +1,7 @@
+import copy
+
 def ip_parse(ip):
+# parse ip addres "10.0.0.1/255.255.255.254"
     ip_str = []
     ip_ret = ip.strip("\'\"")
     if "/" in ip:
@@ -24,7 +27,30 @@ def ip_parse(ip):
             ip_str.append(bnum)
     return "".join(ip_str)
 
+
+def match_parse(flow):
+    # flow = {}, flow['ipv4_dst'] = '10.0.0.1/255.255.255.255', flow['ipv4_src'] = '10.0.0.2/255.255.255.255'
+    mt = []
+    #if 'in_port' in flow.keys():
+    #    mt.append('{:b}'.format(flow['in_port']).zfill(16))
+    #else:
+    #    mt.append('x' * 16)
+    mt.append(ip_parse(flow['ipv4_dst']))
+    if 'ipv4_src' in flow.keys():
+        mt.append(ip_parse(flow['ipv4_src']))
+    else:
+        mt.append('x'*32)
+    return ''.join(mt)
+
+def match_reverse(match_str):
+    mt = {}
+    mt['ipv4_dst']= ip_reverse(match_str[0:32])
+    mt['ipv4_src']= ip_reverse(match_str[32:64])
+    return mt
+
+
 def ip_reverse(ip_str):
+    #return string without ""
     ip = []
     ip_mask = []
     for i in range(4):
@@ -48,6 +74,8 @@ def ip_reverse(ip_str):
 
 
 def intersection(match1, match2):
+    # match1 and match2 are strings of the same length
+    # return string
     result = []
     for i in range(len(match2)):
         if match2[i] == 'x':
@@ -66,7 +94,9 @@ def intersection(match1, match2):
                 result.append('0')
     return "".join(result)
 
+
 def union(match1, match2):
+    # merge match1 and match2, return string
     count = 0
     result = []
     for i in range(len(match1)):
@@ -80,6 +110,7 @@ def union(match1, match2):
     return "".join(result)
 
 def union_set(st, ele):
+    # merge string ele with list st, return list
     listcopy = copy.deepcopy(st)
     i = 0
     while (i < len(listcopy)):
@@ -94,6 +125,7 @@ def union_set(st, ele):
     return listcopy
 
 def complement(match1):
+    # return list
     result = []
     for i in range(len(match1)):
         if match1[i] != 'x':
@@ -112,6 +144,7 @@ def complement(match1):
     return result
 
 def difference(match1, match2):
+    # return list
     result = []
     elec = complement(match2)
     #print elec

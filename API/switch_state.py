@@ -15,8 +15,17 @@ class rule:
         self.match_bin = match_parse(self.match)
 
     def get_exact_match(self, flow_table):
-        for r in flow_table.get_all_rule():
-            r.get_match()
+        # return a list
+        exact = [self.match_bin]
+        for r in flow_table.get_all_rules():
+            if r.get_prt() <= self.priority:
+                return exact
+            else:
+                tmp = []
+                for i in exact:
+                    tmp = tmp + difference(i, r.get_match_bin())
+                exact = tmp
+        return exact
 
     def print_rule(self):
         printstr = []
@@ -28,25 +37,12 @@ class rule:
         return {'dpid': self.dpid, 'match': self.match, 'action': self.action, 'priority':self.priority, 'rtmp': self.rtmp, 'ttmp': self.ttmp, 'table_id': self.table_id}
 
     def if_match(self, flow):
+        # match field only includes ipv4_src(optional) and ipv4_dst
         flow_bin = match_parse(flow)
         if intersection(self.match_bin, flow_bin) == flow_bin:
             return True
         else:
             return False
-
-"""        if 'in_port' in self.match.keys():
-            if flow['in_port'] != self.match['in_port']:
-                return False
-        if intersection(ip_parse(flow['ipv4_dst']), ip_parse(self.match['ipv4_dst'])) == ip_parse(flow['ipv4_dst']):
-            if 'ipv4_src' in self.match.keys():
-                if intersection(ip_parse(flow['ipv4_src']), ip_parse(self.match['ipv4_src'])) == ip_parse(flow['ipv4_src']):
-                    return True
-                else:
-                    return False
-            else:
-                return True
-        return False
-"""
 
     def if_overlap(self, match_cmp, prt_cmp):
         if prt_cmp != self.priority:
@@ -56,20 +52,6 @@ class rule:
             return True
         else:
             return False
-
-"""
-        if 'in_port' in self.match.keys():
-            if match_cmp['in_port'] != self.match['in_port']:
-                return False
-        if intersection(ip_parse(match_cmp['ipv4_dst']), ip_parse(self.match['ipv4_dst'])):
-            if 'ipv4_src' in self.match.keys():
-                if intersection(ip_parse(match_cmp['ipv4_src']), ip_parse(self.match['ipv4_src'])):
-                    return True
-                else:
-                    return False
-            return True
-        return False
-"""
 
     def if_equal(self, match_cmp, prt_cmp):
         if cmp(self.match, match_cmp) == 0 and prt_cmp == self.priority:
@@ -85,6 +67,9 @@ class rule:
 
     def get_match(self):
         return self.match
+
+    def get_match_bin(self):
+        return self.match_bin
 
     def get_rtmp(self):
         return self.rtmp
@@ -133,20 +118,28 @@ class table:
     def add_rule(self, match, rtmp, ttmp, action, priority):
         for i in range(len(self.tb)):
             if self.tb[i].if_overlap(match, priority):
-                return
+                return False
+
+        for i in range(len(self.tb)):
+            if self.tb[i].get_prt() <= priority:
+                self.tb.insert(i, rule(self.dpid, match, rtmp, ttmp, action, self.table_id, priority))
+                return True
+
         self.tb.append(rule(self.dpid, match, rtmp, ttmp, action, self.table_id, priority))
+        return True
 
     def del_rule(self, match, priority):
         for i in range(len(self.tb)):
-            if self.tb[i].if_equal(self.sid, match, priority):
+            if self.tb[i].if_equal(match, priority):
                 del self.tb[i]
-                return
+                return True
+        return False
 
     def get_rule(self, flow):
         rprt = 0
         rule = -1
         for i in range(len(self.tb)):
-            if (self.tb[i].if_match(flow)) & (self.tb[i].get_prt() > rprt):
+            if self.tb[i].get_prt() > rprt and self.tb[i].if_match(flow):
                 rprt = self.tb[i].get_prt()
                 rule = i
         if rule < 0:
@@ -154,7 +147,7 @@ class table:
         else:
             return self.tb[rule]
 
-    def get_all_rule(self):
+    def get_all_rules(self):
         return self.tb
 
     def get_dpid(self):
@@ -167,6 +160,10 @@ class table:
         self.tb = []
         for i in range(len(flowTable)):
             self.add_rule(flowTable[i].get_match(), flowTable[i].get_rtmp(), flowTable[i].get_ttmp(), flowTable[i].get_action(), flowTable[i].get_prt())
+
+    def print_table(self):
+        for i in self.tb:
+            i.print_rule()
 
 class net():
     def __init__(self):
@@ -182,7 +179,17 @@ class net():
         if dpid not in self.state.keys():
             self.add_switch(dpid)
         self.state[dpid][table_id] = table(dpid, table_id)
-        
+
+    def get_state(self):
+        return self.state
+
+    def get_switch(self, dpid):
+        return self.state[dpid]
+
+    def get_table(self, dpid, table_id):
+        return self.state[dpid][table_id]
+
+
 
 
 
@@ -235,12 +242,40 @@ def parse_query(output):
     return rule_list
 
 if __name__ == '__main__':
-    filepath = "/home/shengliu/Workspace/mininet/haha/cmd_test.sh"
+    #filepath = "/home/shengliu/Workspace/mininet/haha/cmd_test.sh"
 
-    switch_query(filepath, 3)
-    process = subprocess.Popen('%s' %filepath, stdout=subprocess.PIPE)
-    output, error = process.communicate()
+    #switch_query(filepath, 3)
+    #process = subprocess.Popen('%s' %filepath, stdout=subprocess.PIPE)
+    #output, error = process.communicate()
 
-    rule_list = parse_query(output)
-    for r in rule_list:
-        r.print_rule()
+    #rule_list = parse_query(output)
+    #for r in rule_list:
+    #    r.print_rule()
+
+    n = net()
+    n.add_table(1,0)
+    n.add_table(2,0)
+    n.add_table(3,0)
+
+    match = {}
+    match["ipv4_src"] = "10.0.0.1/255.255.255.255"
+    match["ipv4_dst"] = "10.0.0.2/255.255.255.255"
+    match["eth_type"] = 2048
+
+    flow = {}
+    flow["ipv4_src"] = "10.0.0.1/255.255.255.255"
+    flow["ipv4_dst"] = "10.0.0.2/255.255.255.255"
+    flow["eth_type"] = 2048
+
+    n.get_table(1, 0).add_rule(match, 1, 2, 2, 1)
+    n.get_table(1, 0).add_rule(match, 1, 3, 3, 2)
+    n.get_table(2, 0).add_rule(match, 2, 3, 3, 1)
+
+    n.get_table(1, 0).print_table()
+    #print n.get_table(1, 0).get_rule(flow).get_action()
+    #print n.get_table(3, 0).get_rule(flow).get_action()
+    #print n.get_table(1, 0).get_rule(flow).get_rtmp()
+    #print n.get_table(1, 0).get_rule(flow).get_ttmp()
+    #print n.get_table(2, 0).get_rule(flow).get_action()
+    #print n.get_table(2, 0).get_rule(flow).get_rtmp()
+    #print n.get_table(2, 0).get_rule(flow).get_ttmp()
