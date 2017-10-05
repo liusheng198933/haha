@@ -2,7 +2,7 @@ from mininet.topo import Topo
 from mininet.net import Mininet
 from mininet.cli import CLI
 from mininet.node import Controller, OVSKernelSwitch, RemoteController, Ryu
-from util import *
+
 
 class FatTree( Topo ):
 
@@ -23,23 +23,23 @@ class FatTree( Topo ):
         aggrSwitches = []
         edgeSwitches = []
 
-        arpSwitch = self.addSwitch("arp0", dpid='1'*7, protocols='OpenFlow14')
-        # the format of switch dpid is 1-bit for switch classification, 3-bit for pod number and 3-bit for aggr or edge number
+        arpSwitch = self.addSwitch("arp0", protocols='OpenFlow14')
+
         # Core
         for core in range(0, coreSwitchNum):
-            coreSwitches.append(self.addSwitch("cs_"+str(core), dpid=int2dpid(1, core), protocols='OpenFlow14'))
+            coreSwitches.append(self.addSwitch("cs_"+str(core), protocols='OpenFlow14'))
         # Pod
         for pod in range(0, podNum):
         # Aggregate
             for aggr in range(0, aggrSwitchNum/podNum):
-                aggrThis = self.addSwitch("as_"+str(pod)+"_"+str(aggr), dpid=int2dpid(2, aggr, pod), protocols='OpenFlow14')
+                aggrThis = self.addSwitch("as_"+str(pod)+"_"+str(aggr), protocols='OpenFlow14')
                 aggrSwitches.append(aggrThis)
                 for x in range((K/2)*aggr, (K/2)*(aggr+1)):
 #                    self.addLink(aggrSwitches[aggr+(aggrSwitchNum/podNum*pod)], coreSwitches[x])
                     self.addLink(aggrThis, coreSwitches[x])
         # Edge
             for edge in range(0, edgeSwitchNum/podNum):
-                edgeThis = self.addSwitch("es_"+str(pod)+"_"+str(edge), dpid=int2dpid(3, edge, pod), protocols='OpenFlow14')
+                edgeThis = self.addSwitch("es_"+str(pod)+"_"+str(edge), protocols='OpenFlow14')
                 edgeSwitches.append(edgeThis)
                 for x in range((edgeSwitchNum/podNum)*pod, ((edgeSwitchNum/podNum)*(pod+1))):
                     self.addLink(edgeThis, aggrSwitches[x])
@@ -54,7 +54,6 @@ class FatTree( Topo ):
 
 
 topos = { 'fattree': ( lambda: FatTree() ) }
-
 
 def total_switch_num(k):
     return pow((k/2),2) + k*k

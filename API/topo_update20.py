@@ -140,7 +140,7 @@ def simpleTest():
     net.start()
     for i in range(20):
     	s = net.get('s%d' %(i+1))
-	s.cmd('sudo ovs-vsctl set bridge s%i protocols=OpenFlow14' %(i+1))
+	    s.cmd('sudo ovs-vsctl set bridge s%i protocols=OpenFlow14' %(i+1))
 
     #s1 = net.get('s1')
     #s1.cmd('sudo ovs-ofctl add-flow -O OpenFlow14 arp,priority=1,in_port=1,actions=2,3')

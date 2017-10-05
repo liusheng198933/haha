@@ -3,6 +3,7 @@ import time
 
 
 def addFlowRule(dpid, match, out_port, table_id=0, priority=2, flag="add"):
+    # add normal rule
     cmd = ["curl -X POST -d \'{ "]
     cmd.append('\"dpid\": ' + str(dpid) + ",")
     cmd.append('\"table_id\": ' + str(table_id) + ",")
@@ -33,6 +34,7 @@ def addFlowRule(dpid, match, out_port, table_id=0, priority=2, flag="add"):
 
 
 def addTMPRule(dpid, match, rtmp, ttmp, out_port, table_id=0, priority=2, flag="add"):
+    # add normal rule with timestamp
     cmd = ["curl -X POST -d \'{ "]
     cmd.append('\"dpid\": ' + str(dpid) + ",")
     cmd.append('\"table_id\": ' + str(table_id) + ",")
@@ -61,6 +63,13 @@ def addTMPRule(dpid, match, rtmp, ttmp, out_port, table_id=0, priority=2, flag="
 
 
 def bundleAddMsg(dpid, bdid, match, rtmp, ttmp, out_port, table_id=0, priority=2, flag="add"):
+    # bundle add rule with timestamp
+    if rtmp == -1:
+        return pushTMP(dpid, bdid, match, ttmp, out_port, table_id, priority, flag)
+
+    if ttmp == -1:
+        return popTMP(dpid, bdid, match, rtmp, out_port, table_id, priority, flag)
+
     cmd = ["curl -X POST -d \'{ "]
     cmd.append('\"dpid\": ' + str(dpid) + ",")
     cmd.append('\"bdid\": ' + str(bdid) + ",")
@@ -102,6 +111,7 @@ def bundleCtrlMsg(dpid, bdid, flag):
 
 
 def pushTMP(dpid, bdid, match, ttmp, out_port, table_id=0, priority=2, flag="add"):
+    # add rule with timestamp to the first switch on path
     cmd = ["curl -X POST -d \'{ "]
     cmd.append('\"dpid\": ' + str(dpid) + ",")
     cmd.append('\"bdid\": ' + str(bdid) + ",")
@@ -128,6 +138,7 @@ def pushTMP(dpid, bdid, match, ttmp, out_port, table_id=0, priority=2, flag="add
 
 
 def popTMP(dpid, bdid, match, rtmp, out_port, table_id=0, priority=2, flag="add"):
+    # add rule with timestamp to the last switch on path
     cmd = ["curl -X POST -d \'{ "]
     cmd.append('\"dpid\": ' + str(dpid) + ",")
     cmd.append('\"bdid\": ' + str(bdid) + ",")
@@ -144,7 +155,10 @@ def popTMP(dpid, bdid, match, rtmp, out_port, table_id=0, priority=2, flag="add"
     match_para.append('"dl_vlan":%s' % str(rtmp))
     match_para.append("},")
 
-    instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\": \"POP_VLAN\"}, {\"type\": \"OUTPUT\",\"port\": %s}]}]' %(str(out_port))]
+    if out_port == -1:
+        instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\":　\"POP_VLAN\"},{\"type\": \"OUTPUT\",\"port\": \"in_port\"}]}]']
+    else:
+        instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\": \"POP_VLAN\"}, {\"type\": \"OUTPUT\",\"port\": %s}]}]' %(str(out_port))]
 
     cmd = cmd + match_para
     cmd = cmd + instructions
@@ -180,16 +194,14 @@ def network_clear(dp_range, filepath):
         script_write(filepath, table_clear(i+1))
 
 
-def network_arp_push(dp_range, filepath):
+def arp_rule_push(dpid, filepath, table_id=0, priority=1):
     match = {}
     match["eth_type"] = 0x0806
-    for i in range(dp_range):
-        script_write(filepath, addFlowRule(i+1, match, 'flood', 0, 1, "add"))
+    script_write(filepath, addFlowRule(dpid, match, 'flood', table_id, priority, "add"))
 
 
-def network_drop(dp_range, filepath):
-    for i in range(dp_range):
-        script_write(filepath, addTMPRule(i+1, {}, 1, 1, 'drop', 0, 0, "add"))
+def drop_rule_push(dpid, filepath, rtmp=1, ttmp=1, table_id=0, priority=1):
+    script_write(filepath, addTMPRule(dpid, {}, rtmp, ttmp, 'drop', table_id, priority, "add"))
 
 def path_deploy(rule_set, new_path, out_port):
     bdid = 0

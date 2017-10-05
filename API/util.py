@@ -1,5 +1,22 @@
 import copy
 
+
+def int2dpid(kind, swNum, podNum=0):
+    # kind = 1 indicates the core switches, 2 for aggrSwitch and 3 for edgeSwitch
+    # the format of switch dpid is 1-bit for switch classification, 3-bit for pod number and 3-bit for aggr or edge number
+
+    if kind == 1:
+        dpid = hex(swNum)[2:]
+        dpid = '0' * ( 6 - len( dpid ) ) + dpid
+    else:
+        dpid1 = hex(podNum)[2:]
+        dpid1 = '0' * ( 3 - len( dpid1 ) ) + dpid1
+        dpid2 = hex(swNum)[2:]
+        dpid2 = '0' * ( 3 - len( dpid2 ) ) + dpid2
+        dpid = dpid1 + dpid2
+    return str(kind)+dpid
+
+    
 def ip_parse(ip):
 # parse ip addres "10.0.0.1/255.255.255.254"
     ip_str = []
