@@ -50,7 +50,8 @@ def addTMPRule(dpid, match, rtmp, ttmp, out_port, table_id=0, priority=2, flag="
     match_para.append('\"dl_vlan\":%s' % str(rtmp))
     match_para.append("},")
 
-    if out_port == "drop":
+    if out_port == 0:
+        # drop action
         instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[ ]}]']
     else:
         instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\":\"SET_FIELD\",\"field\":\"vlan_vid\",\"value\": %s},{\"type\": \"OUTPUT\",\"port\": %s}]}]' %(str(ttmp+4096), str(out_port))]
@@ -193,6 +194,9 @@ def network_clear(dp_range, filepath):
     for i in range(dp_range):
         script_write(filepath, table_clear(i+1))
 
+def network_drop(dp_range, filepath):
+    for i in range(dp_range):
+        script_write(filepath, drop_rule_push(i+1, filepath, 1, 1, 0, 1))
 
 def arp_rule_push(dpid, filepath, table_id=0, priority=1):
     match = {}
@@ -201,9 +205,9 @@ def arp_rule_push(dpid, filepath, table_id=0, priority=1):
 
 
 def drop_rule_push(dpid, filepath, rtmp=1, ttmp=1, table_id=0, priority=1):
-    script_write(filepath, addTMPRule(dpid, {}, rtmp, ttmp, 'drop', table_id, priority, "add"))
+    script_write(filepath, addTMPRule(dpid, {}, rtmp, ttmp, 0, table_id, priority, "add"))
 
-def path_deploy(rule_set, new_path, out_port):
+def path_deploy(old_path, new_path, flow, state, prt, out_port, clk):
     bdid = 0
     filepath = "/home/shengliu/Workspace/mininet/haha/cmd_test.sh"
     for i in rule_set.keys():

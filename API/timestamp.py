@@ -83,23 +83,24 @@ def rule_construct(old_path, new_path, flow, state, prt, out_port):
     match['ipv4_src'] = flow['ipv4_src']
     match["eth_type"] = 2048
 
-    intersect_set = []
-    for i in range(len(old_path)-1):
-        if (old_path[i] in new_path) and (old_path[i+1] not in new_path):
-            intersect_set.append(old_path[i])
+    if old_path:
+        intersect_set = []
+        for i in range(len(old_path)-1):
+            if (old_path[i] in new_path) and (old_path[i+1] not in new_path):
+                intersect_set.append(old_path[i])
 
-    for i in intersect_set:
-        rule_set[i] = {}
-        rule_set[i]['add'] = []
-        rule_set[i]['del'] = []
-        rext = state.get_table(i, table_id).get_rule(flow)
-        if rext.get_prt() == prt:
-            df = difference(rext.get_match_bin(), match_parse(flow))
-            if df:
-                for j in df:
-                    rule_set[i]['add'].append(rule(i, match_reverse(j), rext.get_rtmp(), rext.get_ttmp(), rext.get_action(), table_id, prt))
-            rule_set[i]['del'].append(rule(i, rext.get_match(), rext.get_rtmp(), rext.get_ttmp(), rext.get_action(), table_id, prt))
-        rule_set[i]['add'].append(rule(i, match, clk, 0, out_port[i], table_id, prt))
+        for i in intersect_set:
+            rule_set[i] = {}
+            rule_set[i]['add'] = []
+            rule_set[i]['del'] = []
+            rext = state.get_table(i, table_id).get_rule(flow)
+            if rext.get_prt() == prt:
+                df = difference(rext.get_match_bin(), match_parse(flow))
+                if df:
+                    for j in df:
+                        rule_set[i]['add'].append(rule(i, match_reverse(j), rext.get_rtmp(), rext.get_ttmp(), rext.get_action(), table_id, prt))
+                rule_set[i]['del'].append(rule(i, rext.get_match(), rext.get_rtmp(), rext.get_ttmp(), rext.get_action(), table_id, prt))
+            rule_set[i]['add'].append(rule(i, match, clk, 0, out_port[i], table_id, prt))
 
 
     for i in (set(new_path) - set(old_path)):
