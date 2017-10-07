@@ -4,6 +4,7 @@ import time
 
 def addFlowRule(dpid, match, out_port, table_id=0, priority=2, flag="add"):
     # add normal rule
+    dpid = str(int(dpid, 16))
     cmd = ["curl -X POST -d \'{ "]
     cmd.append('\"dpid\": ' + str(dpid) + ",")
     cmd.append('\"table_id\": ' + str(table_id) + ",")
@@ -35,6 +36,7 @@ def addFlowRule(dpid, match, out_port, table_id=0, priority=2, flag="add"):
 
 def addTMPRule(dpid, match, rtmp, ttmp, out_port, table_id=0, priority=2, flag="add"):
     # add normal rule with timestamp
+    dpid = str(int(dpid, 16))
     cmd = ["curl -X POST -d \'{ "]
     cmd.append('\"dpid\": ' + str(dpid) + ",")
     cmd.append('\"table_id\": ' + str(table_id) + ",")
@@ -68,6 +70,7 @@ def addTMPRule(dpid, match, rtmp, ttmp, out_port, table_id=0, priority=2, flag="
 
 def bundleAddMsg(dpid, bdid, match, rtmp, ttmp, out_port, table_id=0, priority=2, flag="add"):
     # bundle add rule with timestamp
+    dpid = str(int(dpid, 16))
     if rtmp == -1:
         return pushTMP(dpid, bdid, match, ttmp, out_port, table_id, priority, flag)
 
@@ -107,6 +110,7 @@ def bundleAddMsg(dpid, bdid, match, rtmp, ttmp, out_port, table_id=0, priority=2
 
 
 def bundleCtrlMsg(dpid, bdid, flag):
+    dpid = str(int(dpid, 16))
     cmd = ["curl -X POST -d \'{ "]
     cmd.append('\"dpid\": ' + str(dpid) + ",")
     cmd.append('\"bdid\": ' + str(bdid))
@@ -171,6 +175,7 @@ def popTMP(dpid, bdid, match, rtmp, out_port, table_id=0, priority=2, flag="add"
 
 
 def table_clear(dpid):
+    dpid = str(int(dpid, 16))
     cmd = ["curl -X DELETE http://localhost:8080/stats/flowentry/clear/%s \n\n" %(str(dpid))]
     return ''.join(cmd)
 
@@ -207,7 +212,7 @@ def arp_rule_push(dpid, filepath, table_id=0, priority=1):
     script_write(filepath, addFlowRule(dpid, match, 'flood', table_id, priority, "add"))
 
 
-def drop_rule_push(dpid, filepath, rtmp=1, ttmp=1, table_id=0, priority=1):
+def drop_rule_push(dpid, filepath, rtmp=1, ttmp=1, table_id=0, priority=0):
     script_write(filepath, addTMPRule(dpid, {}, rtmp, ttmp, 0, table_id, priority, "add"))
 
 def path_deploy_test(old_path, new_path, flow, state, prt, out_port, clk):

@@ -20,9 +20,14 @@ def network_init(K, filepath, state_cur, state_next):
         script_write(filepath, table_clear(i))
     for i in dpset:
         if i != '1'*7:
-            drop_rule_push(i, filepath, 1, 1, table_id, 1)
+            print "drop_rule_push:"
+            print i
+            drop_rule_push(i, filepath, 1, 1, table_id, 0)
             # default rule has rtmp=1, ttmp=1 and priority=1
     arp_rule_push('1'*7, filepath, table_id, 1)
+    for pod in range(K):
+        for swNum in range(K/2):
+            arp_rule_push(int2dpid(3, swNum, pod), filepath, table_id, 1)
     subprocess.call("%s" %filepath)
 
     for i in dpset:
@@ -92,6 +97,11 @@ if __name__ == '__main__':
 
     old_path = path_list['old_path'][0]['path']
     new_path = path_list['new_path'][0]['path']
+    print "wocao"
+    print old_path
+    print new_path
+    print path_list['old_path'][0]['out_port']
+    print path_list['new_path'][0]['out_port']
     out_port = out_port_construct(old_path, path_list['old_path'][0]['out_port'])
     flow = path_list['flow'][0]
     priority = 8
@@ -103,13 +113,14 @@ if __name__ == '__main__':
     #setTMP([], old_path, flow, state_cur, state_next, rule_set, clk)
     #state_update(rule_set, state_cur, clk)
     #state_next.copy_state(state_cur)
-
+    print out_port
     path_deploy([], old_path, flow, state_cur, state_next, priority, out_port, clk, bdid, filepath)
     state_cur.print_state()
-
+    subprocess.call("%s" %filepath)
     clk = 10
-    out_port = out_port_construct(new_path, path_list['old_path'][0]['out_port'])
+    out_port = out_port_construct(new_path, path_list['new_path'][0]['out_port'])
     print "\n\n\nnew route:"
+    print out_port
     path_deploy(old_path, new_path, flow, state_cur, state_next, priority, out_port, clk, bdid, filepath)
     state_cur.print_state()
 
