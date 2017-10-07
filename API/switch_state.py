@@ -1,4 +1,5 @@
 from util import *
+import copy
 
 class rule:
     def __init__(self, dpid, match, rtmp, ttmp, action, table_id=0, priority=0):
@@ -29,9 +30,10 @@ class rule:
 
     def print_rule(self):
         printstr = []
-        printstr.append("rule dpid: %i, prt: %i, action: %s, rtmp: %i, ttmp: %i, table_id: %i\n" % (self.dpid, self.priority, self.action, self.rtmp, self.ttmp, self.table_id))
+        printstr.append("rule dpid: %s, prt: %d, action: %d, rtmp: %d, ttmp: %d, table_id: %d\n" % (str(self.dpid), self.priority, self.action, self.rtmp, self.ttmp, self.table_id))
         printstr.append("match: %s" % str(self.match))
         print "".join(printstr)
+
 
     def get_rule(self):
         return {'dpid': self.dpid, 'match': self.match, 'action': self.action, 'priority':self.priority, 'rtmp': self.rtmp, 'ttmp': self.ttmp, 'table_id': self.table_id}
@@ -162,8 +164,9 @@ class table:
             self.add_rule(flowTable[i].get_match(), flowTable[i].get_rtmp(), flowTable[i].get_ttmp(), flowTable[i].get_action(), flowTable[i].get_prt())
 
     def print_table(self):
-        for i in self.tb:
-            i.print_rule()
+        if self.tb:
+            for i in self.tb:
+                i.print_rule()
 
 class net():
     def __init__(self):
@@ -189,7 +192,15 @@ class net():
     def get_table(self, dpid, table_id):
         return self.state[dpid][table_id]
 
+    def copy_state(self, state_copy):
+        self.state = copy.deepcopy(state_copy.get_state())
 
+    def print_state(self):
+        for i in self.state.keys():
+            for j in self.state[i].keys():
+                print i
+                print j
+                self.state[i][j].print_table()
 
 
 

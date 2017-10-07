@@ -16,7 +16,7 @@ def int2dpid(kind, swNum, podNum=0):
         dpid = dpid1 + dpid2
     return str(kind)+dpid
 
-    
+
 def ip_parse(ip):
 # parse ip addres "10.0.0.1/255.255.255.254"
     ip_str = []
@@ -47,6 +47,8 @@ def ip_parse(ip):
 
 def match_parse(flow):
     # flow = {}, flow['ipv4_dst'] = '10.0.0.1/255.255.255.255', flow['ipv4_src'] = '10.0.0.2/255.255.255.255'
+    if not flow:
+        return 'x'*64
     mt = []
     #if 'in_port' in flow.keys():
     #    mt.append('{:b}'.format(flow['in_port']).zfill(16))

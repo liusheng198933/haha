@@ -1,5 +1,5 @@
 from util import int2dpid
-from readFile import *
+
 
 def path_read(filepath, K):
     # return list of old path, new path and its corresponding flow (ip_src and ip_dst)
@@ -23,6 +23,7 @@ def path_read(filepath, K):
             if len(ret) != 30 and len(ret) != 18:
                 print ret
                 print len(ret)
+                print x
 
             for i in range(len(ret)):
                 t = ret[i].strip(rmchars)

@@ -1,7 +1,10 @@
 from util import *
 from cmd_issue_new import *
 from timestamp import *
+from readFile import *
 import subprocess
+
+PRTMAX = 100
 
 def network_init(K, filepath, state_cur, state_next):
     script_init(filepath)
@@ -9,7 +12,7 @@ def network_init(K, filepath, state_cur, state_next):
     dpset = ['1'*7] # arp switch
     for core in range(pow((K/2),2)):
         dpset.append(int2dpid(1, core))
-    for i in range(2,3):
+    for i in range(2,4):
         for pod in range(K):
             for swNum in range(K/2):
                 dpset.append(int2dpid(i, swNum, pod))
@@ -17,7 +20,7 @@ def network_init(K, filepath, state_cur, state_next):
         script_write(filepath, table_clear(i))
     for i in dpset:
         if i != '1'*7:
-            script_write(filepath, drop_rule_push(i, filepath, 1, 1, table_id, 1))
+            drop_rule_push(i, filepath, 1, 1, table_id, 1)
             # default rule has rtmp=1, ttmp=1 and priority=1
     arp_rule_push('1'*7, filepath, table_id, 1)
     subprocess.call("%s" %filepath)
@@ -30,7 +33,53 @@ def network_init(K, filepath, state_cur, state_next):
             state_next.get_table(i, 0).add_rule({}, 1, 1, 0, 1)
 
 
-if __name__ = '__main__':
+def path_deploy(old_path, new_path, flow, state_cur, state_next, prt, out_port, clk, bdid, filepath):
+    rule_set = rule_construct(old_path, new_path, flow, state_cur, prt, out_port, clk)
+    state_update(rule_set, state_next, clk)
+
+    setTMP(old_path, new_path, flow, state_cur, state_next, rule_set, clk)
+    state_update(rule_set, state_cur, clk)
+    state_next.copy_state(state_cur)
+
+    for r in rule_set.keys():
+        print "add rules:"
+        for x in rule_set[r]['add']:
+            x.print_rule()
+        print "del rules:"
+        for x in rule_set[r]['del']:
+            x.print_rule()
+
+    table_id = 0
+    script_init(filepath)
+    for dp in rule_set.keys():
+        bdid = bdid + 1
+        script_write(filepath, bundleCtrlMsg(dp, bdid, "open"))
+        for r in rule_set[dp]['del']:
+            script_write(filepath, bundleAddMsg(dp, bdid, r.get_match(), r.get_rtmp(), r.get_ttmp(), r.get_action(), table_id, r.get_prt(), "delete_strict"))
+        for r in rule_set[dp]['add']:
+            script_write(filepath, bundleAddMsg(dp, bdid, r.get_match(), r.get_rtmp(), r.get_ttmp(), r.get_action(), table_id, r.get_prt(), "add"))
+        script_write(filepath, bundleCtrlMsg(dp, bdid, "commit"))
+
+
+def clear_sb_rules(filepath, old_path, new_path, flow, old_state, new_state, clk):
+    sb_set = sb_rule_construct(old_path, new_path, flow, clk)
+    table_id = 0
+    script_init(filepath)
+    for r in sb_set:
+        script_write(filepath, addTMPRule(r.get_dpid(), r.get_match(), r.get_rtmp(), r.get_ttmp(), -1, table_id, PRTMAX, "delete_strict"))
+        tb = old_state.get_table(r.get_dpid(), table_id)
+        tb.del_rule(r.get_match(), r.get_prt())
+        tb = new_state.get_table(r.get_dpid(), table_id)
+        tb.del_rule(r.get_match(), r.get_prt())
+
+
+def out_port_construct(dpid_list, out_port_list):
+    out_port_dic = {}
+    for i in range(len(out_port_list)):
+        out_port_dic[dpid_list[i]] = out_port_list[i]
+    return out_port_dic
+
+if __name__ == '__main__':
     filepath = "/home/shengliu/Workspace/mininet/haha/cmd_test.sh"
     K = 4
     state_cur = net()
@@ -41,159 +90,45 @@ if __name__ = '__main__':
     K = 4
     path_list = path_read(filepath2, K)
 
-    old_path = path_list['old_path'][0]
-    new_path = path_list['new_path'][0]
-
-    match1 = {}
-    match1["ipv4_src"] = "10.0.1.1/255.255.255.255"
-    match1["ipv4_dst"] = "10.0.1.4/255.255.255.255"
-    match1["eth_type"] = 2048
-
-    match2 = {}
-    match2["ipv4_src"] = "10.0.1.4/255.255.255.255"
-    match2["ipv4_dst"] = "10.0.1.1/255.255.255.255"
-    match2["eth_type"] = 2048
-
-    dp = 1
+    old_path = path_list['old_path'][0]['path']
+    new_path = path_list['new_path'][0]['path']
+    out_port = out_port_construct(old_path, path_list['old_path'][0]['out_port'])
+    flow = path_list['flow'][0]
+    priority = 8
+    clk = 8
     bdid = 1
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "open"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match, rtmp, ttmp, out_port, 0, priority=2, "add"))
-    script_write(filepath, pushTMP(dp, bdid, match1, 1, 3, 0, 2, "add"))
-    script_write(filepath, popTMP(dp, bdid, match2, 2, 2, 0, 2, "add"))
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "commit"))
 
-    dp = 9
-    bdid = 2
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "open"))
-    script_write(filepath, bundleAddMsg(dp, bdid, match1, 1, 1, 4, 0, 2, "add"))
-    script_write(filepath, bundleAddMsg(dp, bdid, match2, 2, 2, 1, 0, 2, "add"))
-    #script_write(filepath, popTMP(dp, bdid, match2, 4, 1, 0, 2, "add"))
-    #script_write(filepath, pushTMP(dp, bdid, match1, 2, 2, 0, 2, "add"))
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "commit"))
+    #rule_set = rule_construct([], old_path, flow, state_cur, priority, out_port, clk)
+    #state_update(rule_set, state_next, clk)
+    #setTMP([], old_path, flow, state_cur, state_next, rule_set, clk)
+    #state_update(rule_set, state_cur, clk)
+    #state_next.copy_state(state_cur)
 
-    dp = 18
-    bdid = 3
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "open"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match1, 3, 2, 2, 0, 2, "add"))
-    script_write(filepath, bundleAddMsg(dp, bdid, match1, 1, 1, 2, 0, 2, "add"))
-    script_write(filepath, bundleAddMsg(dp, bdid, match2, 2, 2, 1, 0, 2, "add"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match1, 1, 1, 'drop', 0, 1, "add"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match2, 1, 1, 'drop', 0, 1, "add"))
-    #script_write(filepath, popTMP(dp, bdid, match, rtmp, out_port, 0, priority=2))
-    #script_write(filepath, pushTMP(dp, bdid, match, ttmp, out_port, 0, priority=2))
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "commit"))
+    path_deploy([], old_path, flow, state_cur, state_next, priority, out_port, clk, bdid, filepath)
+    state_cur.print_state()
 
-    dp = 11
-    bdid = 4
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "open"))
-    script_write(filepath, bundleAddMsg(dp, bdid, match1, 1, 1, 1, 0, 2, "add"))
-    script_write(filepath, bundleAddMsg(dp, bdid, match2, 2, 2, 4, 0, 2, "add"))
-    #script_write(filepath, popTMP(dp, bdid, match, rtmp, out_port, 0, priority=2))
-    #script_write(filepath, pushTMP(dp, bdid, match, ttmp, out_port, 0, priority=2))
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "commit"))
+    clk = 10
+    out_port = out_port_construct(new_path, path_list['old_path'][0]['out_port'])
+    print "\n\n\nnew route:"
+    path_deploy(old_path, new_path, flow, state_cur, state_next, priority, out_port, clk, bdid, filepath)
+    state_cur.print_state()
 
-    #dp = 4
-    #bdid = 4
-    #script_write(filepath, bundleCtrlMsg(dp, bdid, "open"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match, rtmp, ttmp, out_port, 0, priority=2, "add"))
-    #script_write(filepath, popTMP(dp, bdid, match, rtmp, out_port, 0, priority=2))
-    #script_write(filepath, pushTMP(dp, bdid, match, ttmp, out_port, 0, priority=2))
-    #script_write(filepath, bundleCtrlMsg(dp, bdid, "commit"))
-
-    dp = 3
-    bdid = 5
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "open"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match, rtmp, ttmp, out_port, 0, priority=2, "add"))
-    script_write(filepath, popTMP(dp, bdid, match1, 1, 1, 0, 2, "add"))
-    script_write(filepath, pushTMP(dp, bdid, match2, 2, 3, 0, 2, "add"))
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "commit"))
-
+    #state_next.print_state()
     subprocess.call("%s" %filepath)
 
+    #print "\n\n\nclear sb rules:"
+    #clear_sb_rules(filepath, old_path, new_path, flow, state_cur, state_next, clk)
+    #state_cur.print_state()
+    #subprocess.call("%s" %filepath)
 
-    time.sleep(10)
+    """
+    out_port = out_port_construct(new_path, path_list['old_path'][0]['out_port'])
+    clk = clk + 1
 
-
-
-    script_init(filepath)
-    dp = 11
-    bdid = 6
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "open"))
-    script_write(filepath, bundleAddMsg(dp, bdid, match2, 2, 2, 4, 0, 2, "delete_strict"))
-    script_write(filepath, bundleAddMsg(dp, bdid, match2, 4, 4, 3, 0, 2, "add"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match1, 5, 5, "in_port", 0, 2, "add"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match2, 4, 4, 1, 0, 2, "delete_strict"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match2, 5, 5, "in_port", 0, 2, "add"))
-    #script_write(filepath, popTMP(dp, bdid, match, rtmp, out_port, 0, priority=2))
-    #script_write(filepath, pushTMP(dp, bdid, match, ttmp, out_port, 0, priority=2))
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "commit"))
-#    subprocess.call("%s" %filepath)
-
-    dp = 17
-    bdid = 7
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "open"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match1, 3, 2, 2, 0, 2, "delete_strict"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match1, 5, 5, "in_port", 0, 2, "add"))
-    script_write(filepath, bundleAddMsg(dp, bdid, match1, 3, 1, 2, 0, 2, "add"))
-    script_write(filepath, bundleAddMsg(dp, bdid, match2, 4, 2, 1, 0, 2, "add"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match2, 5, 5, "in_port", 0, 2, "add"))
-    #script_write(filepath, popTMP(dp, bdid, match, rtmp, out_port, 0, priority=2))
-    #script_write(filepath, pushTMP(dp, bdid, match, ttmp, out_port, 0, priority=2))
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "commit"))
-#    subprocess.call("%s" %filepath)
-
-    dp = 18
-    bdid = 8
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "open"))
-    script_write(filepath, bundleAddMsg(dp, bdid, match1, 1, 1, 2, 0, 2, "delete_strict"))
-    script_write(filepath, bundleAddMsg(dp, bdid, match1, 3, 3, -1, 0, 5, "add"))
-    script_write(filepath, bundleAddMsg(dp, bdid, match2, 2, 2, 1, 0, 2, "delete_strict"))
-    script_write(filepath, bundleAddMsg(dp, bdid, match2, 4, 4, -1, 0, 5, "add"))
-    #script_write(filepath, popTMP(dp, bdid, match, rtmp, out_port, 0, priority=2))
-    #script_write(filepath, pushTMP(dp, bdid, match, ttmp, out_port, 0, priority=2))
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "commit"))
-    subprocess.call("%s" %filepath)
-
-    time.sleep(1)
-    script_init(filepath)
-    dp = 9
-    bdid = 9
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "open"))
-        #script_write(filepath, popTMP(dp, bdid, match, rtmp, out_port, 0, priority=2))
-    script_write(filepath, bundleAddMsg(dp, bdid, match1, 1, 1, 4, 0, 2, "delete_strict"))
-    script_write(filepath, bundleAddMsg(dp, bdid, match1, 3, 3, 3, 0, 2, "add"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match, rtmp, ttmp, out_port, 0, priority=2, "add"))
-    script_write(filepath, bundleCtrlMsg(dp, bdid, "commit"))
+    path_deploy(old_path, new_path, flow, state_cur, state_next, priority, out_port, clk, bdid, filepath)
 
     #subprocess.call("%s" %filepath)
 
-
-
-    #dp = 3
-    #bdid = 8
-    #script_write(filepath, bundleCtrlMsg(dp, bdid, "open"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match2, 4, 4, 1, 0, 2, "delete_strict"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match2, 5, 5, 2, 0, 2, "add"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match, 2, 4, 3, 0, 2, "add"))
-    #script_write(filepath, popTMP(dp, bdid, match, rtmp, out_port, 0, priority=2))
-    #script_write(filepath, pushTMP(dp, bdid, match, ttmp, out_port, 0, priority=2))
-    #script_write(filepath, bundleCtrlMsg(dp, bdid, "commit"))
-
-    #dp = 4
-    #bdid = 9
-    #script_write(filepath, bundleCtrlMsg(dp, bdid, "open"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match1, 5, 2, 2, 0, 2, "add"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match2, 5, 4, 1, 0, 2, "add"))
-    #script_write(filepath, popTMP(dp, bdid, match, rtmp, out_port, 0, priority=2))
-    #script_write(filepath, pushTMP(dp, bdid, match, ttmp, out_port, 0, priority=2))
-    #script_write(filepath, bundleCtrlMsg(dp, bdid, "commit"))
-
-    #dp = 5
-    #bdid = 10
-    #script_write(filepath, bundleCtrlMsg(dp, bdid, "open"))
-    #script_write(filepath, bundleAddMsg(dp, bdid, match, rtmp, ttmp, out_port, 0, priority=2, "add"))
-    #script_write(filepath, popTMP(dp, bdid, match, 4, 2, 0, 2))
-    #script_write(filepath, pushTMP(dp, bdid, match, ttmp, out_port, 0, priority=2))
-    #script_write(filepath, bundleCtrlMsg(dp, bdid, "commit"))
-
-    subprocess.call("%s" %filepath)
+    clear_sb_rules(filepath, old_path, new_path, flow, clk, bdid)
+    #subprocess.call("%s" %filepath)
+    """
