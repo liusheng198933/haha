@@ -3,6 +3,7 @@ from mininet.net import Mininet
 from mininet.cli import CLI
 from mininet.node import Controller, OVSKernelSwitch, RemoteController, Ryu
 from util import *
+from test_main import *
 
 class FatTree( Topo ):
 
@@ -65,14 +66,14 @@ def createTopo():
 
     topo = FatTree()
 
-    net = Mininet( topo=topo, switch=OVSKernelSwitch, controller=Ryu('ryuController','/home/shengliu/Workspace/ryu/casualSDN/ofctl_rest.py') )
+    fat_tree_net = Mininet( topo=topo, switch=OVSKernelSwitch, controller=Ryu('ryuController','/home/shengliu/Workspace/ryu/casualSDN/ofctl_rest.py') )
     #h1 = net.get('h1')
     #print h1.IP()
     #print h1.MAC()
 
-    net.start()
+    fat_tree_net.start()
     for i in topo.switches():
-        sw = net.get(i)
+        sw = fat_tree_net.get(i)
         sw.cmd('sudo ovs-vsctl set bridge %s protocols=OpenFlow14' %i)
 
     #s1 = net.get('s1')
@@ -88,9 +89,32 @@ def createTopo():
     # sudo ovs-vsctl set bridge s1 protocols=OpenFlow14
     # check the rules: ovs-ofctl -O openflow13 dump-flows s1
 
-    CLI(net)
 
-    net.stop()
+
+    CLI(fat_tree_net)
+    for q in range(500):
+        pkt_rate = 0.006
+        tt = 0
+        while tt < 1:
+            test_run(K, fat_tree_net, pkt_rate, 0, q)
+            tt = tt + 1
+    #test_run_all(K, fat_tree_net, pkt_rate, 0)
+    #pkt_rate = 1000
+    """
+    for h in range(86, 100):
+        pkt_rate = h * 100
+        print pkt_rate
+        print "traditional protocol:"
+        rt = test_run(K, fat_tree_net, pkt_rate, 0)
+        while not rt:
+            rt = test_run(K, fat_tree_net, pkt_rate, 0)
+        print "our protocol:"
+        rt = test_run(K, fat_tree_net, pkt_rate, 1)
+        while not rt:
+            rt = test_run(K, fat_tree_net, pkt_rate, 1)
+    """
+
+    fat_tree_net.stop()
 
 
 if __name__ == '__main__':

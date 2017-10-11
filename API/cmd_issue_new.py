@@ -95,13 +95,13 @@ def bundleAddMsg(dpid, bdid, match, rtmp, ttmp, out_port, table_id=0, priority=2
 
     #if out_port == "in_port":
     if out_port == -1:
-        instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\":\"SET_FIELD\",\"field\":\"vlan_vid\",\"value\": %s},{\"type\": \"OUTPUT\",\"port\": \"in_port\"}]}]' %(str(ttmp+4096))]
+        instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\": \"DEC_NW_TTL\"}, {\"type\":\"SET_FIELD\",\"field\":\"vlan_vid\",\"value\": %s},{\"type\": \"OUTPUT\",\"port\": \"in_port\"}]}]' %(str(ttmp+4096))]
     else:
         #if out_port == "drop":
         if out_port == 0:
             instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[]}]']
         else:
-            instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\":\"SET_FIELD\",\"field\":\"vlan_vid\",\"value\": %s},{\"type\": \"OUTPUT\",\"port\": %s}]}]' %(str(ttmp+4096), str(out_port))]
+            instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\": \"DEC_NW_TTL\"}, {\"type\":\"SET_FIELD\",\"field\":\"vlan_vid\",\"value\": %s},{\"type\": \"OUTPUT\",\"port\": %s}]}]' %(str(ttmp+4096), str(out_port))]
 
     cmd = cmd + match_para
     cmd = cmd + instructions
@@ -136,7 +136,7 @@ def pushTMP(dpid, bdid, match, ttmp, out_port, table_id=0, priority=2, flag="add
     match_para.pop()
     match_para.append("},")
 
-    instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\": \"PUSH_VLAN\",\"ethertype\": 33024}, {\"type\":\"SET_FIELD\",\"field\":\"vlan_vid\",\"value\": %s},{\"type\": \"OUTPUT\",\"port\": %s}]}]' %(str(ttmp+4096), str(out_port))]
+    instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\": \"PUSH_VLAN\",\"ethertype\": 33024}, {\"type\": \"SET_NW_TTL\",\"nw_ttl\": 15}, {\"type\": \"DEC_NW_TTL\"}, {\"type\":\"SET_FIELD\",\"field\":\"vlan_vid\",\"value\": %s},{\"type\": \"OUTPUT\",\"port\": %s}]}]' %(str(ttmp+4096), str(out_port))]
 
     cmd = cmd + match_para
     cmd = cmd + instructions
@@ -164,9 +164,9 @@ def popTMP(dpid, bdid, match, rtmp, out_port, table_id=0, priority=2, flag="add"
     match_para.append("},")
 
     if out_port == -1:
-        instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\": \"POP_VLAN\"},{\"type\": \"OUTPUT\",\"port\": \"in_port\"}]}]']
+        instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\": \"DEC_NW_TTL\"}, {\"type\": \"POP_VLAN\"},{\"type\": \"OUTPUT\",\"port\": \"in_port\"}]}]']
     else:
-        instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\": \"POP_VLAN\"}, {\"type\": \"OUTPUT\",\"port\": %s}]}]' %(str(out_port))]
+        instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\": \"DEC_NW_TTL\"}, {\"type\": \"POP_VLAN\"}, {\"type\": \"OUTPUT\",\"port\": %s}]}]' %(str(out_port))]
 
     cmd = cmd + match_para
     cmd = cmd + instructions

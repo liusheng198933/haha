@@ -17,6 +17,13 @@ def int2dpid(kind, swNum, podNum=0):
     return str(kind)+dpid
 
 
+def reverse_flow(flow):
+    flow_reverse = {}
+    flow_reverse['ipv4_src'] = flow['ipv4_dst']
+    flow_reverse['ipv4_dst'] = flow['ipv4_src']
+    return flow_reverse
+
+
 def ip_parse(ip):
 # parse ip addres "10.0.0.1/255.255.255.254"
     ip_str = []

@@ -4,7 +4,8 @@ import copy
 
 PRTMAX = 100
 
-def setTMP(old_path, new_path, flow, old_state, new_state, rule_set, clk):
+def setTMP(old_path, new_path, flow, old_state, new_state, rule_set_old, clk):
+    rule_set = copy.deepcopy(rule_set_old)
     if old_path:
         i = 0
         while old_path[i] in new_path:
@@ -29,7 +30,7 @@ def setTMP(old_path, new_path, flow, old_state, new_state, rule_set, clk):
     for i in range(len(new_path)-1):
         if new_path[i] in rule_set.keys() and rule_set[new_path[i]]['add']:
             for r in rule_set[new_path[i]]['add']:
-                if r.get_ttmp() == 0:
+                if r.get_ttmp() == 1:
                     tb_cur = new_state.get_table(new_path[i], table_id)
                     tb_next = new_state.get_table(new_path[i+1], table_id)
                     r_exact = r.get_exact_match(tb_cur)
@@ -70,6 +71,7 @@ def setTMP(old_path, new_path, flow, old_state, new_state, rule_set, clk):
                         else:
                             r.set_ttmp(min(ttmp_list))
                     """
+    return rule_set
 
 
 def sb_rule_construct(old_path, new_path, flow, clk):
@@ -82,6 +84,7 @@ def sb_rule_construct(old_path, new_path, flow, clk):
     for i in (set(old_path) - set(new_path)):
         sb_set.append(rule(i, match, clk, clk, -1, table_id, PRTMAX))
     return sb_set
+
 
 def rule_construct(old_path, new_path, flow, state, prt, out_port, clk):
     rule_set = {}
@@ -109,9 +112,9 @@ def rule_construct(old_path, new_path, flow, state, prt, out_port, clk):
                         rule_set[i]['add'].append(rule(i, match_reverse(j), rext.get_rtmp(), rext.get_ttmp(), rext.get_action(), table_id, prt))
                 rule_set[i]['del'].append(rule(i, rext.get_match(), rext.get_rtmp(), rext.get_ttmp(), rext.get_action(), table_id, prt))
             if i == old_path[0]:
-                rule_set[i]['add'].append(rule(i, match, -1, 0, out_port[i], table_id, prt))
+                rule_set[i]['add'].append(rule(i, match, -1, 1, out_port[i], table_id, prt))
             else:
-                rule_set[i]['add'].append(rule(i, match, clk, 0, out_port[i], table_id, prt))
+                rule_set[i]['add'].append(rule(i, match, clk, 1, out_port[i], table_id, prt))
 
 
     for i in (set(old_path) - set(new_path)):
@@ -133,17 +136,63 @@ def rule_construct(old_path, new_path, flow, state, prt, out_port, clk):
         rule_set[i]['add'] = []
         rule_set[i]['del'] = []
         if i == new_path[0]:
-            rule_set[i]['add'].append(rule(i, match, -1, 0, out_port[i], table_id, prt))
+            rule_set[i]['add'].append(rule(i, match, -1, 1, out_port[i], table_id, prt))
         else:
             if i == new_path[len(new_path)-1]:
                 rule_set[i]['add'].append(rule(i, match, clk, -1, out_port[i], table_id, prt))
             else:
-                rule_set[i]['add'].append(rule(i, match, clk, 0, out_port[i], table_id, prt))
+                rule_set[i]['add'].append(rule(i, match, clk, 1, out_port[i], table_id, prt))
 
 
     return rule_set
 
-def state_update(rule_set, state, clk):
+
+def rule_construct_cmp(old_path, new_path, flow, state, prt, out_port, clk):
+    rule_set = {}
+    table_id = 0
+    match = {}
+    match['ipv4_dst'] = flow['ipv4_dst']
+    match['ipv4_src'] = flow['ipv4_src']
+    match["eth_type"] = 2048
+
+    if old_path:
+        intersect_set = []
+        for i in range(len(new_path)-1):
+            if (new_path[i] in old_path) and (new_path[i+1] not in old_path):
+                intersect_set.append(i)
+
+        for i in range(len(new_path)-1):
+            if new_path[i] >= intersect_set[0]:
+                if i not in rule_set.keys():
+                    rule_set[new_path[i]] = {}
+                    rule_set[new_path[i]]['add'] = []
+                    rule_set[new_path[i]]['del'] = []
+                if i == 0:
+                    rule_set[new_path[i]]['add'].append(rule(new_path[i], match, -1, clk, out_port[new_path[i]], table_id, prt))
+                else:
+                    if i == len(new_path)-1:
+                        rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, -1, out_port[new_path[i]], table_id, prt))
+                    else:
+                        rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, clk, out_port[new_path[i]], table_id, prt))
+
+    else:
+        for i in range(len(new_path)-1):
+            rule_set[new_path[i]] = {}
+            rule_set[new_path[i]]['add'] = []
+            rule_set[new_path[i]]['del'] = []
+            if i == 0:
+                rule_set[new_path[i]]['add'].append(rule(new_path[i], match, -1, clk, out_port[new_path[i]], table_id, prt))
+            else:
+                if i == len(new_path)-1:
+                    rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, -1, out_port[new_path[i]], table_id, prt))
+                else:
+                    rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, clk, out_port[new_path[i]], table_id, prt))
+
+
+    return rule_set
+
+def state_update(rule_set, state_old, clk):
+    state = copy.deepcopy(state_old)
     table_id = 0
     for i in rule_set.keys():
         tb = state.get_table(i, table_id)
@@ -151,7 +200,7 @@ def state_update(rule_set, state, clk):
             tb.del_rule(r.get_match(), r.get_prt())
         for r in rule_set[i]['add']:
             tb.add_rule(r.get_match(), r.get_rtmp(), r.get_ttmp(), r.get_action(), r.get_prt())
-
+    return state
 
 
 

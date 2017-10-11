@@ -1,4 +1,4 @@
-from util import int2dpid
+from util import *
 
 
 def path_read(filepath, K):
@@ -73,7 +73,51 @@ def switch_id_parse(sw_str, K):
         swNum = int(sw_str[4:])
         return int2dpid(1, swNum)
 
+
+
+
 if __name__ == '__main__':
     filepath = '/home/shengliu/Workspace/mininet/haha/API/flow_update.tsv'
     K = 4
-    print path_read(filepath, K)
+    path_list = path_read(filepath, K)
+    flow_list = {}
+    line_num = []
+    #print path_list
+    ct = 0
+    for j in range(len(path_list['flow'])):
+        i = path_list['flow'][j]
+        f = match_parse(i)
+        f_reverse = match_parse(reverse_flow(i))
+        if f not in flow_list.keys() and f_reverse not in flow_list.keys():
+            flow_list[f] = path_list['new_path'][j]['path']
+            line_num.append(j)
+            #flow_list[x1].append(path_list['new_path'])
+        else:
+            if f in flow_list.keys():
+                y = f
+            else:
+                if f_reverse in flow_list.keys():
+                    y = f_reverse
+            if flow_list[y] != path_list['old_path'][j]['path']:
+                if y == match_parse(path_list['flow'][0]) or y == match_parse(reverse_flow(path_list['flow'][0])):
+                    #print i
+                #print
+                    print "cao"
+                    print j
+                #print flow_list[y]
+                #print path_list['old_path'][j]['path']
+                ct = ct + 1
+            else:
+                flow_list[y] = path_list['new_path'][j]['path']
+                if y == match_parse(path_list['flow'][0]) or y == match_parse(reverse_flow(path_list['flow'][0])):
+                    #print i
+                #print
+                    print j
+
+    print ct
+    print len(flow_list.keys())
+    #print len(flow_list)
+    #print flow_list
+    #for i in flow_list:
+    #    if i.reverse in flow_list:
+    #        print i
