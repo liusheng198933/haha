@@ -92,12 +92,20 @@ def createTopo():
 
 
     CLI(fat_tree_net)
-    for q in range(500):
-        pkt_rate = 0.006
+    for b in range(3, 8):
+        pkt_rate = 1000*b
+        q = 0
         tt = 0
-        while tt < 1:
-            test_run(K, fat_tree_net, pkt_rate, 0, q)
-            tt = tt + 1
+        while tt < 100:
+            result = 'False'
+            while result != 'True':
+                print 'idx: %d' %q
+                result = test_run(K, fat_tree_net, pkt_rate, 3, q)
+                if result == 'Error':
+                    q = q + 1
+                if result == 'True':
+                    tt = tt + 1
+                    q = q + 1
     #test_run_all(K, fat_tree_net, pkt_rate, 0)
     #pkt_rate = 1000
     """

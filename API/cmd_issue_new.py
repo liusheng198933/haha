@@ -34,6 +34,39 @@ def addFlowRule(dpid, match, out_port, table_id=0, priority=2, flag="add"):
     return ''.join(cmd)
 
 
+def addFlowRule_bdid(dpid, bdid, match, out_port, table_id=0, priority=2, flag="add"):
+    # add normal rule
+    #dpid = str(int(dpid, 16))
+    cmd = ["curl -X POST -d \'{ "]
+    cmd.append('\"dpid\": ' + str(dpid) + ",")
+    cmd.append('\"bdid\": ' + str(bdid) + ",")
+    cmd.append('\"table_id\": ' + str(table_id) + ",")
+    cmd.append('\"priority\": ' + str(priority) + ",")
+
+    match_para = ['\"match\":{ ']
+    for key in match.keys():
+        if "ip" in key:
+            match_para.append('\"%s\":\"%s\"' %(key, str(match[key])))
+        else:
+            match_para.append('\"%s\":%s' %(key, str(match[key])))
+        match_para.append(",")
+    match_para.pop()
+    match_para.append("},")
+
+    if out_port == 'flood':
+        instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\": \"OUTPUT\",\"port\": \"FLOOD\"}]}]']
+    else:
+        if out_port == 0:
+            instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[ ]}]']
+        else:
+            instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\": \"OUTPUT\",\"port\": %s}]}]' %(str(out_port))]
+
+    cmd = cmd + match_para
+    cmd = cmd + instructions
+    cmd.append("}\' http://localhost:8080/stats/flowentry/%s \n\n" %flag)
+    return ''.join(cmd)
+
+
 def addTMPRule(dpid, match, rtmp, ttmp, out_port, table_id=0, priority=2, flag="add"):
     # add normal rule with timestamp
     dpid = str(int(dpid, 16))
@@ -71,6 +104,9 @@ def addTMPRule(dpid, match, rtmp, ttmp, out_port, table_id=0, priority=2, flag="
 def bundleAddMsg(dpid, bdid, match, rtmp, ttmp, out_port, table_id=0, priority=2, flag="add"):
     # bundle add rule with timestamp
     dpid = str(int(dpid, 16))
+    if rtmp == -1 and ttmp == -1:
+        return addFlowRule_bdid(dpid, bdid, match, out_port, table_id, priority, flag)
+
     if rtmp == -1:
         return pushTMP(dpid, bdid, match, ttmp, out_port, table_id, priority, flag)
 

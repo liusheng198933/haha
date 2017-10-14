@@ -1,16 +1,28 @@
+import sys
+
 if __name__ == '__main__':
-    filepath = '/home/shengliu/Workspace/mininet/haha/API/result.txt'
+    filepath = '/home/shengliu/Workspace/mininet/haha/API/ping_result_%d.txt' %(int(sys.argv[1]))
     fp = open(filepath)
     content = fp.readlines()
-    ct = 0
-    sent_sum = 0
-    recv_sum = 0
+    result_dic = {}
     for x in content:
-        t = x.strip().split()
-        sent_num = int(t[3].strip(','))
-        recv_num = int(t[5].strip(','))
-        if recv_num > 50:
-            sent_sum = sent_sum + sent_num
-            recv_sum = recv_sum + recv_num
-    print sent_sum
-    print float(recv_sum)/sent_sum
+        if x:
+            t = x.strip().split()
+            pkt_rate = int(t[3].strip(','))
+            sent_num = int(t[5].strip(','))
+            recv_num = int(t[7].strip(','))
+            if pkt_rate not in result_dic.keys():
+                result_dic[pkt_rate] = {}
+                result_dic[pkt_rate]['sent'] = [sent_num]
+                result_dic[pkt_rate]['recv'] = [recv_num]
+                result_dic[pkt_rate]['loss'] = [1 - float(recv_num) / sent_num]
+            else:
+                result_dic[pkt_rate]['sent'].append(sent_num)
+                result_dic[pkt_rate]['recv'].append(recv_num)
+                result_dic[pkt_rate]['loss'].append(1 - float(recv_num) / sent_num)
+
+    for i in result_dic.keys():
+        print 'pkt rate: %d' %i
+        print sum(result_dic[i]['loss']) / len(result_dic[i]['loss'])
+
+    #print float(recv_sum)/sent_sum
