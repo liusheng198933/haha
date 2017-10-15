@@ -2,6 +2,7 @@ import sys
 
 if __name__ == '__main__':
     filepath = '/home/shengliu/Workspace/mininet/haha/API/ping_result_%d.txt' %(int(sys.argv[1]))
+    #filepath = '/home/shengliu/Workspace/mininet/haha/API/result.txt'
     fp = open(filepath)
     content = fp.readlines()
     result_dic = {}
@@ -25,4 +26,12 @@ if __name__ == '__main__':
         print 'pkt rate: %d' %i
         print sum(result_dic[i]['loss']) / len(result_dic[i]['loss'])
 
+    fp.close()
+    xline = [4000, 5000, 6000, 7000, 8000]
+    filepath = '/home/shengliu/Workspace/mininet/haha/API/result.txt'
+    fp = open(filepath, 'a+')
+    for i in range(len(xline)):
+        fp.write('%f ' %(sum(result_dic[xline[i]]['loss']) / len(result_dic[xline[i]]['loss'])))
+    fp.write('\n')
+    fp.close()
     #print float(recv_sum)/sent_sum

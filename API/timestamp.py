@@ -208,19 +208,48 @@ def rule_construct_cu(old_path, new_path, flow, state, prt, out_port, clk):
     match['ipv4_src'] = flow['ipv4_src']
     match["eth_type"] = 2048
 
-    for i in range(1, len(new_path)):
+    if not old_path:
+        for i in range(1, len(new_path)):
+            rule_set[new_path[i]] = {}
+            rule_set[new_path[i]]['add'] = []
+            rule_set[new_path[i]]['del'] = []
+            if i == len(new_path)-1:
+                rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, -1, out_port[new_path[i]], table_id, prt))
+            else:
+                if i == 0:
+                    rule_set[new_path[i]]['add'].append(rule(new_path[i], match, -1, clk, out_port[new_path[i]], table_id, prt))
+                else:
+                    rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, clk, out_port[new_path[i]], table_id, prt))
+
+    return rule_set
+
+
+def rule_construct_cu_twice(old_path, new_path, flow, state, prt, out_port, clk):
+    rule_set = {}
+    table_id = 0
+    match = {}
+    match['ipv4_dst'] = flow['ipv4_dst']
+    match['ipv4_src'] = flow['ipv4_src']
+    match["eth_type"] = 2048
+
+    for i in range(len(new_path)):
         rule_set[new_path[i]] = {}
         rule_set[new_path[i]]['add'] = []
         rule_set[new_path[i]]['del'] = []
         if i == len(new_path)-1:
             rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, -1, out_port[new_path[i]], table_id, prt))
         else:
-            rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, clk, out_port[new_path[i]], table_id, prt))
+            if i == 0:
+                rule_set[new_path[i]]['add'].append(rule(new_path[i], match, -1, clk, out_port[new_path[i]], table_id, 0))
+            else:
+                rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, clk, out_port[new_path[i]], table_id, prt))
 
     first_rule = {}
     first_rule['add'] = [rule(new_path[0], match, -1, clk, out_port[new_path[0]], table_id, prt)]
-    first_rule['del'] = []
+    first_rule['del'] = [rule(new_path[0], match, -1, clk-1, out_port[new_path[0]], table_id, prt)]
+    first_rule['del'] = [rule(new_path[0], match, -1, clk, out_port[new_path[0]], table_id, 0)]
     return {'rule_set': rule_set, 'first_rule': first_rule}
+
 
 
 def rule_construct_coco(old_path, new_path, flow, state, prt, out_port, clk):
@@ -269,8 +298,8 @@ def rule_construct_coco(old_path, new_path, flow, state, prt, out_port, clk):
                     for j in df:
                         rule_set[i]['add'].append(rule(i, match_reverse(j), rext.get_rtmp(), rext.get_ttmp(), rext.get_action(), table_id, prt))
                 rule_set[i]['del'].append(rule(i, rext.get_match(), rext.get_rtmp(), rext.get_ttmp(), rext.get_action(), table_id, prt))
-            rule_set[i]['del'].append(rule(i, {}, 1, 1, 0, table_id, 0))
-            rule_set[i]['add'].append(rule(i, {}, clk, clk, 0, table_id, 0))
+            #rule_set[i]['del'].append(rule(i, {}, 1, 1, 0, table_id, 0))
+            rule_set[i]['add'].append(rule(i, match, clk, clk, 0, table_id, prt))
 
     else:
         for i in range(len(new_path)):
@@ -286,6 +315,73 @@ def rule_construct_coco(old_path, new_path, flow, state, prt, out_port, clk):
                     rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, clk, out_port[new_path[i]], table_id, prt))
 
     return rule_set
+
+
+def rule_construct_coco_twice(old_path, new_path, flow, state, prt, out_port, clk):
+    rule_set_first = {}
+    rule_set_second = {}
+    table_id = 0
+    match = {}
+    match['ipv4_dst'] = flow['ipv4_dst']
+    match['ipv4_src'] = flow['ipv4_src']
+    match["eth_type"] = 2048
+
+    if old_path:
+        intersect_set = []
+        for i in range(len(new_path)-1):
+            if (new_path[i] in old_path) and (new_path[i+1] not in old_path):
+                intersect_set.append(i)
+
+        for i in range(len(new_path)):
+            if i >= intersect_set[0]:
+                rule_set_first[new_path[i]] = {}
+                rule_set_first[new_path[i]]['add'] = []
+                rule_set_first[new_path[i]]['del'] = []
+                rule_set_second[new_path[i]] = {}
+                rule_set_second[new_path[i]]['add'] = []
+                rule_set_second[new_path[i]]['del'] = []
+                """
+                rext = state.get_table(new_path[i], table_id).get_rule(flow)
+                if rext and rext.get_prt() == prt:
+                    df = difference(rext.get_match_bin(), match_parse(flow))
+                    if df:
+                        for j in df:
+                            rule_set_first[new_path[i]]['add'].append(rule(new_path[i], match_reverse(j), rext.get_rtmp(), rext.get_ttmp(), rext.get_action(), table_id, prt))
+                    rule_set_first[new_path[i]]['del'].append(rule(new_path[i], rext.get_match(), rext.get_rtmp(), rext.get_ttmp(), rext.get_action(), table_id, prt))
+                """
+                if i == 0:
+                    rule_set_first[new_path[i]]['add'].append(rule(new_path[i], match, -1, clk, out_port[new_path[i]], table_id, 0))
+                    rule_set_second[new_path[i]]['del'].append(rule(new_path[i], match, -1, clk, out_port[new_path[i]], table_id, 0))
+                    rule_set_second[new_path[i]]['add'].append(rule(new_path[i], match, -1, clk, out_port[new_path[i]], table_id, prt+1))
+                else:
+                    if i == len(new_path)-1:
+                        rule_set_first[new_path[i]]['add'].append(rule(new_path[i], match, clk, -1, out_port[new_path[i]], table_id, 0))
+                        rule_set_second[new_path[i]]['del'].append(rule(new_path[i], match, clk, -1, out_port[new_path[i]], table_id, 0))
+                        rule_set_second[new_path[i]]['add'].append(rule(new_path[i], match, clk, -1, out_port[new_path[i]], table_id, prt+1))
+                    else:
+                        rule_set_first[new_path[i]]['add'].append(rule(new_path[i], match, clk, clk, out_port[new_path[i]], table_id, 0))
+                        rule_set_second[new_path[i]]['del'].append(rule(new_path[i], match, clk, clk, out_port[new_path[i]], table_id, 0))
+                        rule_set_second[new_path[i]]['add'].append(rule(new_path[i], match, clk, clk, out_port[new_path[i]], table_id, prt+1))
+
+        """
+        for i in (set(old_path) - set(new_path)):
+            if i not in rule_set.keys():
+                rule_set_first[i] = {}
+                rule_set_first[i]['add'] = []
+                rule_set_first[i]['del'] = []
+            rext = state.get_table(i, table_id).get_rule(flow)
+            if rext.get_prt() == prt:
+                df = difference(rext.get_match_bin(), match_parse(flow))
+                if df:
+                    for j in df:
+                        rule_set_first[i]['add'].append(rule(i, match_reverse(j), rext.get_rtmp(), rext.get_ttmp(), rext.get_action(), table_id, prt))
+                rule_set_first[i]['del'].append(rule(i, rext.get_match(), rext.get_rtmp(), rext.get_ttmp(), rext.get_action(), table_id, prt))
+            #rule_set[i]['del'].append(rule(i, {}, 1, 1, 0, table_id, 0))
+            rule_set_first[i]['add'].append(rule(i, match, clk, clk, 0, table_id, prt))
+        """
+
+    return {'rule_set_first': rule_set_first, 'rule_set_second': rule_set_second}
+
 
 
 def state_update(rule_set, state_old):

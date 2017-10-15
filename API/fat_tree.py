@@ -5,12 +5,14 @@ from mininet.node import Controller, OVSKernelSwitch, RemoteController, Ryu
 from util import *
 from test_main import *
 
+KNUM = 4
+
 class FatTree( Topo ):
 
     def __init__( self ):
 
         # Topology settings
-        K = 4                           # K-ary FatTree
+        K = KNUM                           # K-ary FatTree
         podNum = K                      # Pod number in FatTree
         coreSwitchNum = pow((K/2),2)    # Core switches
         aggrSwitchNum = ((K/2)*K)       # Aggregation switches
@@ -62,7 +64,7 @@ def total_switch_num(k):
 
 
 def createTopo():
-    K = 4
+    K = KNUM
 
     topo = FatTree()
 
@@ -92,7 +94,8 @@ def createTopo():
 
 
     CLI(fat_tree_net)
-    for b in range(3, 8):
+    #fat_tree_net.stop()
+    for b in range(6, 12):
         pkt_rate = 1000*b
         q = 0
         tt = 0
@@ -100,7 +103,7 @@ def createTopo():
             result = 'False'
             while result != 'True':
                 print 'idx: %d' %q
-                result = test_run(K, fat_tree_net, pkt_rate, 3, q)
+                result = test_run_link(K, fat_tree_net, pkt_rate, 3, q)
                 if result == 'Error':
                     q = q + 1
                 if result == 'True':

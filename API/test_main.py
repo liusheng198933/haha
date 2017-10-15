@@ -27,12 +27,12 @@ def network_init(K, filepath, state):
         if i != '1'*7:
             #print "drop_rule_push:"
             #print i
-            drop_rule_push(i, filepath, 1, 1, table_id, 0)
+            drop_rule_push(i, filepath, 1, 1, table_id, 1)
             # default rule has rtmp=1, ttmp=1 and priority=1
     arp_rule_push('1'*7, filepath, table_id, 1)
     for pod in range(K):
         for swNum in range(K/2):
-            arp_rule_push(int2dpid(3, swNum, pod), filepath, table_id, 1)
+            arp_rule_push(int2dpid(3, swNum, pod), filepath, table_id, 2)
     subprocess.Popen("%s" %filepath)
 
     for i in dpset:
@@ -278,7 +278,11 @@ def path_deploy_coco(old_path, new_path, flow, state_cur, prt, in_port, out_port
         sleep_time.insert(e+1, delay_list[dp])
 
     #print delay_list
-    #print sleep_time
+    #print dp_sort
+    #print old_path
+    #print new_path
+    #print delay_list[old_path[1]] - delay_list[old_path[2]]
+    #print delay_list[old_path[3]] - delay_list[old_path[2]]
 
     for e in range(len(dp_sort)):
         time.sleep(sleep_time[e+1] - sleep_time[e])
@@ -377,39 +381,49 @@ def path_deploy(old_path, new_path, flow, state_cur, prt, in_port, out_port, clo
 
 
 
-def path_deploy_link(old_path, new_path, flow, state_cur, prt, in_port, out_port, clock, bd, if_delay):
+def path_deploy_link_init(old_path, new_path, flow, state_cur, prt, in_port, out_port, clock, bd, proto):
     bdid = bd
-    clk = clock + 1
+    #clk = clock + 1
 
-    rule_set = rule_construct(old_path, new_path, flow, state_cur, prt, out_port, clk)
-    state_next = state_update(rule_set, state_cur)
+    if proto == 0:
+        clk = 0
+        rule_set = rule_construct_normal([], old_path, flow, state_cur, prt, out_port)
+        state_next = state_update(rule_set, state_cur)
 
-    rule_set = setTMP(old_path, new_path, flow, state_cur, state_next, rule_set, clk)
-    state_next = state_update(rule_set, state_cur)
-    #state_next.copy_state(state_cur)
-    """
-    for r in rule_set.keys():
-        print "add rules:"
-        for x in rule_set[r]['add']:
-            x.print_rule()
-        print "del rules:"
-        for x in rule_set[r]['del']:
-            x.print_rule()
-    """
+    if proto == 1:
+        clk = clock + 1
+
+        rule_set = rule_construct([], old_path, flow, state_cur, prt, out_port, clk)
+        state_next = state_update(rule_set, state_cur)
+
+        rule_set = setTMP([], old_path, flow, state_cur, state_next, rule_set, clk)
+        state_next = state_update(rule_set, state_cur)
+
+    if proto == 2:
+        clk = clock + 1
+        #clk = 0
+        rule_set = rule_construct_cu([], old_path, flow, state_cur, prt, out_port, clk)
+        state_next = state_update(rule_set, state_cur)
+
+    if proto == 3:
+        clk = clock + 1
+        #clk = 0
+        rule_set = rule_construct_coco([], old_path, flow, state_cur, prt, out_port, clk)
+        state_next = state_update(rule_set, state_cur)
+
+
     flow_reverse = reverse_flow(flow)
     #flow_reverse['ipv4_src'] = flow['ipv4_dst']
     #flow_reverse['ipv4_dst'] = flow['ipv4_src']
 
-    old_path_reverse = copy.deepcopy(old_path)
-    old_path_reverse.reverse()
     new_path_reverse = copy.deepcopy(new_path)
     new_path_reverse.reverse()
 
-    rule_set_reverse = rule_construct(old_path_reverse, new_path_reverse, flow_reverse, state_next, prt, in_port, clk)
+    rule_set_reverse = rule_construct_normal([], new_path_reverse, flow_reverse, state_next, prt, in_port)
     state_next_next = state_update(rule_set_reverse, state_next)
 
-    rule_set_reverse = setTMP(old_path_reverse, new_path_reverse, flow_reverse, state_next, state_next_next, rule_set_reverse, clk)
-    state_next_next = state_update(rule_set_reverse, state_next)
+    #rule_set_reverse = setTMP(old_path_reverse, new_path_reverse, flow_reverse, state_next, state_next_next, rule_set_reverse, clk)
+    #state_next_next = state_update(rule_set_reverse, state_next, clk)
     #state_next.copy_state(state_cur)
 
     for i in rule_set_reverse.keys():
@@ -421,15 +435,54 @@ def path_deploy_link(old_path, new_path, flow, state_cur, prt, in_port, out_port
         else:
             rule_set[i] = rule_set_reverse[i]
 
-    if not rule_set.keys():
-        return {'state': state_next_next, 'bdid': bdid, 'clk': clk}
     #table_id = 0
     #script_init(filepath)
+
+    for dp in rule_set.keys():
+        bdid = bdid + 1
+        switch_deploy(dp, rule_set[dp], bdid)
+    return {'state': state_next_next, 'bdid': bdid, 'clk': clk}
+
+
+
+
+
+
+
+
+def path_deploy_link(old_path, new_path, flow, state_cur, prt, out_port, clock, bd, if_delay, proto):
+    bdid = bd
+
+    if proto == 0:
+        clk = 0
+        rule_set = rule_construct_normal(old_path, new_path, flow, state_cur, prt, out_port)
+        state_next = state_update(rule_set, state_cur)
+
+    if proto == 1:
+        clk = clock + 1
+
+        rule_set = rule_construct(old_path, new_path, flow, state_cur, prt, out_port, clk)
+        state_next = state_update(rule_set, state_cur)
+
+        rule_set = setTMP(old_path, new_path, flow, state_cur, state_next, rule_set, clk)
+        state_next = state_update(rule_set, state_cur)
+
+    if proto == 3:
+        clk = clock + 1
+        #clk = 0
+        rule_set = rule_construct_coco(old_path, new_path, flow, state_cur, prt, out_port, clk)
+        state_next = state_update(rule_set, state_cur)
+
+
+    if not rule_set.keys():
+        return {'state': state_next, 'bdid': bdid, 'clk': clk}
+
     if not if_delay:
         for dp in rule_set.keys():
             bdid = bdid + 1
             switch_deploy(dp, rule_set[dp], bdid)
-        return {'state': state_next_next, 'bdid': bdid, 'clk': clk}
+        return {'state': state_next, 'bdid': bdid, 'clk': clk}
+
 
     delay_list = delay_generate(rule_set)
     dp_sort = []
@@ -441,18 +494,87 @@ def path_deploy_link(old_path, new_path, flow, state_cur, prt, in_port, out_port
         dp_sort.insert(e, dp)
         sleep_time.insert(e+1, delay_list[dp])
 
-    print delay_list
-    print sleep_time
-
+    #print delay_list
+    #print sleep_time
+    #print rule_set
+    #print old_path[2]
     for e in range(len(dp_sort)):
         time.sleep(sleep_time[e+1] - sleep_time[e])
+        #if dp != old_path[2]:
+        dp = dp_sort[e]
         if dp != old_path[2]:
-            dp = dp_sort[e]
             bdid = bdid + 1
             switch_deploy(dp, rule_set[dp], bdid)
 
-    return {'state': state_next_next, 'bdid': bdid, 'clk': clk}
+    return {'state': state_next, 'bdid': bdid, 'clk': clk}
 
+
+def path_deploy_twice(old_path, new_path, flow, state_cur, prt, out_port, clock, bd, if_delay, proto):
+    bdid = bd
+
+    if proto == 3:
+        clk = clock + 1
+        #clk = 0
+        rule_set = rule_construct_coco_twice(old_path, new_path, flow, state_cur, prt, out_port, clk)
+        rule_set_first = rule_set['rule_set_first']
+        rule_set_second = rule_set['rule_set_second']
+        state_next = state_update(rule_set_first, state_cur)
+        state_next = state_update(rule_set_second, state_next)
+
+    if proto == 2:
+        clk = clock + 1
+        #clk = 0
+        rule_set = rule_construct_cu_twice(old_path, new_path, flow, state_cur, prt, out_port, clk)
+        rule_set_first = rule_set['rule_set']
+        rule_set_second = rule_set['first_rule']
+        state_next = state_update(rule_set_first, state_cur)
+        state_next = state_update(rule_set_second, state_next)
+
+
+    delay_list = delay_generate(rule_set_first)
+    dp_sort = []
+    sleep_time = [0]
+    for dp in delay_list.keys():
+        e = 0
+        while e < len(dp_sort) and delay_list[dp_sort[e]] <= delay_list[dp]:
+            e = e + 1
+        dp_sort.insert(e, dp)
+        sleep_time.insert(e+1, delay_list[dp])
+
+    for e in range(len(dp_sort)):
+        time.sleep(sleep_time[e+1] - sleep_time[e])
+        #if dp != old_path[2]:
+        dp = dp_sort[e]
+        if dp != old_path[2]:
+            bdid = bdid + 1
+            switch_deploy(dp, rule_set_first[dp], bdid)
+
+
+    #print 'first deploy'
+    #print rule_set_first
+    #CLI(fat_tree_net)
+    #print rule_set_second
+
+    delay_list = delay_generate(rule_set_second)
+    dp_sort = []
+    sleep_time = [0]
+    for dp in delay_list.keys():
+        e = 0
+        while e < len(dp_sort) and delay_list[dp_sort[e]] <= delay_list[dp]:
+            e = e + 1
+        dp_sort.insert(e, dp)
+        sleep_time.insert(e+1, delay_list[dp])
+
+    for e in range(len(dp_sort)):
+        time.sleep(sleep_time[e+1] - sleep_time[e])
+        #if dp != old_path[2]:
+        dp = dp_sort[e]
+        if dp != old_path[2]:
+            bdid = bdid + 1
+            switch_deploy(dp, rule_set_second[dp], bdid)
+
+
+    return {'state': state_next, 'bdid': bdid, 'clk': clk}
 
 
 
@@ -537,7 +659,7 @@ def test_run_all(K, fat_tree_net, pkt_rate, proto):
     rt = old_path_deploy(filepath2, K, state_cur, priority)
     state_cur = rt['state']
     flow_list = rt['flow_list']
-    state_cur.print_state()
+    #state_cur.print_state()
     #CLI(fat_tree_net)
 
 
@@ -577,7 +699,7 @@ def test_run_all(K, fat_tree_net, pkt_rate, proto):
             time.sleep(10)
 
             state_cur = clear_sb_rules(filepath, old_path, new_path, flow, state_cur, clk)
-            state_cur.print_state()
+            #state_cur.print_state()
             ping_ret = h_src.cmd('echo')
 
             if 'packets received' in ping_ret:
@@ -661,7 +783,7 @@ def test_run(K, fat_tree_net, pkt_rate, proto, nt):
     #print h_src.cmd('ifconfig')
     #writepath = '/home/shengliu/Workspace/mininet/haha/API/ping_result.txt'
     #priority = 8
-    h_src.cmd('hping3 -V -1 -c 100 -i u%d %s &' %(pkt_rate, h_dst.IP()))
+    h_src.cmd('hping3 -1 -c 100 -i u%d %s &' %(pkt_rate, h_dst.IP()))
 
     #clk = 10
     out_port = out_port_construct(new_path, path_list['new_path'][nt]['out_port'])
@@ -768,7 +890,7 @@ def test_run_link(K, fat_tree_net, pkt_rate, proto, nt):
     old_path = path_list['old_path'][nt]['path']
     new_path = path_list['new_path'][nt]['path']
 
-    in_port = out_port_construct(old_path, path_list['old_path'][nt]['in_port'])
+    in_port = out_port_construct(new_path, path_list['new_path'][nt]['in_port'])
     out_port = out_port_construct(old_path, path_list['old_path'][nt]['out_port'])
     flow = path_list['flow'][nt]
     priority = 8 # > 2
@@ -778,15 +900,7 @@ def test_run_link(K, fat_tree_net, pkt_rate, proto, nt):
     if len(old_path) == 3:
         return 'Error'
 
-    if proto == 0:
-        deploy_ret = path_deploy_normal([], old_path, flow, state_cur, priority, in_port, out_port, bdid, 0)
-    if proto == 1:
-        deploy_ret = path_deploy([], old_path, flow, state_cur, priority, in_port, out_port, clk, bdid, 0)
-    if proto == 2:
-        deploy_ret = path_deploy_cu([], old_path, flow, state_cur, priority, in_port, out_port, clk, bdid, 0)
-    if proto == 3:
-        deploy_ret = path_deploy_coco([], old_path, flow, state_cur, priority, in_port, out_port, clk, bdid, 0)
-
+    deploy_ret = path_deploy_link_init(old_path, new_path, flow, state_cur, priority, in_port, out_port, clk, bdid, proto)
 
     #deploy_ret = path_deploy([], old_path, flow, state_cur, priority, in_port, out_port, clk, bdid, 0)
     state_cur = deploy_ret['state']
@@ -800,34 +914,36 @@ def test_run_link(K, fat_tree_net, pkt_rate, proto, nt):
     time.sleep(4)
 
     #state_cur.print_state()
-
+    #print 'route init'
     #CLI(fat_tree_net)
 
     h_src = fat_tree_net.get(ip2host(flow['ipv4_src']))
     h_dst = fat_tree_net.get(ip2host(flow['ipv4_dst']))
 
     #priority = 8
-    h_src.cmd('hping3 -V -1 -c 100 -i u%d %s &' %(pkt_rate, h_dst.IP()))
+    h_src.cmd('hping3 -1 -c 100 -i u%d %s &' %(pkt_rate, h_dst.IP()))
 
     #clk = 10
     out_port = out_port_construct(new_path, path_list['new_path'][nt]['out_port'])
-    in_port = out_port_construct(new_path, path_list['new_path'][nt]['in_port'])
+    #in_port = out_port_construct(new_path, path_list['new_path'][nt]['in_port'])
 
-
+    tmp_max = 100
+    prt_max = 200
     failpath = "/home/shengliu/Workspace/mininet/haha/API/cmd/%s.sh" %(str(old_path[2]))
     script_init(failpath)
-    script_write(failpath, addTMPRule(old_path[2], {}, 100, 100, 0, 0, 200, "add"))
-    subprocess.Popen("%s" %failpath)
+    script_write(failpath, addTMPRule(old_path[2], {}, tmp_max, tmp_max, 0, 0, prt_max, "add"))
+    subprocess.call("%s" %failpath)
 
+    #state_cur.print_state()
+    #print 'link break'
+    #CLI(fat_tree_net)
 
-    if proto == 0:
-        deploy_ret = path_deploy_normal(old_path, new_path, flow, state_cur, priority, in_port, out_port, bdid, 1)
-    if proto == 1:
-        deploy_ret = path_deploy(old_path, new_path, flow, state_cur, priority, in_port, out_port, clk, bdid, 1)
-    if proto == 2:
-        deploy_ret = path_deploy_cu(old_path, new_path, flow, state_cur, priority, in_port, out_port, clk, bdid, 1)
-    if proto == 3:
-        deploy_ret = path_deploy_coco(old_path, new_path, flow, state_cur, priority, in_port, out_port, clk, bdid, 1)
+    if proto == 0 or proto == 1:
+        deploy_ret = path_deploy_link(old_path, new_path, flow, state_cur, priority, out_port, clk, bdid, 1, proto)
+
+    if proto == 2 or proto == 3:
+        deploy_ret = path_deploy_twice(old_path, new_path, flow, state_cur, priority, out_port, clk, bdid, 1, proto)
+
 
     state_cur = deploy_ret['state']
     clk = deploy_ret['clk']
@@ -848,6 +964,7 @@ def test_run_link(K, fat_tree_net, pkt_rate, proto, nt):
 
     #state_cur = clear_sb_rules(filepath, old_path, new_path, flow, state_cur, clk)
     #state_cur.print_state()
+    #print 'change route'
     #CLI(fat_tree_net)
     #print "ping result:" + ping_ret
     if 'packets received' not in ping_ret_o:
@@ -863,8 +980,8 @@ def test_run_link(K, fat_tree_net, pkt_rate, proto, nt):
             recv_num = x[3]
             print sent_num
             print recv_num
-            if int(recv_num) < int(sent_num):
-                print ping_ret_o
+            #if int(recv_num) < int(sent_num):
+                #print ping_ret_o
                 #CLI(fat_tree_net)
         if 'min/avg/max' in ping_ret[i]:
             x = ping_ret[i].strip().split()[3]
