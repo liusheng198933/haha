@@ -209,7 +209,7 @@ def rule_construct_cu(old_path, new_path, flow, state, prt, out_port, clk):
     match["eth_type"] = 2048
 
     if not old_path:
-        for i in range(1, len(new_path)):
+        for i in range(len(new_path)):
             rule_set[new_path[i]] = {}
             rule_set[new_path[i]]['add'] = []
             rule_set[new_path[i]]['del'] = []
@@ -245,9 +245,10 @@ def rule_construct_cu_twice(old_path, new_path, flow, state, prt, out_port, clk)
                 rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, clk, out_port[new_path[i]], table_id, prt))
 
     first_rule = {}
-    first_rule['add'] = [rule(new_path[0], match, -1, clk, out_port[new_path[0]], table_id, prt)]
-    first_rule['del'] = [rule(new_path[0], match, -1, clk-1, out_port[new_path[0]], table_id, prt)]
-    first_rule['del'] = [rule(new_path[0], match, -1, clk, out_port[new_path[0]], table_id, 0)]
+    first_rule[new_path[0]] = {}
+    first_rule[new_path[0]]['add'] = [rule(new_path[0], match, -1, clk, out_port[new_path[0]], table_id, prt)]
+    first_rule[new_path[0]]['del'] = [rule(new_path[0], match, -1, clk-1, out_port[new_path[0]], table_id, prt)]
+    first_rule[new_path[0]]['del'].append(rule(new_path[0], match, -1, clk, out_port[new_path[0]], table_id, 0))
     return {'rule_set': rule_set, 'first_rule': first_rule}
 
 

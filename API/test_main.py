@@ -931,7 +931,11 @@ def test_run_link(K, fat_tree_net, pkt_rate, proto, nt):
     prt_max = 200
     failpath = "/home/shengliu/Workspace/mininet/haha/API/cmd/%s.sh" %(str(old_path[2]))
     script_init(failpath)
-    script_write(failpath, addTMPRule(old_path[2], {}, tmp_max, tmp_max, 0, 0, prt_max, "add"))
+    if proto == 2:
+        script_write(failpath, addFlowRule(old_path[2], {}, 'drop', 0, prt_max, "add"))
+    else:
+        script_write(failpath, addTMPRule(old_path[2], {}, tmp_max, tmp_max, 0, 0, prt_max, "add"))
+
     subprocess.call("%s" %failpath)
 
     #state_cur.print_state()

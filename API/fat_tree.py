@@ -103,7 +103,7 @@ def createTopo():
             result = 'False'
             while result != 'True':
                 print 'idx: %d' %q
-                result = test_run_link(K, fat_tree_net, pkt_rate, 3, q)
+                result = test_run_link(K, fat_tree_net, pkt_rate, 2, q)
                 if result == 'Error':
                     q = q + 1
                 if result == 'True':

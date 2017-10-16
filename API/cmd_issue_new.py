@@ -20,6 +20,7 @@ def addFlowRule(dpid, match, out_port, table_id=0, priority=2, flag="add"):
     match_para.pop()
     match_para.append("},")
 
+
     if out_port == 'flood':
         instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\": \"OUTPUT\",\"port\": \"FLOOD\"}]}]']
     else:
@@ -28,7 +29,8 @@ def addFlowRule(dpid, match, out_port, table_id=0, priority=2, flag="add"):
         else:
             instructions = ['\"instructions\":[{\"type\":\"APPLY_ACTIONS\",\"actions\":[{\"type\": \"OUTPUT\",\"port\": %s}]}]' %(str(out_port))]
 
-    cmd = cmd + match_para
+    if match:
+        cmd = cmd + match_para
     cmd = cmd + instructions
     cmd.append("}\' http://localhost:8080/stats/flowentry/%s \n\n" %flag)
     return ''.join(cmd)

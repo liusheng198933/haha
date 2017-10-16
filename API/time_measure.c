@@ -1,5 +1,6 @@
-#include <time.h>
+#include <sys/time.h>
 #include <stdio.h>
+#include <unistd.h>
 
 int main()
 {
@@ -13,6 +14,10 @@ int main()
   gettimeofday(&tval_after, NULL);
 
   timersub(&tval_after, &tval_before, &tval_result);
+
+  printf("Time now: %ld, %ld\n", (long int)tval_after.tv_sec, (long int)tval_after.tv_usec);
+
+  printf("Time now: %ld.%06ld\n", (long int)tval_after.tv_sec, (long int)tval_after.tv_usec);
 
   printf("Time elapsed: %ld.%06ld\n", (long int)tval_result.tv_sec, (long int)tval_result.tv_usec);
 }
