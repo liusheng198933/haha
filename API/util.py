@@ -1,5 +1,15 @@
 import copy
 
+def set_clean(rset):
+    rule_set = copy.deepcopy(rset)
+    for i in rule_set.keys():
+        if not rule_set[i]:
+            del rule_set[i]
+        else:
+            if (not rule_set[i]['add']) and (not rule_set[i]['del']):
+                del rule_set[i]
+    return rule_set
+
 
 def int2dpid(kind, swNum, podNum=0):
     # kind = 1 indicates the core switches, 2 for aggrSwitch and 3 for edgeSwitch

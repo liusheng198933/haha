@@ -235,6 +235,18 @@ def switch_query(path, dpid):
         f.write("curl -X GET http://localhost:8080/stats/flow/%s\n" % dpid)
         f.close()
 
+def table_query(path, dpid):
+    with open(path,"w+") as f:
+        f.write("#!/bin/bash\n")
+        f.write("curl -X GET http://localhost:8080/stats/table/%s\n" % dpid)
+        f.close()
+
+def parse_table_query(path, dpid):
+    table_query(path, dpid)
+    p = subprocess.Popen(path, stdout=subprocess.PIPE)
+    ret = p.communicate()[0]
+    num = int(ret.split()[8].strip('},'))
+    return num
 
 def network_clear(dp_range, filepath):
     for i in range(dp_range):

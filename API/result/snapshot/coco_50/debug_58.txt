@@ -1,0 +1,8 @@
+add prt: 1 outport: 65535 src: 0 dst: 0 rtmp: 1
+add prt: 1 outport: 65535 src: 0 dst: 0 rtmp: 1
+add prt: 1 outport: 65535 src: 0 dst: 0 rtmp: 1
+add prt: 1 outport: 65535 src: 0 dst: 0 rtmp: 1
+add prt: 1 outport: 65535 src: 0 dst: 0 rtmp: 1
+add prt: 1 outport: 65535 src: 0 dst: 0 rtmp: 1
+bundle add bundle_id 2 cmd 0
+bdid 2 rules commit time 1508884160 899670

@@ -1,3 +1,4 @@
+packet loss
 idx: 0 pkt_rate: 3000 sent_num: 100 recv_num: 72 min: 0.3 avg: 16.3 max 1002.9
 idx: 1 pkt_rate: 3000 sent_num: 100 recv_num: 57 min: 0.4 avg: 2.4 max 4.3
 idx: 2 pkt_rate: 3000 sent_num: 100 recv_num: 85 min: 0.4 avg: 2.3 max 4.2
@@ -603,7 +604,7 @@ idx: 132 pkt_rate: 8000 sent_num: 100 recv_num: 83 min: 0.4 avg: 2.6 max 4.4
 
 
 
-
+link failure
 idx: 0 pkt_rate: 4000 sent_num: 100 recv_num: 41 min: 2.5 avg: 3.2 max 4.0
 idx: 1 pkt_rate: 4000 sent_num: 100 recv_num: 22 min: 0.4 avg: 2.6 max 4.3
 idx: 2 pkt_rate: 4000 sent_num: 100 recv_num: 50 min: 0.4 avg: 2.6 max 4.3
@@ -1213,3 +1214,4 @@ idx: 5 pkt_rate: 10000 sent_num: 100 recv_num: 77 min: 0.4 avg: 15.4 max 1001.4
 idx: 6 pkt_rate: 10000 sent_num: 100 recv_num: 70 min: 0.4 avg: 2.4 max 4.3
 idx: 7 pkt_rate: 10000 sent_num: 100 recv_num: 78 min: 0.3 avg: 2.4 max 4.3
 idx: 9 pkt_rate: 10000 sent_num: 100 recv_num: 76 min: 0.4 avg: 2.7 max 8.2
+idx: 12 pkt_rate: 4000 sent_num: 100 recv_num: 53 min: 0.5 avg: 2.8 max 7.9

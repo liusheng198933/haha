@@ -3,7 +3,7 @@ from util import *
 
 if __name__ == '__main__':
     # generate the sh files needed to deploy rules on switches
-    K = 4
+    K = 8
 
     for core in range(pow((K/2),2)):
         dp = int2dpid(1, core)

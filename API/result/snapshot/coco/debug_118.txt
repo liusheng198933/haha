@@ -1,0 +1,16 @@
+bundle add bundle_id 11272 cmd 4
+bdid 10944 rules commit time 1508847904 325906
+bundle add bundle_id 10989 cmd 4
+bundle add bundle_id 12481 cmd 4
+bdid 11757 rules commit time 1508847904 326079
+bundle add bundle_id 12502 cmd 0
+bundle add bundle_id 12350 cmd 0
+bundle add bundle_id 11140 cmd 4
+bdid 11318 rules commit time 1508847904 360210
+bundle add bundle_id 11119 cmd 0
+bdid 11916 rules commit time 1508847904 362607
+bundle add bundle_id 11611 cmd 4
+bdid 11112 rules commit time 1508847904 362757
+bundle add bundle_id 11546 cmd 4
+bundle add bundle_id 12729 cmd 4
+bdid 13551 rules commit time 1508847904 363017

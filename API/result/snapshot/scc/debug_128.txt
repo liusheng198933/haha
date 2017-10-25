@@ -1,0 +1,90 @@
+bundle add bundle_id 11646 cmd 0
+bdid 11646 rules commit time 1508850396 71870
+bundle add bundle_id 11623 cmd 0
+bdid 11623 rules commit time 1508850396 72148
+bundle add bundle_id 11533 cmd 4
+bundle add bundle_id 11533 cmd 0
+bundle add bundle_id 10981 cmd 4
+bundle add bundle_id 10981 cmd 0
+bundle add bundle_id 11099 cmd 0
+bdid 11621 rules commit time 1508850396 72746
+bundle add bundle_id 11513 cmd 4
+bundle add bundle_id 11640 cmd 0
+bdid 11533 rules commit time 1508850396 166877
+del prt: 100 outport: 65535 src: 67307274 dst: 50529290 rtmp: 2496 time 1508850396 166933
+del prt: 100 outport: 65535 src: 67240714 dst: 50398218 rtmp: 2497 time 1508850396 166962
+bdid 11099 rules commit time 1508850396 167049
+bundle add bundle_id 11417 cmd 4
+bundle add bundle_id 11627 cmd 4
+bundle add bundle_id 11685 cmd 4
+bundle add bundle_id 11513 cmd 0
+bdid 11513 rules commit time 1508850396 261642
+bdid 11640 rules commit time 1508850396 261746
+bundle add bundle_id 11628 cmd 0
+del prt: 100 outport: 65535 src: 16777994 dst: 16909322 rtmp: 2340 time 1508850396 261978
+bdid 10981 rules commit time 1508850396 262010
+del prt: 100 outport: 65535 src: 50333450 dst: 50333194 rtmp: 2501 time 1508850396 262053
+bundle add bundle_id 11103 cmd 0
+bundle add bundle_id 11417 cmd 0
+bdid 11417 rules commit time 1508850396 262248
+bundle add bundle_id 11627 cmd 0
+bundle add bundle_id 11685 cmd 0
+bundle add bundle_id 11670 cmd 0
+bdid 11628 rules commit time 1508850396 354587
+bundle add bundle_id 11536 cmd 4
+bundle add bundle_id 10990 cmd 4
+bdid 11103 rules commit time 1508850396 354789
+bdid 11627 rules commit time 1508850396 355134
+bdid 11685 rules commit time 1508850396 447382
+bundle add bundle_id 11522 cmd 4
+bdid 11670 rules commit time 1508850396 447786
+bundle add bundle_id 11634 cmd 0
+bundle add bundle_id 11536 cmd 0
+del prt: 100 outport: 65535 src: 50398986 dst: 50529034 rtmp: 2234 time 1508850396 448004
+del prt: 100 outport: 65535 src: 67174410 dst: 50529290 rtmp: 2502 time 1508850396 448026
+del prt: 100 outport: 65535 src: 33686282 dst: 33752842 rtmp: 2509 time 1508850396 448044
+bundle add bundle_id 10990 cmd 0
+bundle add bundle_id 11441 cmd 4
+bundle add bundle_id 11691 cmd 4
+bundle add bundle_id 11522 cmd 0
+bdid 11634 rules commit time 1508850396 542840
+bdid 11536 rules commit time 1508850396 542961
+del prt: 100 outport: 65535 src: 16843274 dst: 50398218 rtmp: 2513 time 1508850396 543035
+del prt: 100 outport: 65535 src: 50398986 dst: 50397962 rtmp: 2511 time 1508850396 543086
+del prt: 100 outport: 65535 src: 67109898 dst: 16777482 rtmp: 2527 time 1508850396 543114
+del prt: 100 outport: 65535 src: 67175434 dst: 33752842 rtmp: 2516 time 1508850396 543136
+bdid 10990 rules commit time 1508850396 543168
+bundle add bundle_id 11108 cmd 0
+bundle add bundle_id 11633 cmd 4
+bundle add bundle_id 11691 cmd 0
+bdid 11522 rules commit time 1508850396 635787
+bundle add bundle_id 11673 cmd 0
+bundle add bundle_id 11545 cmd 4
+del prt: 100 outport: 65535 src: 67306506 dst: 33621770 rtmp: 2518 time 1508850396 636117
+del prt: 100 outport: 65535 src: 50398218 dst: 67240202 rtmp: 2521 time 1508850396 636146
+del prt: 100 outport: 65535 src: 16909322 dst: 67110666 rtmp: 2519 time 1508850396 636171
+bundle add bundle_id 10993 cmd 4
+bdid 11108 rules commit time 1508850396 636316
+bundle add bundle_id 11441 cmd 0
+bdid 11441 rules commit time 1508850396 636418
+bundle add bundle_id 11633 cmd 0
+bdid 11691 rules commit time 1508850396 726841
+bdid 11673 rules commit time 1508850396 727250
+bundle add bundle_id 11638 cmd 0
+bundle add bundle_id 11545 cmd 0
+del prt: 100 outport: 65535 src: 50398986 dst: 67109898 rtmp: 2524 time 1508850396 727511
+bundle add bundle_id 10993 cmd 0
+bundle add bundle_id 11112 cmd 0
+bdid 11633 rules commit time 1508850396 728123
+bundle add bundle_id 11567 cmd 4
+bdid 11638 rules commit time 1508850396 822097
+bdid 11545 rules commit time 1508850396 822212
+del prt: 100 outport: 65535 src: 50397962 dst: 33554442 rtmp: 2526 time 1508850396 822279
+bdid 10993 rules commit time 1508850396 822309
+bdid 11112 rules commit time 1508850396 822424
+bundle add bundle_id 11459 cmd 4
+bundle add bundle_id 11075 cmd 4
+bundle add bundle_id 11706 cmd 4
+bundle add bundle_id 11075 cmd 0
+bundle add bundle_id 11636 cmd 4
+del prt: 100 outport: 65535 src: 50397962 dst: 67175690 rtmp: 2528 time 1508850396 933379

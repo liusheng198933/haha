@@ -1,0 +1,66 @@
+bundle add bundle_id 379 cmd 0
+bdid 379 rules commit time 1508884208 17955
+bundle add bundle_id 392 cmd 4
+bundle add bundle_id 392 cmd 4
+bundle add bundle_id 392 cmd 0
+bdid 392 rules commit time 1508884208 81964
+bundle add bundle_id 508 cmd 4
+bundle add bundle_id 508 cmd 4
+bundle add bundle_id 508 cmd 0
+bdid 508 rules commit time 1508884208 154407
+bundle add bundle_id 535 cmd 4
+bundle add bundle_id 535 cmd 4
+bundle add bundle_id 535 cmd 0
+bdid 535 rules commit time 1508884208 223168
+bundle add bundle_id 561 cmd 4
+bundle add bundle_id 561 cmd 4
+bundle add bundle_id 561 cmd 0
+bdid 561 rules commit time 1508884208 293247
+bundle add bundle_id 405 cmd 4
+bundle add bundle_id 405 cmd 4
+bundle add bundle_id 405 cmd 0
+bundle add bundle_id 650 cmd 4
+bundle add bundle_id 650 cmd 4
+bdid 405 rules commit time 1508884208 343328
+bundle add bundle_id 445 cmd 4
+bundle add bundle_id 445 cmd 4
+bundle add bundle_id 650 cmd 0
+bdid 650 rules commit time 1508884208 409261
+bundle add bundle_id 690 cmd 4
+bundle add bundle_id 445 cmd 0
+bdid 445 rules commit time 1508884208 476723
+bundle add bundle_id 692 cmd 4
+bundle add bundle_id 690 cmd 4
+bundle add bundle_id 690 cmd 0
+bdid 690 rules commit time 1508884208 477197
+bundle add bundle_id 692 cmd 4
+bundle add bundle_id 692 cmd 0
+bdid 692 rules commit time 1508884208 536307
+bundle add bundle_id 807 cmd 4
+bundle add bundle_id 807 cmd 4
+bundle add bundle_id 809 cmd 4
+bundle add bundle_id 809 cmd 4
+bundle add bundle_id 809 cmd 0
+bundle add bundle_id 807 cmd 0
+bdid 807 rules commit time 1508884208 593676
+bdid 809 rules commit time 1508884208 642603
+bundle add bundle_id 416 cmd 4
+bundle add bundle_id 416 cmd 4
+bundle add bundle_id 416 cmd 0
+bdid 416 rules commit time 1508884208 693342
+bundle add bundle_id 494 cmd 4
+bundle add bundle_id 494 cmd 4
+bundle add bundle_id 494 cmd 0
+bdid 494 rules commit time 1508884208 760019
+bundle add bundle_id 715 cmd 4
+bundle add bundle_id 715 cmd 4
+bundle add bundle_id 715 cmd 0
+bdid 715 rules commit time 1508884208 825679
+bundle add bundle_id 845 cmd 4
+bundle add bundle_id 845 cmd 4
+bundle add bundle_id 845 cmd 0
+bdid 845 rules commit time 1508884208 865862
+bundle add bundle_id 418 cmd 4
+bundle add bundle_id 418 cmd 4
+bundle add bundle_id 418 cmd 0
+bdid 418 rules commit time 1508884208 952046

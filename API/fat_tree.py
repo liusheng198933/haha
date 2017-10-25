@@ -4,8 +4,9 @@ from mininet.cli import CLI
 from mininet.node import Controller, OVSKernelSwitch, RemoteController, Ryu
 from util import *
 from test_main import *
+from test_main_all import *
 
-KNUM = 4
+KNUM = 8
 
 class FatTree( Topo ):
 
@@ -95,15 +96,22 @@ def createTopo():
 
     CLI(fat_tree_net)
     #fat_tree_net.stop()
-    for b in range(6, 12):
+    for b in range(3, 4):
         pkt_rate = 1000*b
         q = 0
         tt = 0
-        while tt < 100:
+        filepath = '/home/shengliu/Workspace/mininet/haha/API/flow_update.tsv'
+        #result = snapshot_deploy(filepath, K, 0)
+        snapshot_deploy_coco(filepath, K, 0, 3)
+
+        while tt < 0:
             result = 'False'
             while result != 'True':
                 print 'idx: %d' %q
-                result = test_run_link(K, fat_tree_net, pkt_rate, 2, q)
+                #result = test_run(K, fat_tree_net, pkt_rate, 3, 12)
+                result = test_run_time(K, fat_tree_net, pkt_rate, 3, q)
+                #result = test_run_link(K, fat_tree_net, pkt_rate, 3, 12)
+
                 if result == 'Error':
                     q = q + 1
                 if result == 'True':
@@ -111,6 +119,7 @@ def createTopo():
                     q = q + 1
     #test_run_all(K, fat_tree_net, pkt_rate, 0)
     #pkt_rate = 1000
+    #CLI(fat_tree_net)
     """
     for h in range(86, 100):
         pkt_rate = h * 100

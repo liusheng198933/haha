@@ -1,3 +1,4 @@
+packet loss
 idx: 0 pkt_rate: 2000 sent_num: 100 recv_num: 100 min: 0.4 avg: 2.4 max 7.9
 idx: 1 pkt_rate: 2000 sent_num: 100 recv_num: 100 min: 0.3 avg: 22.4 max 1004.3
 idx: 2 pkt_rate: 2000 sent_num: 100 recv_num: 100 min: 0.4 avg: 2.3 max 6.5
@@ -702,6 +703,7 @@ idx: 132 pkt_rate: 8000 sent_num: 100 recv_num: 100 min: 0.5 avg: 2.7 max 4.4
 
 
 
+link failure
 
 idx: 0 pkt_rate: 4000 sent_num: 100 recv_num: 35 min: 870.2 avg: 938.8 max 1007.6
 idx: 1 pkt_rate: 4000 sent_num: 100 recv_num: 15 min: 0.4 avg: 2.8 max 4.3
@@ -1525,3 +1527,114 @@ idx: 129 pkt_rate: 11000 sent_num: 100 recv_num: 73 min: 209.3 avg: 608.7 max 10
 idx: 130 pkt_rate: 11000 sent_num: 100 recv_num: 73 min: 0.4 avg: 2.4 max 4.4
 idx: 131 pkt_rate: 11000 sent_num: 100 recv_num: 78 min: 0.4 avg: 2.4 max 4.4
 idx: 132 pkt_rate: 11000 sent_num: 100 recv_num: 83 min: 0.4 avg: 2.4 max 4.5
+
+
+
+
+idx: 0 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 195.5 max 1004.9
+idx: 1 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 321.0 max 1006.6
+idx: 2 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 214.2 max 1007.1
+idx: 3 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 2.6 max 6.5
+idx: 4 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 2.6 max 5.2
+idx: 5 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 295.4 max 1008.4
+idx: 6 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 259.7 max 1007.2
+idx: 7 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 304.7 max 1005.4
+idx: 9 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.6 avg: 397.4 max 1005.9
+idx: 10 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 1.4 avg: 464.6 max 1005.7
+idx: 12 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 277.2 max 1005.8
+idx: 13 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 168.1 max 1004.0
+idx: 14 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 340.0 max 1007.0
+idx: 15 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 1.1 avg: 431.9 max 1009.1
+idx: 17 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 205.5 max 1005.4
+idx: 18 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 305.1 max 1007.1
+idx: 20 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 447.6 max 1008.4
+idx: 21 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 167.9 max 1005.0
+idx: 22 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 196.1 max 1005.3
+idx: 23 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 276.9 max 1006.4
+idx: 24 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 204.7 max 1005.7
+idx: 25 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 389.8 max 1003.9
+idx: 27 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 251.4 max 1006.3
+idx: 30 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 12.5 max 1002.6
+idx: 31 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 366.0 max 1007.5
+idx: 32 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 278.7 max 1006.9
+idx: 34 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 312.6 max 1007.4
+idx: 35 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 389.9 max 1003.8
+idx: 36 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 2.6 max 4.5
+idx: 37 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 2.6 max 4.4
+idx: 38 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 1.1 avg: 471.8 max 1008.7
+idx: 39 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 204.8 max 1006.2
+idx: 40 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 406.4 max 1004.3
+idx: 41 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 423.8 max 1005.3
+idx: 42 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 364.5 max 1007.5
+idx: 44 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 398.4 max 1007.7
+idx: 45 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 1.7 avg: 472.1 max 1008.9
+idx: 47 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 381.5 max 1007.8
+idx: 48 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 1.5 avg: 474.1 max 1803.9
+idx: 50 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.2 avg: 167.7 max 1005.9
+idx: 51 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.6 avg: 464.2 max 1005.9
+idx: 52 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 2.7 max 4.3
+idx: 53 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 1.8 avg: 287.4 max 1006.1
+idx: 55 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 241.8 max 1005.4
+idx: 57 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 269.4 max 1904.8
+idx: 59 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 1.7 avg: 397.9 max 1007.1
+idx: 60 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 2.7 max 12.2
+idx: 61 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 330.2 max 1007.0
+idx: 63 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 3.0 max 8.4
+idx: 64 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 2.7 max 4.4
+idx: 65 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 432.8 max 1840.4
+idx: 67 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 365.8 max 1007.3
+idx: 68 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 340.2 max 1007.3
+idx: 69 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 321.7 max 1003.9
+idx: 70 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 340.3 max 1004.2
+idx: 73 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 196.5 max 1006.8
+idx: 75 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 241.5 max 1006.8
+idx: 77 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 348.8 max 1007.5
+idx: 78 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.7 avg: 433.1 max 1008.7
+idx: 79 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 242.4 max 1002.6
+idx: 81 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 2.5 max 4.4
+idx: 82 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.8 avg: 312.5 max 1006.5
+idx: 83 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 250.6 max 1006.5
+idx: 85 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.7 avg: 443.1 max 1857.6
+idx: 86 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.6 avg: 392.9 max 1856.8
+idx: 88 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 389.7 max 1007.8
+idx: 89 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 422.2 max 1007.4
+idx: 91 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 303.9 max 1006.7
+idx: 92 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 223.1 max 1006.6
+idx: 93 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 364.5 max 1007.7
+idx: 94 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 471.2 max 1007.3
+idx: 95 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 2.4 max 4.3
+idx: 97 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 12.7 max 1001.0
+idx: 98 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 269.3 max 1005.9
+idx: 99 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 366.2 max 1004.1
+idx: 101 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 2.6 max 4.3
+idx: 102 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 214.2 max 1006.5
+idx: 105 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 372.7 max 1006.7
+idx: 106 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 446.8 max 1008.0
+idx: 107 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 214.1 max 1004.2
+idx: 109 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 439.1 max 1008.1
+idx: 110 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 100.6 max 1004.0
+idx: 112 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 232.9 max 1005.2
+idx: 113 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 416.4 max 1007.9
+idx: 114 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 440.7 max 1007.7
+idx: 116 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.7 avg: 2.8 max 4.6
+idx: 117 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 313.1 max 1008.0
+idx: 118 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 346.7 max 1003.7
+idx: 119 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 405.7 max 1008.6
+idx: 120 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 304.1 max 1007.5
+idx: 122 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 1.0 avg: 482.1 max 1862.8
+idx: 123 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.9 avg: 505.6 max 1829.9
+idx: 125 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 338.9 max 1007.8
+idx: 126 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 407.8 max 1007.0
+idx: 127 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 214.8 max 1005.9
+idx: 128 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.3 avg: 287.7 max 1007.2
+idx: 129 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.7 avg: 12.8 max 1001.3
+idx: 130 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.5 avg: 323.9 max 1006.7
+idx: 131 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 408.0 max 1007.8
+idx: 132 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 355.5 max 1006.4
+idx: 12 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 396.7 max 1006.8
+idx: 12 pkt_rate: 4000 sent_num: 100 recv_num: 36 min: 0.6 avg: 30.1 max 1000.6
+idx: 12 pkt_rate: 4000 sent_num: 100 recv_num: 32 min: 0.4 avg: 2.4 max 5.6
+idx: 12 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 312.7 max 1007.5
+idx: 12 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 250.7 max 1007.2
+idx: 12 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 0.4 avg: 431.5 max 1004.0
+idx: 12 pkt_rate: 4000 sent_num: 100 recv_num: 100 min: 1.3 avg: 4.1 max 13.7

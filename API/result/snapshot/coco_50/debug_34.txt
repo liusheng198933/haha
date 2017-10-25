@@ -1,0 +1,33 @@
+bundle add bundle_id 441 cmd 4
+bundle add bundle_id 441 cmd 0
+bdid 441 rules commit time 1508884199 33392
+bundle add bundle_id 467 cmd 4
+bundle add bundle_id 467 cmd 0
+bdid 467 rules commit time 1508884199 84750
+bundle add bundle_id 545 cmd 4
+bundle add bundle_id 545 cmd 0
+bdid 545 rules commit time 1508884199 139675
+bundle add bundle_id 688 cmd 4
+bundle add bundle_id 688 cmd 0
+bdid 688 rules commit time 1508884199 196702
+bundle add bundle_id 477 cmd 4
+bundle add bundle_id 477 cmd 0
+bdid 477 rules commit time 1508884199 339560
+bundle add bundle_id 776 cmd 4
+bundle add bundle_id 776 cmd 0
+bdid 776 rules commit time 1508884199 393797
+bundle add bundle_id 480 cmd 4
+bundle add bundle_id 480 cmd 0
+bdid 480 rules commit time 1508884199 646307
+bundle add bundle_id 659 cmd 4
+bundle add bundle_id 659 cmd 0
+bdid 659 rules commit time 1508884199 693588
+bundle add bundle_id 726 cmd 4
+bundle add bundle_id 726 cmd 0
+bdid 726 rules commit time 1508884199 744371
+bundle add bundle_id 779 cmd 4
+bundle add bundle_id 779 cmd 0
+bdid 779 rules commit time 1508884199 799158
+bundle add bundle_id 505 cmd 4
+bundle add bundle_id 505 cmd 0
+bdid 505 rules commit time 1508884199 951083

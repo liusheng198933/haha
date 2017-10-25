@@ -1,0 +1,22 @@
+bundle add bundle_id 265 cmd 0
+bdid 265 rules commit time 1508886822 531076
+bundle add bundle_id 280 cmd 0
+bundle add bundle_id 252 cmd 4
+bundle add bundle_id 252 cmd 0
+bdid 280 rules commit time 1508886822 594451
+bundle add bundle_id 254 cmd 4
+bundle add bundle_id 254 cmd 0
+bdid 252 rules commit time 1508886822 671949
+bdid 254 rules commit time 1508886822 743426
+bundle add bundle_id 283 cmd 0
+bdid 283 rules commit time 1508886822 743746
+bundle add bundle_id 255 cmd 4
+bundle add bundle_id 255 cmd 0
+bdid 255 rules commit time 1508886822 803713
+bundle add bundle_id 257 cmd 4
+bundle add bundle_id 285 cmd 0
+bundle add bundle_id 257 cmd 0
+del prt: 100 outport: 65535 src: 67240458 dst: 33621770 rtmp: 56 time 1508886822 890607
+del prt: 100 outport: 65535 src: 67240458 dst: 33686794 rtmp: 73 time 1508886822 968580
+del prt: 100 outport: 65535 src: 33554954 dst: 33686282 rtmp: 64 time 1508886822 968891
+bdid 285 rules commit time 1508886822 969009

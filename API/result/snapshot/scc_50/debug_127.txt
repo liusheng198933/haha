@@ -1,0 +1,27 @@
+bdid 65 rules commit time 1508886800 5233
+bundle add bundle_id 95 cmd 0
+bdid 95 rules commit time 1508886800 60341
+bundle add bundle_id 187 cmd 0
+bdid 187 rules commit time 1508886800 104735
+bundle add bundle_id 247 cmd 0
+bdid 247 rules commit time 1508886800 140170
+bundle add bundle_id 70 cmd 0
+bdid 70 rules commit time 1508886800 311250
+bundle add bundle_id 134 cmd 0
+bdid 134 rules commit time 1508886800 353013
+bundle add bundle_id 154 cmd 0
+bdid 154 rules commit time 1508886800 390541
+bundle add bundle_id 205 cmd 0
+bdid 205 rules commit time 1508886800 431431
+bundle add bundle_id 87 cmd 0
+bdid 87 rules commit time 1508886800 618827
+bundle add bundle_id 162 cmd 0
+bdid 162 rules commit time 1508886800 660434
+bundle add bundle_id 192 cmd 0
+bdid 192 rules commit time 1508886800 700136
+bundle add bundle_id 222 cmd 0
+bdid 222 rules commit time 1508886800 739343
+bundle add bundle_id 90 cmd 0
+bdid 90 rules commit time 1508886800 930633
+bundle add bundle_id 165 cmd 0
+bdid 165 rules commit time 1508886800 972008

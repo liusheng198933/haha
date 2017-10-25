@@ -27,8 +27,8 @@ if __name__ == '__main__':
         print sum(result_dic[i]['loss']) / len(result_dic[i]['loss'])
 
     fp.close()
-    
-    xline = [6000, 7000, 8000, 9000, 10000, 11000]
+
+    xline = [4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000]
     filepath = '/home/shengliu/Workspace/mininet/haha/API/result.txt'
     fp = open(filepath, 'a+')
     for i in range(len(xline)):

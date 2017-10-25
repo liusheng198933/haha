@@ -1,0 +1,2 @@
+idx: 0 pkt_rate: 1000 sent_num: 1000 recv_num: 310 min: 0.3 avg: 2.2 max 4.2
+idx: 0 pkt_rate: 1000 sent_num: 1000 recv_num: 310 min: 0.2 avg: 2.2 max 4.2

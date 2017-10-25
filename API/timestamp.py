@@ -220,8 +220,24 @@ def rule_construct_cu(old_path, new_path, flow, state, prt, out_port, clk):
                     rule_set[new_path[i]]['add'].append(rule(new_path[i], match, -1, clk, out_port[new_path[i]], table_id, prt))
                 else:
                     rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, clk, out_port[new_path[i]], table_id, prt))
+        return rule_set
+    else:
 
-    return rule_set
+        for i in range(1, len(new_path)):
+            rule_set[new_path[i]] = {}
+            rule_set[new_path[i]]['add'] = []
+            rule_set[new_path[i]]['del'] = []
+            if i == len(new_path)-1:
+                rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, -1, out_port[new_path[i]], table_id, prt))
+            else:
+                rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, clk, out_port[new_path[i]], table_id, prt))
+
+        first_rule = {}
+        first_rule[new_path[0]] = {}
+        first_rule[new_path[0]]['add'] = [rule(new_path[0], match, -1, clk, out_port[new_path[0]], table_id, prt)]
+        first_rule[new_path[0]]['del'] = [rule(new_path[0], match, -1, clk-1, out_port[new_path[0]], table_id, prt)]
+        return {'rule_set': rule_set, 'first_rule': first_rule}
+
 
 
 def rule_construct_cu_twice(old_path, new_path, flow, state, prt, out_port, clk):
@@ -232,7 +248,7 @@ def rule_construct_cu_twice(old_path, new_path, flow, state, prt, out_port, clk)
     match['ipv4_src'] = flow['ipv4_src']
     match["eth_type"] = 2048
 
-    for i in range(len(new_path)):
+    for i in range(1, len(new_path)):
         rule_set[new_path[i]] = {}
         rule_set[new_path[i]]['add'] = []
         rule_set[new_path[i]]['del'] = []
@@ -248,7 +264,7 @@ def rule_construct_cu_twice(old_path, new_path, flow, state, prt, out_port, clk)
     first_rule[new_path[0]] = {}
     first_rule[new_path[0]]['add'] = [rule(new_path[0], match, -1, clk, out_port[new_path[0]], table_id, prt)]
     first_rule[new_path[0]]['del'] = [rule(new_path[0], match, -1, clk-1, out_port[new_path[0]], table_id, prt)]
-    first_rule[new_path[0]]['del'].append(rule(new_path[0], match, -1, clk, out_port[new_path[0]], table_id, 0))
+    #first_rule[new_path[0]]['del'].append(rule(new_path[0], match, -1, clk, out_port[new_path[0]], table_id, 0))
     return {'rule_set': rule_set, 'first_rule': first_rule}
 
 
@@ -316,6 +332,96 @@ def rule_construct_coco(old_path, new_path, flow, state, prt, out_port, clk):
                     rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, clk, out_port[new_path[i]], table_id, prt))
 
     return rule_set
+
+
+def rule_construct_coco_third(old_path, new_path, flow, state, prt, out_port_old, out_port_new, clk):
+
+    table_id = 0
+    match = {}
+    match['ipv4_dst'] = flow['ipv4_dst']
+    match['ipv4_src'] = flow['ipv4_src']
+    match["eth_type"] = 2048
+
+    if not old_path:
+        rule_set = {}
+        for i in range(len(new_path)):
+            rule_set[new_path[i]] = {}
+            rule_set[new_path[i]]['add'] = []
+            rule_set[new_path[i]]['del'] = []
+            if i == len(new_path)-1:
+                rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, -1, out_port_new[new_path[i]], table_id, prt))
+            else:
+                if i == 0:
+                    rule_set[new_path[i]]['add'].append(rule(new_path[i], match, -1, clk, out_port_new[new_path[i]], table_id, prt))
+                else:
+                    rule_set[new_path[i]]['add'].append(rule(new_path[i], match, clk, clk, out_port_new[new_path[i]], table_id, prt))
+        return rule_set
+
+
+    if old_path:
+        intersect_set = []
+        for i in range(len(new_path)-1):
+            if (new_path[i] in old_path) and (new_path[i+1] not in old_path):
+                intersect_set.append(new_path[i])
+
+        rule_set_first = {}
+        rule_set_second = {}
+        rule_set_third = {}
+
+        for j in range(new_path.index(intersect_set[0]), len(new_path)):
+            i = new_path[j]
+            rule_set_first[i] = {}
+            rule_set_first[i]['add'] = []
+            rule_set_first[i]['del'] = []
+            rule_set_second[i] = {}
+            rule_set_second[i]['add'] = []
+            rule_set_second[i]['del'] = []
+            rule_set_third[i] = {}
+            rule_set_third[i]['add'] = []
+            rule_set_third[i]['del'] = []
+            if i == new_path[0]:
+                rule_set_first[i]['add'].append(rule(i, match, -1, clk+1, out_port_new[i], table_id, prt-1))
+                rule_set_second[i]['del'].append(rule(i, match, -1, clk+1, out_port_new[i], table_id, prt-1))
+                rule_set_second[i]['add'].append(rule(i, match, -1, clk+1, out_port_new[i], table_id, prt+1))
+                rule_set_third[i]['del'].append(rule(i, match, -1, clk+1, out_port_new[i], table_id, prt+1))
+                rule_set_third[i]['add'].append(rule(i, match, -1, clk, out_port_new[i], table_id, prt))
+                #rule_set_five[i]['del'].append(rule(i, match, -1, clk, out_port_new[i], table_id, prt+1))
+                #rule_set_five[i]['add'].append(rule(i, match, -1, clk, out_port_new[i], table_id, prt))
+            else:
+                if i == new_path[len(new_path)-1]:
+                    rule_set_first[i]['add'].append(rule(i, match, clk+1, -1, out_port_new[i], table_id, prt-1))
+                    rule_set_second[i]['del'].append(rule(i, match, clk+1, -1, out_port_new[i], table_id, prt-1))
+                    rule_set_second[i]['add'].append(rule(i, match, clk+1, -1, out_port_new[i], table_id, prt+1))
+                    rule_set_third[i]['del'].append(rule(i, match, clk+1, -1, out_port_new[i], table_id, prt+1))
+                    rule_set_third[i]['add'].append(rule(i, match, clk, -1, out_port_new[i], table_id, prt))
+                    #rule_set_five[i]['del'].append(rule(i, match, clk+1, clk, out_port_new[i], table_id, prt+1))
+                    #rule_set_five[i]['add'].append(rule(i, match, clk+1, clk, out_port_new[i], table_id, prt))
+                else:
+                    rule_set_first[i]['add'].append(rule(i, match, clk+1, clk+1, out_port_new[i], table_id, prt-1))
+                    rule_set_second[i]['del'].append(rule(i, match, clk+1, clk+1, out_port_new[i], table_id, prt-1))
+                    rule_set_second[i]['add'].append(rule(i, match, clk+1, clk+1, out_port_new[i], table_id, prt+1))
+                    rule_set_third[i]['del'].append(rule(i, match, clk+1, clk+1, out_port_new[i], table_id, prt+1))
+                    rule_set_third[i]['add'].append(rule(i, match, clk, clk, out_port_new[i], table_id, prt))
+
+
+
+
+        for j in range(old_path.index(intersect_set[0]), len(old_path)):
+            i = old_path[j]
+            if i not in rule_set_third.keys():
+                rule_set_third[i] = {}
+                rule_set_third[i]['add'] = []
+                rule_set_third[i]['del'] = []
+            if i == old_path[0]:
+                rule_set_third[i]['del'].append(rule(i, match, -1, clk, out_port_old[i], table_id, prt))
+            else:
+                if i == old_path[len(old_path)-1]:
+                    rule_set_third[i]['del'].append(rule(i, match, clk, -1, out_port_old[i], table_id, prt))
+                else:
+                    rule_set_third[i]['del'].append(rule(i, match, clk, clk, out_port_old[i], table_id, prt))
+
+    return {'rule_set_first': rule_set_first, 'rule_set_second': rule_set_second, 'rule_set_third': rule_set_third}
+
 
 
 def rule_construct_coco_twice(old_path, new_path, flow, state, prt, out_port, clk):

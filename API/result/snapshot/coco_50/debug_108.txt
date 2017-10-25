@@ -1,0 +1,147 @@
+bdid 432 rules commit time 1508884204 39776
+bundle add bundle_id 355 cmd 4
+bdid 355 rules commit time 1508884204 40111
+bundle add bundle_id 612 cmd 0
+bdid 612 rules commit time 1508884204 40273
+bundle add bundle_id 273 cmd 4
+bundle add bundle_id 273 cmd 0
+bdid 273 rules commit time 1508884204 40378
+bundle add bundle_id 458 cmd 4
+bundle add bundle_id 458 cmd 0
+bdid 458 rules commit time 1508884204 112970
+bundle add bundle_id 368 cmd 4
+bdid 368 rules commit time 1508884204 113325
+bundle add bundle_id 625 cmd 4
+bundle add bundle_id 625 cmd 4
+bundle add bundle_id 299 cmd 4
+bundle add bundle_id 299 cmd 4
+bundle add bundle_id 299 cmd 0
+bundle add bundle_id 471 cmd 4
+bundle add bundle_id 471 cmd 0
+bdid 471 rules commit time 1508884204 170716
+bundle add bundle_id 433 cmd 4
+bdid 433 rules commit time 1508884204 171030
+bundle add bundle_id 625 cmd 0
+bdid 625 rules commit time 1508884204 171313
+bdid 299 rules commit time 1508884204 171451
+bundle add bundle_id 338 cmd 4
+bundle add bundle_id 483 cmd 4
+bundle add bundle_id 459 cmd 4
+bundle add bundle_id 637 cmd 4
+bundle add bundle_id 338 cmd 4
+bundle add bundle_id 338 cmd 0
+bdid 338 rules commit time 1508884204 234854
+bundle add bundle_id 483 cmd 0
+bdid 483 rules commit time 1508884204 311895
+bdid 459 rules commit time 1508884204 312051
+bundle add bundle_id 472 cmd 4
+bundle add bundle_id 637 cmd 4
+bundle add bundle_id 637 cmd 0
+bdid 637 rules commit time 1508884204 312254
+bundle add bundle_id 364 cmd 4
+bundle add bundle_id 275 cmd 4
+bundle add bundle_id 549 cmd 4
+bundle add bundle_id 549 cmd 0
+bdid 472 rules commit time 1508884204 372595
+bundle add bundle_id 664 cmd 4
+bundle add bundle_id 664 cmd 4
+bundle add bundle_id 364 cmd 4
+bundle add bundle_id 364 cmd 0
+bundle add bundle_id 275 cmd 4
+bdid 549 rules commit time 1508884204 433235
+bundle add bundle_id 485 cmd 4
+bdid 485 rules commit time 1508884204 433490
+bundle add bundle_id 664 cmd 0
+bdid 664 rules commit time 1508884204 433644
+bdid 364 rules commit time 1508884204 433701
+bundle add bundle_id 598 cmd 4
+bundle add bundle_id 275 cmd 0
+bdid 275 rules commit time 1508884204 434001
+bundle add bundle_id 588 cmd 4
+bundle add bundle_id 588 cmd 0
+bdid 588 rules commit time 1508884204 499459
+bundle add bundle_id 550 cmd 4
+bundle add bundle_id 676 cmd 4
+bundle add bundle_id 676 cmd 4
+bundle add bundle_id 676 cmd 0
+bundle add bundle_id 598 cmd 4
+bundle add bundle_id 598 cmd 0
+bundle add bundle_id 366 cmd 4
+bundle add bundle_id 366 cmd 4
+bundle add bundle_id 601 cmd 4
+bundle add bundle_id 601 cmd 0
+bdid 550 rules commit time 1508884204 556401
+bdid 676 rules commit time 1508884204 556543
+bdid 598 rules commit time 1508884204 556607
+bundle add bundle_id 754 cmd 4
+bundle add bundle_id 754 cmd 4
+bundle add bundle_id 366 cmd 0
+bdid 366 rules commit time 1508884204 556918
+bdid 601 rules commit time 1508884204 622470
+bundle add bundle_id 614 cmd 4
+bundle add bundle_id 589 cmd 4
+bdid 589 rules commit time 1508884204 623521
+bundle add bundle_id 702 cmd 4
+bundle add bundle_id 702 cmd 4
+bundle add bundle_id 702 cmd 0
+bundle add bundle_id 754 cmd 0
+bdid 754 rules commit time 1508884204 624327
+bundle add bundle_id 288 cmd 4
+bundle add bundle_id 288 cmd 4
+bundle add bundle_id 288 cmd 0
+bundle add bundle_id 614 cmd 0
+bdid 614 rules commit time 1508884204 690252
+bundle add bundle_id 602 cmd 4
+bdid 602 rules commit time 1508884204 690423
+bdid 702 rules commit time 1508884204 690540
+bundle add bundle_id 819 cmd 4
+bdid 288 rules commit time 1508884204 690922
+bundle add bundle_id 431 cmd 4
+bundle add bundle_id 627 cmd 4
+bundle add bundle_id 615 cmd 4
+bdid 615 rules commit time 1508884204 749597
+bundle add bundle_id 728 cmd 4
+bundle add bundle_id 728 cmd 4
+bundle add bundle_id 819 cmd 4
+bundle add bundle_id 819 cmd 0
+bdid 819 rules commit time 1508884204 749834
+bundle add bundle_id 431 cmd 4
+bundle add bundle_id 431 cmd 0
+bundle add bundle_id 627 cmd 0
+bdid 627 rules commit time 1508884204 803158
+bundle add bundle_id 628 cmd 4
+bundle add bundle_id 728 cmd 0
+bdid 728 rules commit time 1508884204 803472
+bundle add bundle_id 832 cmd 4
+bdid 431 rules commit time 1508884204 803826
+bundle add bundle_id 639 cmd 4
+bundle add bundle_id 639 cmd 0
+bdid 628 rules commit time 1508884204 862939
+bundle add bundle_id 741 cmd 4
+bundle add bundle_id 741 cmd 4
+bundle add bundle_id 832 cmd 4
+bundle add bundle_id 832 cmd 0
+bundle add bundle_id 600 cmd 4
+bundle add bundle_id 600 cmd 4
+bdid 639 rules commit time 1508884204 936325
+bundle add bundle_id 665 cmd 4
+bundle add bundle_id 641 cmd 4
+bdid 641 rules commit time 1508884204 936897
+bundle add bundle_id 741 cmd 0
+bdid 741 rules commit time 1508884204 937166
+bundle add bundle_id 755 cmd 4
+bdid 832 rules commit time 1508884204 937331
+bundle add bundle_id 300 cmd 4
+bundle add bundle_id 300 cmd 4
+bundle add bundle_id 300 cmd 0
+bundle add bundle_id 600 cmd 0
+bdid 600 rules commit time 1508884204 938079
+bundle add bundle_id 613 cmd 4
+bundle add bundle_id 665 cmd 0
+bdid 665 rules commit time 1508884204 991424
+bundle add bundle_id 667 cmd 4
+bdid 667 rules commit time 1508884204 991643
+bundle add bundle_id 755 cmd 4
+bdid 300 rules commit time 1508884204 991923
+bundle add bundle_id 613 cmd 4
+bundle add bundle_id 613 cmd 0

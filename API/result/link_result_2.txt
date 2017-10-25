@@ -1,0 +1,7 @@
+idx: 12 pkt_rate: 8000 sent_num: 500 recv_num: 332 min: 0.1 avg: 5.6 max 1003.4
+idx: 12 pkt_rate: 8000 sent_num: 500 recv_num: 451 min: 0.1 avg: 10.7 max 1008.2
+idx: 12 pkt_rate: 8000 sent_num: 100 recv_num: 59 min: 0.1 avg: 19.2 max 1000.7
+idx: 12 pkt_rate: 8000 sent_num: 100 recv_num: 59 min: 0.1 avg: 2.3 max 4.3
+idx: 12 pkt_rate: 8000 sent_num: 100 recv_num: 60 min: 0.1 avg: 2.3 max 4.1
+idx: 12 pkt_rate: 8000 sent_num: 100 recv_num: 57 min: 0.1 avg: 2.5 max 4.1
+idx: 12 pkt_rate: 8000 sent_num: 100 recv_num: 53 min: 0.1 avg: 2.3 max 4.0
