@@ -1,0 +1,2000 @@
+bdid 4 rules commit time 1517088548 615397
+bdid 2 rules commit time 1517088548 617049
+bdid 5 rules commit time 1517088548 619227
+bdid 3 rules commit time 1517088548 624978
+bdid 6 rules commit time 1517088548 642951
+bdid 7 rules commit time 1517088548 647583
+begin time 1517088550 653653
+bdid 21 rules commit time 1517088550 750497
+bdid 25 rules commit time 1517088550 828391
+bdid 22 rules commit time 1517088550 884405
+bdid 4 rules commit time 1517088556 405268
+bdid 2 rules commit time 1517088556 408587
+bdid 3 rules commit time 1517088556 411983
+bdid 5 rules commit time 1517088556 412371
+bdid 6 rules commit time 1517088556 429510
+bdid 7 rules commit time 1517088556 431700
+begin time 1517088558 397145
+bdid 21 rules commit time 1517088558 546332
+bdid 25 rules commit time 1517088558 616072
+bdid 22 rules commit time 1517088558 659243
+bdid 4 rules commit time 1517088564 162627
+bdid 2 rules commit time 1517088564 178356
+bdid 3 rules commit time 1517088564 182255
+bdid 5 rules commit time 1517088564 182438
+bdid 6 rules commit time 1517088564 195984
+bdid 7 rules commit time 1517088564 199163
+begin time 1517088566 159251
+bdid 25 rules commit time 1517088566 276933
+bdid 22 rules commit time 1517088566 306239
+bdid 21 rules commit time 1517088566 423193
+bdid 4 rules commit time 1517088571 929959
+bdid 2 rules commit time 1517088571 930084
+bdid 3 rules commit time 1517088571 944419
+bdid 5 rules commit time 1517088571 947097
+bdid 7 rules commit time 1517088571 970754
+bdid 6 rules commit time 1517088571 979263
+begin time 1517088573 926204
+bdid 21 rules commit time 1517088574 51007
+bdid 25 rules commit time 1517088574 60544
+bdid 22 rules commit time 1517088574 88418
+bdid 4 rules commit time 1517088579 608738
+bdid 2 rules commit time 1517088579 608899
+bdid 3 rules commit time 1517088579 617819
+bdid 5 rules commit time 1517088579 619878
+bdid 7 rules commit time 1517088579 640827
+bdid 6 rules commit time 1517088579 649370
+begin time 1517088581 611456
+bdid 22 rules commit time 1517088581 796091
+bdid 21 rules commit time 1517088581 828904
+bdid 25 rules commit time 1517088581 835531
+bdid 5 rules commit time 1517088587 342135
+bdid 4 rules commit time 1517088587 351013
+bdid 3 rules commit time 1517088587 351163
+bdid 2 rules commit time 1517088587 355681
+bdid 6 rules commit time 1517088587 372401
+bdid 7 rules commit time 1517088587 377419
+begin time 1517088589 342235
+bdid 25 rules commit time 1517088589 439118
+bdid 22 rules commit time 1517088589 509406
+bdid 21 rules commit time 1517088589 595357
+bdid 2 rules commit time 1517088595 120798
+bdid 4 rules commit time 1517088595 132414
+bdid 5 rules commit time 1517088595 133329
+bdid 3 rules commit time 1517088595 138383
+bdid 6 rules commit time 1517088595 150893
+bdid 7 rules commit time 1517088595 156446
+begin time 1517088597 127386
+bdid 25 rules commit time 1517088597 350997
+bdid 21 rules commit time 1517088597 372497
+bdid 22 rules commit time 1517088597 416311
+bdid 4 rules commit time 1517088602 931414
+bdid 2 rules commit time 1517088602 937099
+bdid 5 rules commit time 1517088602 938417
+bdid 3 rules commit time 1517088602 944203
+bdid 7 rules commit time 1517088602 958454
+bdid 6 rules commit time 1517088602 962469
+begin time 1517088604 926661
+bdid 21 rules commit time 1517088605 6895
+bdid 25 rules commit time 1517088605 41034
+bdid 22 rules commit time 1517088605 101166
+bdid 4 rules commit time 1517088612 340797
+bdid 5 rules commit time 1517088612 346585
+bdid 3 rules commit time 1517088612 350147
+bdid 2 rules commit time 1517088612 356545
+bdid 6 rules commit time 1517088612 363247
+bdid 7 rules commit time 1517088612 371321
+begin time 1517088614 341364
+bdid 22 rules commit time 1517088614 447319
+bdid 25 rules commit time 1517088614 541244
+bdid 21 rules commit time 1517088614 561168
+bdid 4 rules commit time 1517088620 87061
+bdid 5 rules commit time 1517088620 87668
+bdid 2 rules commit time 1517088620 91549
+bdid 3 rules commit time 1517088620 94630
+bdid 6 rules commit time 1517088620 111365
+bdid 7 rules commit time 1517088620 120273
+begin time 1517088622 128808
+bdid 21 rules commit time 1517088622 318357
+bdid 25 rules commit time 1517088622 368590
+bdid 22 rules commit time 1517088622 380754
+bdid 2 rules commit time 1517088629 397150
+bdid 5 rules commit time 1517088629 403322
+bdid 4 rules commit time 1517088629 405556
+bdid 3 rules commit time 1517088629 410799
+bdid 6 rules commit time 1517088629 424218
+bdid 7 rules commit time 1517088629 431110
+begin time 1517088631 388772
+bdid 25 rules commit time 1517088631 464605
+bdid 22 rules commit time 1517088631 560798
+bdid 21 rules commit time 1517088631 581526
+bdid 4 rules commit time 1517088637 94758
+bdid 2 rules commit time 1517088637 104023
+bdid 5 rules commit time 1517088637 104163
+bdid 3 rules commit time 1517088637 106096
+bdid 6 rules commit time 1517088637 121850
+bdid 7 rules commit time 1517088637 124132
+begin time 1517088639 110970
+bdid 22 rules commit time 1517088639 195264
+bdid 25 rules commit time 1517088639 289566
+bdid 21 rules commit time 1517088639 353064
+bdid 4 rules commit time 1517088644 894891
+bdid 2 rules commit time 1517088644 897260
+bdid 5 rules commit time 1517088644 907184
+bdid 3 rules commit time 1517088644 910720
+bdid 6 rules commit time 1517088644 918188
+bdid 7 rules commit time 1517088644 923231
+begin time 1517088646 889781
+bdid 21 rules commit time 1517088647 42628
+bdid 22 rules commit time 1517088647 85791
+bdid 25 rules commit time 1517088647 111811
+bdid 2 rules commit time 1517088652 665133
+bdid 4 rules commit time 1517088652 671049
+bdid 3 rules commit time 1517088652 674377
+bdid 5 rules commit time 1517088652 677177
+bdid 7 rules commit time 1517088652 684750
+bdid 6 rules commit time 1517088652 688589
+begin time 1517088654 658764
+bdid 25 rules commit time 1517088654 826917
+bdid 21 rules commit time 1517088654 840102
+bdid 22 rules commit time 1517088654 896298
+bdid 4 rules commit time 1517088661 889523
+bdid 5 rules commit time 1517088661 892805
+bdid 2 rules commit time 1517088661 892920
+bdid 3 rules commit time 1517088661 898989
+bdid 6 rules commit time 1517088661 917625
+bdid 7 rules commit time 1517088661 926006
+begin time 1517088663 931914
+bdid 25 rules commit time 1517088664 22936
+bdid 21 rules commit time 1517088664 119449
+bdid 22 rules commit time 1517088664 170169
+bdid 4 rules commit time 1517088669 691043
+bdid 2 rules commit time 1517088669 691266
+bdid 5 rules commit time 1517088669 694455
+bdid 3 rules commit time 1517088669 699790
+bdid 6 rules commit time 1517088669 713896
+bdid 7 rules commit time 1517088669 718887
+begin time 1517088671 689115
+bdid 22 rules commit time 1517088671 805840
+bdid 21 rules commit time 1517088671 851239
+bdid 25 rules commit time 1517088671 878024
+bdid 4 rules commit time 1517088678 894089
+bdid 2 rules commit time 1517088678 904331
+bdid 5 rules commit time 1517088678 904711
+bdid 3 rules commit time 1517088678 914212
+bdid 6 rules commit time 1517088678 920679
+bdid 7 rules commit time 1517088678 932859
+begin time 1517088680 931477
+bdid 22 rules commit time 1517088681 116062
+bdid 25 rules commit time 1517088681 144599
+bdid 21 rules commit time 1517088681 174057
+bdid 4 rules commit time 1517088686 689365
+bdid 2 rules commit time 1517088686 691999
+bdid 5 rules commit time 1517088686 692108
+bdid 3 rules commit time 1517088686 693342
+bdid 7 rules commit time 1517088686 719546
+bdid 6 rules commit time 1517088686 720993
+begin time 1517088688 687947
+bdid 22 rules commit time 1517088688 792998
+bdid 21 rules commit time 1517088688 827388
+bdid 25 rules commit time 1517088688 897509
+bdid 5 rules commit time 1517088694 587482
+bdid 4 rules commit time 1517088694 592232
+bdid 2 rules commit time 1517088694 600244
+bdid 3 rules commit time 1517088694 611899
+bdid 7 rules commit time 1517088694 633487
+bdid 6 rules commit time 1517088694 642251
+begin time 1517088696 566148
+bdid 22 rules commit time 1517088696 717717
+bdid 25 rules commit time 1517088696 771727
+bdid 21 rules commit time 1517088696 805820
+bdid 4 rules commit time 1517088702 437981
+bdid 2 rules commit time 1517088702 441066
+bdid 5 rules commit time 1517088702 441146
+bdid 3 rules commit time 1517088702 451007
+bdid 6 rules commit time 1517088702 471983
+bdid 7 rules commit time 1517088702 476426
+begin time 1517088704 448051
+bdid 21 rules commit time 1517088704 662736
+bdid 25 rules commit time 1517088704 668874
+bdid 22 rules commit time 1517088704 691402
+bdid 2 rules commit time 1517088710 236706
+bdid 5 rules commit time 1517088710 236868
+bdid 4 rules commit time 1517088710 240833
+bdid 3 rules commit time 1517088710 243126
+bdid 7 rules commit time 1517088710 259461
+bdid 6 rules commit time 1517088710 261786
+begin time 1517088712 229306
+bdid 21 rules commit time 1517088712 328913
+bdid 25 rules commit time 1517088712 361256
+bdid 22 rules commit time 1517088712 457140
+bdid 4 rules commit time 1517088718 48704
+bdid 2 rules commit time 1517088718 55503
+bdid 5 rules commit time 1517088718 59811
+bdid 3 rules commit time 1517088718 61059
+bdid 6 rules commit time 1517088718 74311
+bdid 7 rules commit time 1517088718 76650
+begin time 1517088720 47237
+bdid 25 rules commit time 1517088720 195800
+bdid 21 rules commit time 1517088720 266373
+bdid 22 rules commit time 1517088720 269970
+bdid 4 rules commit time 1517088727 329105
+bdid 5 rules commit time 1517088727 329279
+bdid 3 rules commit time 1517088727 337376
+bdid 2 rules commit time 1517088727 337585
+bdid 6 rules commit time 1517088727 357575
+bdid 7 rules commit time 1517088727 361056
+begin time 1517088729 322337
+bdid 25 rules commit time 1517088729 519250
+bdid 21 rules commit time 1517088729 527481
+bdid 22 rules commit time 1517088729 597186
+bdid 2 rules commit time 1517088738 147522
+bdid 5 rules commit time 1517088738 148568
+bdid 3 rules commit time 1517088738 149652
+bdid 4 rules commit time 1517088738 158673
+bdid 6 rules commit time 1517088738 165880
+bdid 7 rules commit time 1517088738 179303
+begin time 1517088740 140902
+bdid 22 rules commit time 1517088740 280911
+bdid 25 rules commit time 1517088740 321315
+bdid 21 rules commit time 1517088740 370130
+bdid 2 rules commit time 1517088746 3787
+bdid 4 rules commit time 1517088746 14275
+bdid 5 rules commit time 1517088746 14463
+bdid 3 rules commit time 1517088746 16942
+bdid 6 rules commit time 1517088746 29503
+bdid 7 rules commit time 1517088746 34031
+begin time 1517088747 994113
+bdid 21 rules commit time 1517088748 106568
+bdid 25 rules commit time 1517088748 143260
+bdid 22 rules commit time 1517088748 185553
+bdid 5 rules commit time 1517088753 721709
+bdid 2 rules commit time 1517088753 728921
+bdid 4 rules commit time 1517088753 729222
+bdid 3 rules commit time 1517088753 735238
+bdid 6 rules commit time 1517088753 751872
+bdid 7 rules commit time 1517088753 753519
+begin time 1517088755 714287
+bdid 21 rules commit time 1517088755 877989
+bdid 25 rules commit time 1517088755 920332
+bdid 22 rules commit time 1517088755 973922
+bdid 4 rules commit time 1517088763 102493
+bdid 2 rules commit time 1517088763 107515
+bdid 5 rules commit time 1517088763 107608
+bdid 6 rules commit time 1517088763 118005
+bdid 3 rules commit time 1517088763 124782
+bdid 7 rules commit time 1517088763 132646
+begin time 1517088765 99618
+bdid 25 rules commit time 1517088765 262702
+bdid 22 rules commit time 1517088765 286880
+bdid 21 rules commit time 1517088765 324185
+bdid 4 rules commit time 1517088770 842429
+bdid 5 rules commit time 1517088770 848597
+bdid 3 rules commit time 1517088770 852163
+bdid 2 rules commit time 1517088770 852280
+bdid 7 rules commit time 1517088770 864633
+bdid 6 rules commit time 1517088770 869666
+begin time 1517088772 837178
+bdid 25 rules commit time 1517088773 52290
+bdid 22 rules commit time 1517088773 64670
+bdid 21 rules commit time 1517088773 111973
+bdid 2 rules commit time 1517088778 674098
+bdid 4 rules commit time 1517088778 677745
+bdid 3 rules commit time 1517088778 681540
+bdid 5 rules commit time 1517088778 695981
+bdid 6 rules commit time 1517088778 711182
+bdid 7 rules commit time 1517088778 714819
+begin time 1517088780 687260
+bdid 21 rules commit time 1517088780 845899
+bdid 25 rules commit time 1517088780 881155
+bdid 22 rules commit time 1517088780 888618
+bdid 4 rules commit time 1517088786 454763
+bdid 3 rules commit time 1517088786 460027
+bdid 5 rules commit time 1517088786 461477
+bdid 2 rules commit time 1517088786 468051
+bdid 6 rules commit time 1517088786 474585
+bdid 7 rules commit time 1517088786 480491
+begin time 1517088788 442406
+bdid 25 rules commit time 1517088788 690239
+bdid 22 rules commit time 1517088788 709846
+bdid 21 rules commit time 1517088788 739916
+bdid 4 rules commit time 1517088794 270418
+bdid 5 rules commit time 1517088794 271036
+bdid 3 rules commit time 1517088794 275592
+bdid 2 rules commit time 1517088794 275666
+bdid 6 rules commit time 1517088794 288294
+bdid 7 rules commit time 1517088794 295346
+begin time 1517088796 250454
+bdid 22 rules commit time 1517088796 387243
+bdid 21 rules commit time 1517088796 439127
+bdid 25 rules commit time 1517088796 461272
+bdid 4 rules commit time 1517088802 32411
+bdid 3 rules commit time 1517088802 32509
+bdid 2 rules commit time 1517088802 32556
+bdid 5 rules commit time 1517088802 32638
+bdid 7 rules commit time 1517088802 53407
+bdid 6 rules commit time 1517088802 54568
+begin time 1517088804 12242
+bdid 22 rules commit time 1517088804 129059
+bdid 21 rules commit time 1517088804 148954
+bdid 25 rules commit time 1517088804 185072
+bdid 4 rules commit time 1517088809 721210
+bdid 2 rules commit time 1517088809 727470
+bdid 5 rules commit time 1517088809 730735
+bdid 3 rules commit time 1517088809 734016
+bdid 6 rules commit time 1517088809 747043
+bdid 7 rules commit time 1517088809 753658
+begin time 1517088811 730926
+bdid 22 rules commit time 1517088811 857614
+bdid 21 rules commit time 1517088811 925303
+bdid 25 rules commit time 1517088811 947774
+bdid 2 rules commit time 1517088817 479588
+bdid 3 rules commit time 1517088817 490593
+bdid 4 rules commit time 1517088817 500191
+bdid 5 rules commit time 1517088817 500369
+bdid 6 rules commit time 1517088817 507487
+bdid 7 rules commit time 1517088817 507549
+begin time 1517088819 477106
+bdid 22 rules commit time 1517088819 576662
+bdid 25 rules commit time 1517088819 641428
+bdid 21 rules commit time 1517088819 710296
+bdid 4 rules commit time 1517088825 221824
+bdid 2 rules commit time 1517088825 226907
+bdid 3 rules commit time 1517088825 233340
+bdid 5 rules commit time 1517088825 233472
+bdid 6 rules commit time 1517088825 248849
+bdid 7 rules commit time 1517088825 250032
+begin time 1517088827 221051
+bdid 25 rules commit time 1517088827 336271
+bdid 22 rules commit time 1517088827 374242
+bdid 21 rules commit time 1517088827 496507
+bdid 4 rules commit time 1517088834 626719
+bdid 2 rules commit time 1517088834 633557
+bdid 5 rules commit time 1517088834 633993
+bdid 3 rules commit time 1517088834 636573
+bdid 6 rules commit time 1517088834 652104
+bdid 7 rules commit time 1517088834 653387
+begin time 1517088836 607870
+bdid 21 rules commit time 1517088836 717778
+bdid 22 rules commit time 1517088836 753654
+bdid 25 rules commit time 1517088836 857796
+bdid 4 rules commit time 1517088842 426783
+bdid 2 rules commit time 1517088842 432250
+bdid 5 rules commit time 1517088842 439060
+bdid 3 rules commit time 1517088842 440255
+bdid 6 rules commit time 1517088842 453516
+bdid 7 rules commit time 1517088842 454888
+begin time 1517088844 421353
+bdid 21 rules commit time 1517088844 589453
+bdid 25 rules commit time 1517088844 593404
+bdid 22 rules commit time 1517088844 637577
+bdid 2 rules commit time 1517088851 697825
+bdid 4 rules commit time 1517088851 700034
+bdid 5 rules commit time 1517088851 706734
+bdid 3 rules commit time 1517088851 708674
+bdid 6 rules commit time 1517088851 718615
+bdid 7 rules commit time 1517088851 727522
+begin time 1517088853 685382
+bdid 22 rules commit time 1517088853 736825
+bdid 25 rules commit time 1517088853 840553
+bdid 21 rules commit time 1517088853 957840
+bdid 4 rules commit time 1517088859 575851
+bdid 2 rules commit time 1517088859 578679
+bdid 3 rules commit time 1517088859 588912
+bdid 5 rules commit time 1517088859 591697
+bdid 6 rules commit time 1517088859 607359
+bdid 7 rules commit time 1517088859 608477
+begin time 1517088861 546688
+bdid 22 rules commit time 1517088861 618824
+bdid 25 rules commit time 1517088861 743274
+bdid 21 rules commit time 1517088861 766157
+bdid 4 rules commit time 1517088868 780404
+bdid 3 rules commit time 1517088868 783310
+bdid 2 rules commit time 1517088868 786737
+bdid 5 rules commit time 1517088868 795226
+bdid 7 rules commit time 1517088868 797540
+bdid 6 rules commit time 1517088868 802331
+begin time 1517088870 772973
+bdid 22 rules commit time 1517088870 981460
+bdid 21 rules commit time 1517088870 982699
+bdid 25 rules commit time 1517088871 22892
+bdid 2 rules commit time 1517088876 585407
+bdid 3 rules commit time 1517088876 597781
+bdid 5 rules commit time 1517088876 597864
+bdid 4 rules commit time 1517088876 599822
+bdid 6 rules commit time 1517088876 619772
+bdid 7 rules commit time 1517088876 627720
+begin time 1517088878 589321
+bdid 21 rules commit time 1517088878 749030
+bdid 22 rules commit time 1517088878 758763
+bdid 25 rules commit time 1517088878 838091
+bdid 4 rules commit time 1517088884 403358
+bdid 5 rules commit time 1517088884 410033
+bdid 2 rules commit time 1517088884 417023
+bdid 3 rules commit time 1517088884 421026
+bdid 6 rules commit time 1517088884 428484
+bdid 7 rules commit time 1517088884 435781
+begin time 1517088886 412047
+bdid 21 rules commit time 1517088886 550164
+bdid 25 rules commit time 1517088886 626191
+bdid 22 rules commit time 1517088886 670101
+bdid 2 rules commit time 1517088892 254309
+bdid 4 rules commit time 1517088892 266345
+bdid 5 rules commit time 1517088892 277863
+bdid 3 rules commit time 1517088892 285997
+bdid 7 rules commit time 1517088892 291516
+bdid 6 rules commit time 1517088892 295602
+begin time 1517088894 246070
+bdid 22 rules commit time 1517088894 414519
+bdid 25 rules commit time 1517088894 444588
+bdid 21 rules commit time 1517088894 540520
+bdid 4 rules commit time 1517088901 631602
+bdid 3 rules commit time 1517088901 640533
+bdid 2 rules commit time 1517088901 646203
+bdid 5 rules commit time 1517088901 646301
+bdid 6 rules commit time 1517088901 660123
+bdid 7 rules commit time 1517088901 664280
+begin time 1517088903 625389
+bdid 25 rules commit time 1517088903 813205
+bdid 22 rules commit time 1517088903 817886
+bdid 21 rules commit time 1517088903 869833
+bdid 4 rules commit time 1517088910 980859
+bdid 3 rules commit time 1517088910 990119
+bdid 5 rules commit time 1517088910 990292
+bdid 2 rules commit time 1517088910 994232
+bdid 6 rules commit time 1517088911 10735
+bdid 7 rules commit time 1517088911 17226
+begin time 1517088912 975584
+bdid 25 rules commit time 1517088913 169415
+bdid 22 rules commit time 1517088913 225637
+bdid 21 rules commit time 1517088913 248039
+bdid 4 rules commit time 1517088920 288501
+bdid 2 rules commit time 1517088920 291334
+bdid 5 rules commit time 1517088920 294676
+bdid 3 rules commit time 1517088920 301765
+bdid 6 rules commit time 1517088920 317260
+bdid 7 rules commit time 1517088920 319742
+begin time 1517088922 293760
+bdid 22 rules commit time 1517088922 450283
+bdid 25 rules commit time 1517088922 496805
+bdid 21 rules commit time 1517088922 516966
+bdid 2 rules commit time 1517088928 43745
+bdid 4 rules commit time 1517088928 49673
+bdid 3 rules commit time 1517088928 50917
+bdid 5 rules commit time 1517088928 52164
+bdid 6 rules commit time 1517088928 64875
+bdid 7 rules commit time 1517088928 67658
+begin time 1517088930 36617
+bdid 22 rules commit time 1517088930 170974
+bdid 21 rules commit time 1517088930 238398
+bdid 25 rules commit time 1517088930 239990
+bdid 2 rules commit time 1517088935 744832
+bdid 5 rules commit time 1517088935 746711
+bdid 4 rules commit time 1517088935 752593
+bdid 3 rules commit time 1517088935 754110
+bdid 6 rules commit time 1517088935 771288
+bdid 7 rules commit time 1517088935 779872
+begin time 1517088937 751243
+bdid 25 rules commit time 1517088937 948513
+bdid 21 rules commit time 1517088937 951160
+bdid 22 rules commit time 1517088938 16844
+bdid 2 rules commit time 1517088945 86535
+bdid 4 rules commit time 1517088945 87986
+bdid 3 rules commit time 1517088945 97864
+bdid 5 rules commit time 1517088945 97948
+bdid 6 rules commit time 1517088945 105264
+bdid 7 rules commit time 1517088945 113478
+begin time 1517088947 101704
+bdid 25 rules commit time 1517088947 288751
+bdid 21 rules commit time 1517088947 297905
+bdid 22 rules commit time 1517088947 367698
+bdid 4 rules commit time 1517088952 945752
+bdid 2 rules commit time 1517088952 951883
+bdid 3 rules commit time 1517088952 957150
+bdid 5 rules commit time 1517088952 957322
+bdid 6 rules commit time 1517088952 969892
+bdid 7 rules commit time 1517088952 973882
+begin time 1517088954 940838
+bdid 21 rules commit time 1517088955 90387
+bdid 22 rules commit time 1517088955 128765
+bdid 25 rules commit time 1517088955 194921
+bdid 5 rules commit time 1517088960 765298
+bdid 2 rules commit time 1517088960 765419
+bdid 4 rules commit time 1517088960 770228
+bdid 3 rules commit time 1517088960 770724
+bdid 6 rules commit time 1517088960 783637
+bdid 7 rules commit time 1517088960 791567
+begin time 1517088962 760926
+bdid 25 rules commit time 1517088962 906030
+bdid 22 rules commit time 1517088962 963453
+bdid 21 rules commit time 1517088963 51041
+bdid 2 rules commit time 1517088970 59765
+bdid 4 rules commit time 1517088970 68206
+bdid 5 rules commit time 1517088970 70689
+bdid 3 rules commit time 1517088970 80925
+bdid 6 rules commit time 1517088970 89243
+bdid 7 rules commit time 1517088970 97833
+begin time 1517088972 66460
+bdid 25 rules commit time 1517088972 245898
+bdid 21 rules commit time 1517088972 257229
+bdid 22 rules commit time 1517088972 257295
+bdid 4 rules commit time 1517088977 803440
+bdid 5 rules commit time 1517088977 808029
+bdid 2 rules commit time 1517088977 808330
+bdid 3 rules commit time 1517088977 810408
+bdid 6 rules commit time 1517088977 829339
+bdid 7 rules commit time 1517088977 830831
+begin time 1517088979 798396
+bdid 25 rules commit time 1517088979 924890
+bdid 22 rules commit time 1517088979 975054
+bdid 21 rules commit time 1517088980 42285
+bdid 2 rules commit time 1517088985 565974
+bdid 4 rules commit time 1517088985 570604
+bdid 5 rules commit time 1517088985 573385
+bdid 7 rules commit time 1517088985 594240
+bdid 6 rules commit time 1517088985 595493
+bdid 3 rules commit time 1517088985 617336
+begin time 1517088987 551080
+bdid 22 rules commit time 1517088987 679740
+bdid 25 rules commit time 1517088987 740631
+bdid 21 rules commit time 1517088987 799424
+bdid 4 rules commit time 1517088993 317634
+bdid 5 rules commit time 1517088993 321387
+bdid 3 rules commit time 1517088993 329133
+bdid 2 rules commit time 1517088993 329311
+bdid 6 rules commit time 1517088993 345060
+bdid 7 rules commit time 1517088993 351824
+begin time 1517088995 323538
+bdid 25 rules commit time 1517088995 454418
+bdid 21 rules commit time 1517088995 552589
+bdid 22 rules commit time 1517088995 562791
+bdid 4 rules commit time 1517089004 45090
+bdid 5 rules commit time 1517089004 53982
+bdid 3 rules commit time 1517089004 56897
+bdid 2 rules commit time 1517089004 67029
+bdid 7 rules commit time 1517089004 73431
+bdid 6 rules commit time 1517089004 75017
+begin time 1517089006 64738
+bdid 21 rules commit time 1517089006 116503
+bdid 25 rules commit time 1517089006 228278
+bdid 22 rules commit time 1517089006 251475
+bdid 5 rules commit time 1517089013 239030
+bdid 4 rules commit time 1517089013 247491
+bdid 3 rules commit time 1517089013 247642
+bdid 2 rules commit time 1517089013 251110
+bdid 6 rules commit time 1517089013 261637
+bdid 7 rules commit time 1517089013 265678
+begin time 1517089015 242502
+bdid 21 rules commit time 1517089015 472459
+bdid 22 rules commit time 1517089015 502304
+bdid 25 rules commit time 1517089015 517579
+bdid 4 rules commit time 1517089022 538285
+bdid 2 rules commit time 1517089022 538700
+bdid 5 rules commit time 1517089022 540742
+bdid 3 rules commit time 1517089022 547461
+bdid 6 rules commit time 1517089022 566329
+bdid 7 rules commit time 1517089022 573287
+begin time 1517089024 552717
+bdid 25 rules commit time 1517089024 672282
+bdid 22 rules commit time 1517089024 693921
+bdid 21 rules commit time 1517089024 758732
+bdid 4 rules commit time 1517089030 256155
+bdid 2 rules commit time 1517089030 259783
+bdid 5 rules commit time 1517089030 261119
+bdid 3 rules commit time 1517089030 270984
+bdid 6 rules commit time 1517089030 281582
+bdid 7 rules commit time 1517089030 293296
+begin time 1517089032 255501
+bdid 21 rules commit time 1517089032 432318
+bdid 25 rules commit time 1517089032 454088
+bdid 22 rules commit time 1517089032 583627
+bdid 4 rules commit time 1517089038 88826
+bdid 2 rules commit time 1517089038 91543
+bdid 5 rules commit time 1517089038 95233
+bdid 3 rules commit time 1517089038 96642
+bdid 7 rules commit time 1517089038 116317
+bdid 6 rules commit time 1517089038 116420
+begin time 1517089040 85046
+bdid 25 rules commit time 1517089040 186308
+bdid 22 rules commit time 1517089040 213818
+bdid 21 rules commit time 1517089040 277324
+bdid 4 rules commit time 1517089047 247300
+bdid 2 rules commit time 1517089047 249463
+bdid 3 rules commit time 1517089047 253037
+bdid 5 rules commit time 1517089047 253127
+bdid 6 rules commit time 1517089047 267004
+bdid 7 rules commit time 1517089047 275380
+begin time 1517089049 243402
+bdid 21 rules commit time 1517089049 409871
+bdid 22 rules commit time 1517089049 427392
+bdid 25 rules commit time 1517089049 493249
+bdid 4 rules commit time 1517089055 46125
+bdid 2 rules commit time 1517089055 46289
+bdid 3 rules commit time 1517089055 48808
+bdid 5 rules commit time 1517089055 54363
+bdid 6 rules commit time 1517089055 66216
+bdid 7 rules commit time 1517089055 71794
+begin time 1517089057 82217
+bdid 25 rules commit time 1517089057 287752
+bdid 22 rules commit time 1517089057 305942
+bdid 21 rules commit time 1517089057 367681
+bdid 4 rules commit time 1517089062 862909
+bdid 5 rules commit time 1517089062 875091
+bdid 2 rules commit time 1517089062 877325
+bdid 3 rules commit time 1517089062 879695
+bdid 6 rules commit time 1517089062 895519
+bdid 7 rules commit time 1517089062 904711
+begin time 1517089064 897945
+bdid 25 rules commit time 1517089065 47000
+bdid 22 rules commit time 1517089065 55252
+bdid 21 rules commit time 1517089065 128978
+bdid 2 rules commit time 1517089072 142302
+bdid 3 rules commit time 1517089072 142722
+bdid 4 rules commit time 1517089072 144928
+bdid 5 rules commit time 1517089072 152282
+bdid 7 rules commit time 1517089072 160394
+bdid 6 rules commit time 1517089072 163902
+begin time 1517089074 141314
+bdid 21 rules commit time 1517089074 291002
+bdid 22 rules commit time 1517089074 297753
+bdid 25 rules commit time 1517089074 428049
+bdid 2 rules commit time 1517089079 941666
+bdid 4 rules commit time 1517089079 949000
+bdid 3 rules commit time 1517089079 949092
+bdid 5 rules commit time 1517089079 950943
+bdid 6 rules commit time 1517089079 969114
+bdid 7 rules commit time 1517089079 977078
+begin time 1517089081 947694
+bdid 25 rules commit time 1517089082 73185
+bdid 21 rules commit time 1517089082 116619
+bdid 22 rules commit time 1517089082 137753
+bdid 4 rules commit time 1517089089 132633
+bdid 3 rules commit time 1517089089 138045
+bdid 2 rules commit time 1517089089 138146
+bdid 5 rules commit time 1517089089 143651
+bdid 6 rules commit time 1517089089 155763
+bdid 7 rules commit time 1517089089 162718
+begin time 1517089091 179494
+bdid 22 rules commit time 1517089091 284915
+bdid 25 rules commit time 1517089091 363892
+bdid 21 rules commit time 1517089091 394471
+bdid 5 rules commit time 1517089096 895647
+bdid 2 rules commit time 1517089096 900589
+bdid 4 rules commit time 1517089096 903971
+bdid 3 rules commit time 1517089096 905904
+bdid 7 rules commit time 1517089096 920901
+bdid 6 rules commit time 1517089096 922023
+begin time 1517089098 915240
+bdid 22 rules commit time 1517089099 152430
+bdid 21 rules commit time 1517089099 182602
+bdid 25 rules commit time 1517089099 183940
+bdid 4 rules commit time 1517089106 195505
+bdid 2 rules commit time 1517089106 196124
+bdid 5 rules commit time 1517089106 208354
+bdid 3 rules commit time 1517089106 212516
+bdid 6 rules commit time 1517089106 228020
+bdid 7 rules commit time 1517089106 233043
+begin time 1517089108 190225
+bdid 25 rules commit time 1517089108 312337
+bdid 21 rules commit time 1517089108 410143
+bdid 22 rules commit time 1517089108 411591
+bdid 2 rules commit time 1517089113 962936
+bdid 4 rules commit time 1517089113 966470
+bdid 3 rules commit time 1517089113 966992
+bdid 5 rules commit time 1517089113 968794
+bdid 6 rules commit time 1517089113 981584
+bdid 7 rules commit time 1517089113 983192
+begin time 1517089115 954529
+bdid 21 rules commit time 1517089116 117055
+bdid 25 rules commit time 1517089116 131733
+bdid 22 rules commit time 1517089116 143108
+bdid 4 rules commit time 1517089121 680744
+bdid 2 rules commit time 1517089121 683387
+bdid 3 rules commit time 1517089121 688083
+bdid 5 rules commit time 1517089121 694487
+bdid 6 rules commit time 1517089121 704331
+bdid 7 rules commit time 1517089121 715279
+begin time 1517089123 683687
+bdid 21 rules commit time 1517089123 866489
+bdid 22 rules commit time 1517089123 890552
+bdid 25 rules commit time 1517089123 902562
+bdid 2 rules commit time 1517089129 457237
+bdid 4 rules commit time 1517089129 457826
+bdid 3 rules commit time 1517089129 461683
+bdid 5 rules commit time 1517089129 464927
+bdid 6 rules commit time 1517089129 478243
+bdid 7 rules commit time 1517089129 482803
+begin time 1517089131 447912
+bdid 21 rules commit time 1517089131 639380
+bdid 22 rules commit time 1517089131 654146
+bdid 25 rules commit time 1517089131 755880
+bdid 2 rules commit time 1517089137 263865
+bdid 3 rules commit time 1517089137 279449
+bdid 5 rules commit time 1517089137 279556
+bdid 4 rules commit time 1517089137 279660
+bdid 6 rules commit time 1517089137 286951
+bdid 7 rules commit time 1517089137 303214
+begin time 1517089139 294581
+bdid 21 rules commit time 1517089139 431614
+bdid 25 rules commit time 1517089139 443429
+bdid 22 rules commit time 1517089139 475871
+bdid 2 rules commit time 1517089146 514024
+bdid 4 rules commit time 1517089146 516664
+bdid 5 rules commit time 1517089146 523196
+bdid 3 rules commit time 1517089146 525336
+bdid 6 rules commit time 1517089146 541874
+bdid 7 rules commit time 1517089146 543043
+begin time 1517089148 515942
+bdid 25 rules commit time 1517089148 639104
+bdid 22 rules commit time 1517089148 680713
+bdid 21 rules commit time 1517089148 729783
+bdid 4 rules commit time 1517089154 248457
+bdid 2 rules commit time 1517089154 250790
+bdid 5 rules commit time 1517089154 250878
+bdid 3 rules commit time 1517089154 252873
+bdid 6 rules commit time 1517089154 269362
+bdid 7 rules commit time 1517089154 277281
+begin time 1517089156 245277
+bdid 21 rules commit time 1517089156 391693
+bdid 25 rules commit time 1517089156 432288
+bdid 22 rules commit time 1517089156 571319
+bdid 4 rules commit time 1517089162 93025
+bdid 3 rules commit time 1517089162 102403
+bdid 2 rules commit time 1517089162 102498
+bdid 5 rules commit time 1517089162 111834
+bdid 6 rules commit time 1517089162 116250
+bdid 7 rules commit time 1517089162 124140
+begin time 1517089164 135605
+bdid 22 rules commit time 1517089164 303882
+bdid 25 rules commit time 1517089164 311245
+bdid 21 rules commit time 1517089164 396027
+bdid 4 rules commit time 1517089171 478303
+bdid 2 rules commit time 1517089171 478477
+bdid 3 rules commit time 1517089171 482980
+bdid 5 rules commit time 1517089171 486762
+bdid 6 rules commit time 1517089171 496995
+bdid 7 rules commit time 1517089171 504862
+begin time 1517089173 470142
+bdid 21 rules commit time 1517089173 686256
+bdid 25 rules commit time 1517089173 697219
+bdid 22 rules commit time 1517089173 843365
+bdid 4 rules commit time 1517089179 374584
+bdid 3 rules commit time 1517089179 378192
+bdid 2 rules commit time 1517089179 379540
+bdid 5 rules commit time 1517089179 386619
+bdid 7 rules commit time 1517089179 404768
+bdid 6 rules commit time 1517089179 406537
+begin time 1517089181 383305
+bdid 22 rules commit time 1517089181 515721
+bdid 25 rules commit time 1517089181 608595
+bdid 21 rules commit time 1517089181 643634
+bdid 4 rules commit time 1517089190 72749
+bdid 2 rules commit time 1517089190 75246
+bdid 5 rules commit time 1517089190 76508
+bdid 3 rules commit time 1517089190 80400
+bdid 6 rules commit time 1517089190 96158
+bdid 7 rules commit time 1517089190 99524
+begin time 1517089192 72842
+bdid 22 rules commit time 1517089192 230210
+bdid 25 rules commit time 1517089192 254269
+bdid 21 rules commit time 1517089192 273405
+bdid 4 rules commit time 1517089197 771501
+bdid 2 rules commit time 1517089197 775987
+bdid 3 rules commit time 1517089197 778914
+bdid 5 rules commit time 1517089197 778980
+bdid 6 rules commit time 1517089197 790750
+bdid 7 rules commit time 1517089197 795159
+begin time 1517089199 764475
+bdid 21 rules commit time 1517089199 930355
+bdid 22 rules commit time 1517089199 934551
+bdid 25 rules commit time 1517089200 4803
+bdid 4 rules commit time 1517089205 517684
+bdid 3 rules commit time 1517089205 550559
+bdid 5 rules commit time 1517089205 553901
+bdid 2 rules commit time 1517089205 557553
+bdid 6 rules commit time 1517089205 582807
+bdid 7 rules commit time 1517089205 584091
+begin time 1517089207 518700
+bdid 25 rules commit time 1517089207 697668
+bdid 22 rules commit time 1517089207 706291
+bdid 21 rules commit time 1517089207 757732
+bdid 4 rules commit time 1517089215 29355
+bdid 3 rules commit time 1517089215 29725
+bdid 5 rules commit time 1517089215 32398
+bdid 2 rules commit time 1517089215 37028
+bdid 7 rules commit time 1517089215 55203
+bdid 6 rules commit time 1517089215 57408
+begin time 1517089216 994993
+bdid 22 rules commit time 1517089217 145491
+bdid 21 rules commit time 1517089217 256191
+bdid 25 rules commit time 1517089217 274989
+bdid 4 rules commit time 1517089223 14634
+bdid 2 rules commit time 1517089223 36638
+bdid 5 rules commit time 1517089223 50339
+bdid 3 rules commit time 1517089223 59426
+bdid 7 rules commit time 1517089223 68574
+bdid 6 rules commit time 1517089223 77166
+begin time 1517089225 10329
+bdid 22 rules commit time 1517089225 170970
+bdid 25 rules commit time 1517089225 202898
+bdid 21 rules commit time 1517089225 246107
+bdid 4 rules commit time 1517089232 343122
+bdid 2 rules commit time 1517089232 343274
+bdid 3 rules commit time 1517089232 347300
+bdid 5 rules commit time 1517089232 356997
+bdid 7 rules commit time 1517089232 358434
+bdid 6 rules commit time 1517089232 363106
+begin time 1517089234 329723
+bdid 22 rules commit time 1517089234 430174
+bdid 21 rules commit time 1517089234 492276
+bdid 25 rules commit time 1517089234 501250
+bdid 2 rules commit time 1517089240 70926
+bdid 4 rules commit time 1517089240 73138
+bdid 3 rules commit time 1517089240 74232
+bdid 5 rules commit time 1517089240 76210
+bdid 6 rules commit time 1517089240 85402
+bdid 7 rules commit time 1517089240 93886
+begin time 1517089242 49600
+bdid 22 rules commit time 1517089242 201006
+bdid 25 rules commit time 1517089242 252793
+bdid 21 rules commit time 1517089242 282839
+bdid 4 rules commit time 1517089247 841500
+bdid 2 rules commit time 1517089247 845021
+bdid 5 rules commit time 1517089247 846282
+bdid 3 rules commit time 1517089247 856598
+bdid 6 rules commit time 1517089247 869424
+bdid 7 rules commit time 1517089247 877328
+begin time 1517089249 838095
+bdid 22 rules commit time 1517089250 19711
+bdid 25 rules commit time 1517089250 48948
+bdid 21 rules commit time 1517089250 101972
+bdid 4 rules commit time 1517089257 184322
+bdid 2 rules commit time 1517089257 187519
+bdid 5 rules commit time 1517089257 192001
+bdid 3 rules commit time 1517089257 193080
+bdid 6 rules commit time 1517089257 206737
+bdid 7 rules commit time 1517089257 211459
+begin time 1517089259 179367
+bdid 21 rules commit time 1517089259 297715
+bdid 22 rules commit time 1517089259 346721
+bdid 25 rules commit time 1517089259 391110
+bdid 2 rules commit time 1517089264 974732
+bdid 4 rules commit time 1517089264 982903
+bdid 3 rules commit time 1517089264 983365
+bdid 5 rules commit time 1517089264 985606
+bdid 6 rules commit time 1517089264 999358
+bdid 7 rules commit time 1517089265 1086
+begin time 1517089267 2554
+bdid 22 rules commit time 1517089267 129982
+bdid 21 rules commit time 1517089267 218801
+bdid 25 rules commit time 1517089267 244422
+bdid 4 rules commit time 1517089272 788554
+bdid 2 rules commit time 1517089272 788652
+bdid 5 rules commit time 1517089272 792983
+bdid 3 rules commit time 1517089272 794502
+bdid 6 rules commit time 1517089272 807269
+bdid 7 rules commit time 1517089272 814366
+begin time 1517089274 780744
+bdid 22 rules commit time 1517089274 890920
+bdid 21 rules commit time 1517089274 924100
+bdid 25 rules commit time 1517089274 944737
+bdid 4 rules commit time 1517089280 488795
+bdid 2 rules commit time 1517089280 499524
+bdid 5 rules commit time 1517089280 512862
+bdid 3 rules commit time 1517089280 515401
+bdid 6 rules commit time 1517089280 517645
+bdid 7 rules commit time 1517089280 521803
+begin time 1517089282 481835
+bdid 21 rules commit time 1517089282 639309
+bdid 22 rules commit time 1517089282 656703
+bdid 25 rules commit time 1517089282 749914
+bdid 4 rules commit time 1517089288 320377
+bdid 2 rules commit time 1517089288 328954
+bdid 5 rules commit time 1517089288 330712
+bdid 3 rules commit time 1517089288 332092
+bdid 7 rules commit time 1517089288 351541
+bdid 6 rules commit time 1517089288 360129
+begin time 1517089290 293625
+bdid 22 rules commit time 1517089290 478820
+bdid 21 rules commit time 1517089290 528277
+bdid 25 rules commit time 1517089290 536244
+bdid 5 rules commit time 1517089297 611157
+bdid 2 rules commit time 1517089297 611239
+bdid 3 rules commit time 1517089297 613244
+bdid 4 rules commit time 1517089297 625821
+bdid 6 rules commit time 1517089297 628628
+bdid 7 rules commit time 1517089297 645133
+begin time 1517089299 600181
+bdid 22 rules commit time 1517089299 717548
+bdid 21 rules commit time 1517089299 753713
+bdid 25 rules commit time 1517089299 876565
+bdid 2 rules commit time 1517089305 423294
+bdid 5 rules commit time 1517089305 423426
+bdid 4 rules commit time 1517089305 424812
+bdid 3 rules commit time 1517089305 425979
+bdid 6 rules commit time 1517089305 444643
+bdid 7 rules commit time 1517089305 454035
+begin time 1517089307 418844
+bdid 21 rules commit time 1517089307 600450
+bdid 22 rules commit time 1517089307 603212
+bdid 25 rules commit time 1517089307 623047
+bdid 4 rules commit time 1517089314 676350
+bdid 2 rules commit time 1517089314 684000
+bdid 5 rules commit time 1517089314 686997
+bdid 3 rules commit time 1517089314 700135
+bdid 7 rules commit time 1517089314 706051
+bdid 6 rules commit time 1517089314 707370
+begin time 1517089316 671484
+bdid 21 rules commit time 1517089316 901223
+bdid 25 rules commit time 1517089316 912434
+bdid 22 rules commit time 1517089317 7576
+bdid 2 rules commit time 1517089322 726670
+bdid 4 rules commit time 1517089322 735492
+bdid 3 rules commit time 1517089322 743606
+bdid 5 rules commit time 1517089322 750321
+bdid 6 rules commit time 1517089322 771602
+bdid 7 rules commit time 1517089322 775087
+begin time 1517089324 728022
+bdid 25 rules commit time 1517089324 859048
+bdid 22 rules commit time 1517089324 949239
+bdid 21 rules commit time 1517089324 951815
+bdid 2 rules commit time 1517089330 566847
+bdid 3 rules commit time 1517089330 570791
+bdid 5 rules commit time 1517089330 598329
+bdid 4 rules commit time 1517089330 625156
+bdid 6 rules commit time 1517089330 628065
+bdid 7 rules commit time 1517089330 636172
+begin time 1517089332 533385
+bdid 21 rules commit time 1517089332 644519
+bdid 22 rules commit time 1517089332 665388
+bdid 25 rules commit time 1517089332 692406
+bdid 2 rules commit time 1517089338 234818
+bdid 5 rules commit time 1517089338 242341
+bdid 4 rules commit time 1517089338 242482
+bdid 3 rules commit time 1517089338 246532
+bdid 6 rules commit time 1517089338 261560
+bdid 7 rules commit time 1517089338 266406
+begin time 1517089340 237813
+bdid 25 rules commit time 1517089340 438155
+bdid 21 rules commit time 1517089340 441529
+bdid 22 rules commit time 1517089340 505911
+bdid 2 rules commit time 1517089346 58615
+bdid 3 rules commit time 1517089346 69080
+bdid 4 rules commit time 1517089346 73110
+bdid 5 rules commit time 1517089346 78782
+bdid 6 rules commit time 1517089346 89204
+bdid 7 rules commit time 1517089346 97125
+begin time 1517089348 59115
+bdid 22 rules commit time 1517089348 245729
+bdid 25 rules commit time 1517089348 263062
+bdid 21 rules commit time 1517089348 320974
+bdid 4 rules commit time 1517089353 864419
+bdid 2 rules commit time 1517089353 873404
+bdid 5 rules commit time 1517089353 873534
+bdid 3 rules commit time 1517089353 875192
+bdid 6 rules commit time 1517089353 889857
+bdid 7 rules commit time 1517089353 893994
+begin time 1517089355 866667
+bdid 25 rules commit time 1517089356 34158
+bdid 22 rules commit time 1517089356 111849
+bdid 21 rules commit time 1517089356 174420
+bdid 4 rules commit time 1517089361 698359
+bdid 2 rules commit time 1517089361 711568
+bdid 5 rules commit time 1517089361 714456
+bdid 3 rules commit time 1517089361 716802
+bdid 6 rules commit time 1517089361 732144
+bdid 7 rules commit time 1517089361 735339
+begin time 1517089363 703225
+bdid 21 rules commit time 1517089363 850124
+bdid 22 rules commit time 1517089363 946714
+bdid 25 rules commit time 1517089363 969256
+bdid 5 rules commit time 1517089369 504675
+bdid 4 rules commit time 1517089369 510020
+bdid 3 rules commit time 1517089369 510116
+bdid 2 rules commit time 1517089369 512555
+bdid 6 rules commit time 1517089369 524651
+bdid 7 rules commit time 1517089369 532280
+begin time 1517089371 498191
+bdid 22 rules commit time 1517089371 585119
+bdid 25 rules commit time 1517089371 663659
+bdid 21 rules commit time 1517089371 836583
+bdid 5 rules commit time 1517089377 376459
+bdid 2 rules commit time 1517089377 379773
+bdid 4 rules commit time 1517089377 382480
+bdid 3 rules commit time 1517089377 385557
+bdid 7 rules commit time 1517089377 400429
+bdid 6 rules commit time 1517089377 404745
+begin time 1517089379 372178
+bdid 22 rules commit time 1517089379 584354
+bdid 25 rules commit time 1517089379 615789
+bdid 21 rules commit time 1517089379 653758
+bdid 4 rules commit time 1517089386 817167
+bdid 2 rules commit time 1517089386 817284
+bdid 3 rules commit time 1517089386 829836
+bdid 5 rules commit time 1517089386 856117
+bdid 6 rules commit time 1517089386 866155
+bdid 7 rules commit time 1517089386 875883
+begin time 1517089388 812323
+bdid 25 rules commit time 1517089389 36629
+bdid 21 rules commit time 1517089389 67639
+bdid 22 rules commit time 1517089389 82943
+bdid 3 rules commit time 1517089394 657265
+bdid 5 rules commit time 1517089394 657390
+bdid 4 rules commit time 1517089394 660708
+bdid 2 rules commit time 1517089394 660825
+bdid 6 rules commit time 1517089394 683813
+bdid 7 rules commit time 1517089394 690166
+begin time 1517089396 656499
+bdid 21 rules commit time 1517089396 837602
+bdid 22 rules commit time 1517089396 898072
+bdid 25 rules commit time 1517089396 911661
+bdid 4 rules commit time 1517089402 452784
+bdid 2 rules commit time 1517089402 455958
+bdid 5 rules commit time 1517089402 468775
+bdid 3 rules commit time 1517089402 471176
+bdid 7 rules commit time 1517089402 487056
+bdid 6 rules commit time 1517089402 490995
+begin time 1517089404 453648
+bdid 22 rules commit time 1517089404 606639
+bdid 25 rules commit time 1517089404 650458
+bdid 21 rules commit time 1517089404 696187
+bdid 4 rules commit time 1517089411 751691
+bdid 2 rules commit time 1517089411 760072
+bdid 3 rules commit time 1517089411 760170
+bdid 5 rules commit time 1517089411 761608
+bdid 6 rules commit time 1517089411 779336
+bdid 7 rules commit time 1517089411 781252
+begin time 1517089413 745189
+bdid 22 rules commit time 1517089413 870895
+bdid 21 rules commit time 1517089413 943005
+bdid 25 rules commit time 1517089414 56308
+bdid 4 rules commit time 1517089421 45980
+bdid 5 rules commit time 1517089421 54706
+bdid 3 rules commit time 1517089421 55742
+bdid 2 rules commit time 1517089421 60608
+bdid 6 rules commit time 1517089421 76112
+bdid 7 rules commit time 1517089421 83907
+begin time 1517089423 48859
+bdid 22 rules commit time 1517089423 179347
+bdid 21 rules commit time 1517089423 330746
+bdid 25 rules commit time 1517089423 348844
+bdid 2 rules commit time 1517089428 865496
+bdid 4 rules commit time 1517089428 867580
+bdid 3 rules commit time 1517089428 876803
+bdid 5 rules commit time 1517089428 881065
+bdid 6 rules commit time 1517089428 896448
+bdid 7 rules commit time 1517089428 898193
+begin time 1517089430 869220
+bdid 22 rules commit time 1517089431 69391
+bdid 21 rules commit time 1517089431 71891
+bdid 25 rules commit time 1517089431 85543
+bdid 4 rules commit time 1517089438 63196
+bdid 2 rules commit time 1517089438 63374
+bdid 3 rules commit time 1517089438 67687
+bdid 5 rules commit time 1517089438 70897
+bdid 6 rules commit time 1517089438 81046
+bdid 7 rules commit time 1517089438 87240
+begin time 1517089440 59894
+bdid 22 rules commit time 1517089440 242733
+bdid 25 rules commit time 1517089440 305745
+bdid 21 rules commit time 1517089440 337904
+bdid 4 rules commit time 1517089445 850709
+bdid 2 rules commit time 1517089445 851267
+bdid 3 rules commit time 1517089445 857480
+bdid 5 rules commit time 1517089445 864301
+bdid 6 rules commit time 1517089445 876800
+bdid 7 rules commit time 1517089445 882762
+begin time 1517089447 866521
+bdid 25 rules commit time 1517089448 23541
+bdid 21 rules commit time 1517089448 67671
+bdid 22 rules commit time 1517089448 101972
+bdid 4 rules commit time 1517089453 612778
+bdid 5 rules commit time 1517089453 617540
+bdid 3 rules commit time 1517089453 619157
+bdid 2 rules commit time 1517089453 620361
+bdid 6 rules commit time 1517089453 637273
+bdid 7 rules commit time 1517089453 645257
+begin time 1517089455 610512
+bdid 21 rules commit time 1517089455 726130
+bdid 25 rules commit time 1517089455 827613
+bdid 22 rules commit time 1517089455 873800
+bdid 4 rules commit time 1517089461 399886
+bdid 2 rules commit time 1517089461 400010
+bdid 5 rules commit time 1517089461 408802
+bdid 3 rules commit time 1517089461 408887
+bdid 6 rules commit time 1517089461 413905
+bdid 7 rules commit time 1517089461 421083
+begin time 1517089463 391214
+bdid 25 rules commit time 1517089463 570973
+bdid 21 rules commit time 1517089463 589110
+bdid 22 rules commit time 1517089463 667274
+bdid 4 rules commit time 1517089469 203313
+bdid 2 rules commit time 1517089469 207849
+bdid 3 rules commit time 1517089469 211040
+bdid 5 rules commit time 1517089469 211156
+bdid 6 rules commit time 1517089469 224873
+bdid 7 rules commit time 1517089469 228207
+begin time 1517089471 206405
+bdid 25 rules commit time 1517089471 357209
+bdid 22 rules commit time 1517089471 459242
+bdid 21 rules commit time 1517089471 471337
+bdid 4 rules commit time 1517089476 995132
+bdid 2 rules commit time 1517089477 2946
+bdid 5 rules commit time 1517089477 3111
+bdid 3 rules commit time 1517089477 6808
+bdid 6 rules commit time 1517089477 24985
+bdid 7 rules commit time 1517089477 31467
+begin time 1517089478 999583
+bdid 25 rules commit time 1517089479 202431
+bdid 21 rules commit time 1517089479 224591
+bdid 22 rules commit time 1517089479 249709
+bdid 3 rules commit time 1517089484 853608
+bdid 2 rules commit time 1517089484 853709
+bdid 5 rules commit time 1517089484 855874
+bdid 4 rules commit time 1517089484 861142
+bdid 7 rules commit time 1517089484 869686
+bdid 6 rules commit time 1517089484 875859
+begin time 1517089486 843301
+bdid 22 rules commit time 1517089486 942368
+bdid 25 rules commit time 1517089486 992398
+bdid 21 rules commit time 1517089487 15186
+bdid 4 rules commit time 1517089492 576670
+bdid 5 rules commit time 1517089492 580483
+bdid 2 rules commit time 1517089492 584074
+bdid 3 rules commit time 1517089492 589772
+bdid 6 rules commit time 1517089492 598527
+bdid 7 rules commit time 1517089492 614521
+begin time 1517089494 573500
+bdid 21 rules commit time 1517089494 752393
+bdid 22 rules commit time 1517089494 776375
+bdid 25 rules commit time 1517089494 856261
+bdid 4 rules commit time 1517089500 391340
+bdid 5 rules commit time 1517089500 391581
+bdid 2 rules commit time 1517089500 394694
+bdid 3 rules commit time 1517089500 397067
+bdid 6 rules commit time 1517089500 417466
+bdid 7 rules commit time 1517089500 417545
+begin time 1517089502 386249
+bdid 22 rules commit time 1517089502 532818
+bdid 25 rules commit time 1517089502 581475
+bdid 21 rules commit time 1517089502 667461
+bdid 2 rules commit time 1517089508 167138
+bdid 4 rules commit time 1517089508 170484
+bdid 5 rules commit time 1517089508 174520
+bdid 3 rules commit time 1517089508 174607
+bdid 6 rules commit time 1517089508 187390
+bdid 7 rules commit time 1517089508 192272
+begin time 1517089510 207103
+bdid 25 rules commit time 1517089510 357245
+bdid 22 rules commit time 1517089510 374775
+bdid 21 rules commit time 1517089510 436529
+bdid 4 rules commit time 1517089518 876624
+bdid 5 rules commit time 1517089518 888672
+bdid 2 rules commit time 1517089518 892063
+bdid 3 rules commit time 1517089518 892185
+bdid 6 rules commit time 1517089518 905510
+bdid 7 rules commit time 1517089518 906589
+begin time 1517089520 922155
+bdid 25 rules commit time 1517089521 63141
+bdid 21 rules commit time 1517089521 85101
+bdid 22 rules commit time 1517089521 169971
+bdid 4 rules commit time 1517089526 677139
+bdid 2 rules commit time 1517089526 681223
+bdid 5 rules commit time 1517089526 692007
+bdid 3 rules commit time 1517089526 693922
+bdid 6 rules commit time 1517089526 702002
+bdid 7 rules commit time 1517089526 707654
+begin time 1517089528 678663
+bdid 21 rules commit time 1517089528 855182
+bdid 25 rules commit time 1517089528 881545
+bdid 22 rules commit time 1517089528 941089
+bdid 4 rules commit time 1517089534 480914
+bdid 2 rules commit time 1517089534 481098
+bdid 3 rules commit time 1517089534 485522
+bdid 5 rules commit time 1517089534 485668
+bdid 6 rules commit time 1517089534 497149
+bdid 7 rules commit time 1517089534 503733
+begin time 1517089536 514934
+bdid 22 rules commit time 1517089536 610262
+bdid 21 rules commit time 1517089536 674137
+bdid 25 rules commit time 1517089536 707313
+bdid 5 rules commit time 1517089542 230985
+bdid 2 rules commit time 1517089542 232862
+bdid 4 rules commit time 1517089542 246797
+bdid 3 rules commit time 1517089542 249049
+bdid 6 rules commit time 1517089542 258453
+bdid 7 rules commit time 1517089542 267038
+begin time 1517089544 235130
+bdid 22 rules commit time 1517089544 422953
+bdid 25 rules commit time 1517089544 491270
+bdid 21 rules commit time 1517089544 508769
+bdid 4 rules commit time 1517089551 583613
+bdid 2 rules commit time 1517089551 586379
+bdid 3 rules commit time 1517089551 610073
+bdid 5 rules commit time 1517089551 610158
+bdid 7 rules commit time 1517089551 617874
+bdid 6 rules commit time 1517089551 624189
+begin time 1517089553 574233
+bdid 22 rules commit time 1517089553 751105
+bdid 25 rules commit time 1517089553 798295
+bdid 21 rules commit time 1517089553 828403
+bdid 4 rules commit time 1517089559 332884
+bdid 2 rules commit time 1517089559 334661
+bdid 3 rules commit time 1517089559 343422
+bdid 5 rules commit time 1517089559 343605
+bdid 6 rules commit time 1517089559 348125
+bdid 7 rules commit time 1517089559 363546
+begin time 1517089561 364745
+bdid 21 rules commit time 1517089561 533452
+bdid 25 rules commit time 1517089561 553471
+bdid 22 rules commit time 1517089561 574019
+bdid 4 rules commit time 1517089567 92570
+bdid 2 rules commit time 1517089567 96629
+bdid 3 rules commit time 1517089567 96724
+bdid 5 rules commit time 1517089567 99586
+bdid 7 rules commit time 1517089567 116459
+bdid 6 rules commit time 1517089567 124589
+begin time 1517089569 89273
+bdid 25 rules commit time 1517089569 231134
+bdid 22 rules commit time 1517089569 239163
+bdid 21 rules commit time 1517089569 388842
+bdid 4 rules commit time 1517089574 949435
+bdid 2 rules commit time 1517089574 952766
+bdid 5 rules commit time 1517089574 952861
+bdid 3 rules commit time 1517089574 954527
+bdid 6 rules commit time 1517089574 967341
+bdid 7 rules commit time 1517089574 970438
+begin time 1517089576 939535
+bdid 21 rules commit time 1517089577 45671
+bdid 25 rules commit time 1517089577 143523
+bdid 22 rules commit time 1517089577 165874
+bdid 4 rules commit time 1517089582 696085
+bdid 2 rules commit time 1517089582 703312
+bdid 5 rules commit time 1517089582 711452
+bdid 3 rules commit time 1517089582 714089
+bdid 6 rules commit time 1517089582 721126
+bdid 7 rules commit time 1517089582 729668
+begin time 1517089584 702981
+bdid 22 rules commit time 1517089584 903001
+bdid 21 rules commit time 1517089584 921534
+bdid 25 rules commit time 1517089584 941359
+bdid 4 rules commit time 1517089590 466994
+bdid 3 rules commit time 1517089590 467466
+bdid 5 rules commit time 1517089590 467573
+bdid 2 rules commit time 1517089590 469645
+bdid 7 rules commit time 1517089590 484186
+bdid 6 rules commit time 1517089590 485582
+begin time 1517089592 464266
+bdid 25 rules commit time 1517089592 588449
+bdid 21 rules commit time 1517089592 622641
+bdid 22 rules commit time 1517089592 694664
+bdid 2 rules commit time 1517089598 237744
+bdid 5 rules commit time 1517089598 245599
+bdid 3 rules commit time 1517089598 246158
+bdid 4 rules commit time 1517089598 248756
+bdid 6 rules commit time 1517089598 260628
+bdid 7 rules commit time 1517089598 267125
+begin time 1517089600 235596
+bdid 25 rules commit time 1517089600 379623
+bdid 21 rules commit time 1517089600 476789
+bdid 22 rules commit time 1517089600 529128
+bdid 5 rules commit time 1517089607 528692
+bdid 2 rules commit time 1517089607 531004
+bdid 3 rules commit time 1517089607 538651
+bdid 4 rules commit time 1517089607 540263
+bdid 6 rules commit time 1517089607 545218
+bdid 7 rules commit time 1517089607 554222
+begin time 1517089609 519791
+bdid 22 rules commit time 1517089609 741199
+bdid 25 rules commit time 1517089609 756597
+bdid 21 rules commit time 1517089609 775525
+bdid 4 rules commit time 1517089616 772438
+bdid 5 rules commit time 1517089616 779459
+bdid 2 rules commit time 1517089616 779571
+bdid 3 rules commit time 1517089616 780906
+bdid 7 rules commit time 1517089616 797447
+bdid 6 rules commit time 1517089616 798528
+begin time 1517089618 775580
+bdid 25 rules commit time 1517089618 929557
+bdid 22 rules commit time 1517089618 962623
+bdid 21 rules commit time 1517089618 992945
+bdid 4 rules commit time 1517089628 959874
+bdid 5 rules commit time 1517089628 967562
+bdid 3 rules commit time 1517089628 974080
+bdid 2 rules commit time 1517089628 974208
+bdid 6 rules commit time 1517089628 981366
+bdid 7 rules commit time 1517089628 988942
+begin time 1517089630 967467
+bdid 25 rules commit time 1517089631 129074
+bdid 21 rules commit time 1517089631 151220
+bdid 22 rules commit time 1517089631 192464
+bdid 4 rules commit time 1517089636 723135
+bdid 2 rules commit time 1517089636 727046
+bdid 3 rules commit time 1517089636 729580
+bdid 5 rules commit time 1517089636 732355
+bdid 6 rules commit time 1517089636 749284
+bdid 7 rules commit time 1517089636 752440
+begin time 1517089638 759059
+bdid 22 rules commit time 1517089638 939115
+bdid 25 rules commit time 1517089639 21016
+bdid 21 rules commit time 1517089639 43758
+bdid 4 rules commit time 1517089647 682944
+bdid 2 rules commit time 1517089647 689044
+bdid 5 rules commit time 1517089647 696475
+bdid 3 rules commit time 1517089647 699493
+bdid 6 rules commit time 1517089647 709918
+bdid 7 rules commit time 1517089647 713716
+begin time 1517089649 686153
+bdid 25 rules commit time 1517089649 857235
+bdid 21 rules commit time 1517089649 920106
+bdid 22 rules commit time 1517089649 993173
+bdid 4 rules commit time 1517089655 484237
+bdid 5 rules commit time 1517089655 484729
+bdid 2 rules commit time 1517089655 489004
+bdid 3 rules commit time 1517089655 492983
+bdid 6 rules commit time 1517089655 499694
+bdid 7 rules commit time 1517089655 505845
+begin time 1517089657 480597
+bdid 25 rules commit time 1517089657 598484
+bdid 21 rules commit time 1517089657 630424
+bdid 22 rules commit time 1517089657 677420
+bdid 4 rules commit time 1517089663 206015
+bdid 3 rules commit time 1517089663 211959
+bdid 2 rules commit time 1517089663 212115
+bdid 5 rules commit time 1517089663 220701
+bdid 6 rules commit time 1517089663 230027
+bdid 7 rules commit time 1517089663 237886
+begin time 1517089665 206176
+bdid 21 rules commit time 1517089665 344298
+bdid 22 rules commit time 1517089665 389664
+bdid 25 rules commit time 1517089665 411571
+bdid 4 rules commit time 1517089670 959739
+bdid 2 rules commit time 1517089670 965631
+bdid 3 rules commit time 1517089670 969214
+bdid 5 rules commit time 1517089670 974318
+bdid 6 rules commit time 1517089670 980894
+bdid 7 rules commit time 1517089670 987555
+begin time 1517089673 4684
+bdid 21 rules commit time 1517089673 112004
+bdid 22 rules commit time 1517089673 195013
+bdid 25 rules commit time 1517089673 203741
+bdid 4 rules commit time 1517089680 192351
+bdid 3 rules commit time 1517089680 196514
+bdid 2 rules commit time 1517089680 202960
+bdid 5 rules commit time 1517089680 204745
+bdid 6 rules commit time 1517089680 220604
+bdid 7 rules commit time 1517089680 221644
+begin time 1517089682 188225
+bdid 21 rules commit time 1517089682 344701
+bdid 25 rules commit time 1517089682 348007
+bdid 22 rules commit time 1517089682 365446
+bdid 3 rules commit time 1517089688 3154
+bdid 4 rules commit time 1517089688 15297
+bdid 2 rules commit time 1517089688 15833
+bdid 6 rules commit time 1517089688 29157
+bdid 5 rules commit time 1517089688 37949
+bdid 7 rules commit time 1517089688 43842
+begin time 1517089690 3417
+bdid 22 rules commit time 1517089690 173536
+bdid 25 rules commit time 1517089690 229661
+bdid 21 rules commit time 1517089690 275268
+bdid 2 rules commit time 1517089695 812683
+bdid 4 rules commit time 1517089695 822369
+bdid 5 rules commit time 1517089695 822533
+bdid 3 rules commit time 1517089695 830836
+bdid 6 rules commit time 1517089695 838454
+bdid 7 rules commit time 1517089695 847321
+begin time 1517089697 815913
+bdid 25 rules commit time 1517089697 911325
+bdid 21 rules commit time 1517089697 979730
+bdid 22 rules commit time 1517089698 40516
+bdid 4 rules commit time 1517089703 610719
+bdid 2 rules commit time 1517089703 610911
+bdid 3 rules commit time 1517089703 615981
+bdid 5 rules commit time 1517089703 617219
+bdid 6 rules commit time 1517089703 629972
+bdid 7 rules commit time 1517089703 636361
+begin time 1517089705 612452
+bdid 21 rules commit time 1517089705 795355
+bdid 25 rules commit time 1517089705 826553
+bdid 22 rules commit time 1517089705 830603
+bdid 5 rules commit time 1517089714 468169
+bdid 4 rules commit time 1517089714 469708
+bdid 3 rules commit time 1517089714 470673
+bdid 2 rules commit time 1517089714 475072
+bdid 7 rules commit time 1517089714 484878
+bdid 6 rules commit time 1517089714 487304
+begin time 1517089716 441472
+bdid 21 rules commit time 1517089716 618760
+bdid 22 rules commit time 1517089716 659363
+bdid 25 rules commit time 1517089716 715286
+bdid 4 rules commit time 1517089722 271266
+bdid 3 rules commit time 1517089722 271381
+bdid 2 rules commit time 1517089722 273566
+bdid 5 rules commit time 1517089722 279711
+bdid 6 rules commit time 1517089722 291169
+bdid 7 rules commit time 1517089722 295023
+begin time 1517089724 260696
+bdid 25 rules commit time 1517089724 418070
+bdid 21 rules commit time 1517089724 436268
+bdid 22 rules commit time 1517089724 472904
+bdid 4 rules commit time 1517089729 989399
+bdid 2 rules commit time 1517089729 989460
+bdid 3 rules commit time 1517089729 991191
+bdid 5 rules commit time 1517089729 993375
+bdid 6 rules commit time 1517089730 19035
+bdid 7 rules commit time 1517089730 22496
+begin time 1517089732 4183
+bdid 22 rules commit time 1517089732 96406
+bdid 25 rules commit time 1517089732 208534
+bdid 21 rules commit time 1517089732 247792
+bdid 2 rules commit time 1517089737 781745
+bdid 4 rules commit time 1517089737 786907
+bdid 3 rules commit time 1517089737 792012
+bdid 5 rules commit time 1517089737 792110
+bdid 6 rules commit time 1517089737 810597
+bdid 7 rules commit time 1517089737 811764
+begin time 1517089739 801719
+bdid 21 rules commit time 1517089739 927628
+bdid 22 rules commit time 1517089740 43338
+bdid 25 rules commit time 1517089740 50786
+bdid 2 rules commit time 1517089747 30602
+bdid 3 rules commit time 1517089747 40635
+bdid 4 rules commit time 1517089747 42537
+bdid 5 rules commit time 1517089747 49672
+bdid 6 rules commit time 1517089747 58947
+bdid 7 rules commit time 1517089747 67615
+begin time 1517089749 39728
+bdid 22 rules commit time 1517089749 253367
+bdid 25 rules commit time 1517089749 257664
+bdid 21 rules commit time 1517089749 280452
+bdid 3 rules commit time 1517089754 808270
+bdid 5 rules commit time 1517089754 808393
+bdid 2 rules commit time 1517089754 813049
+bdid 4 rules commit time 1517089754 818832
+bdid 6 rules commit time 1517089754 827395
+bdid 7 rules commit time 1517089754 841258
+begin time 1517089756 806834
+bdid 22 rules commit time 1517089756 985500
+bdid 21 rules commit time 1517089757 25382
+bdid 25 rules commit time 1517089757 50039
+bdid 4 rules commit time 1517089762 585340
+bdid 2 rules commit time 1517089762 588367
+bdid 5 rules commit time 1517089762 592752
+bdid 3 rules commit time 1517089762 597173
+bdid 6 rules commit time 1517089762 610474
+bdid 7 rules commit time 1517089762 617547
+begin time 1517089764 573741
+bdid 25 rules commit time 1517089764 710942
+bdid 21 rules commit time 1517089764 774559
+bdid 22 rules commit time 1517089764 831248
+bdid 4 rules commit time 1517089770 376911
+bdid 2 rules commit time 1517089770 380213
+bdid 5 rules commit time 1517089770 380368
+bdid 3 rules commit time 1517089770 394413
+bdid 6 rules commit time 1517089770 403100
+bdid 7 rules commit time 1517089770 412777
+begin time 1517089772 386188
+bdid 22 rules commit time 1517089772 478308
+bdid 21 rules commit time 1517089772 523699
+bdid 25 rules commit time 1517089772 566446
+bdid 4 rules commit time 1517089779 671545
+bdid 2 rules commit time 1517089779 677307
+bdid 3 rules commit time 1517089779 680201
+bdid 5 rules commit time 1517089779 686239
+bdid 6 rules commit time 1517089779 696817
+bdid 7 rules commit time 1517089779 698815
+begin time 1517089781 669312
+bdid 22 rules commit time 1517089781 877757
+bdid 21 rules commit time 1517089781 882187
+bdid 25 rules commit time 1517089781 936436
+bdid 4 rules commit time 1517089787 491382
+bdid 2 rules commit time 1517089787 497396
+bdid 5 rules commit time 1517089787 497819
+bdid 3 rules commit time 1517089787 500576
+bdid 6 rules commit time 1517089787 515210
+bdid 7 rules commit time 1517089787 520323
+begin time 1517089789 481063
+bdid 22 rules commit time 1517089789 650454
+bdid 21 rules commit time 1517089789 709563
+bdid 25 rules commit time 1517089789 725034
+bdid 4 rules commit time 1517089795 245279
+bdid 2 rules commit time 1517089795 245431
+bdid 5 rules commit time 1517089795 252355
+bdid 3 rules commit time 1517089795 254160
+bdid 6 rules commit time 1517089795 258890
+bdid 7 rules commit time 1517089795 272134
+begin time 1517089797 239121
+bdid 25 rules commit time 1517089797 395834
+bdid 22 rules commit time 1517089797 412445
+bdid 21 rules commit time 1517089797 476686
+bdid 2 rules commit time 1517089804 472525
+bdid 4 rules commit time 1517089804 475041
+bdid 3 rules commit time 1517089804 478250
+bdid 5 rules commit time 1517089804 486760
+bdid 6 rules commit time 1517089804 507149
+bdid 7 rules commit time 1517089804 508199
+begin time 1517089806 484039
+bdid 22 rules commit time 1517089806 738693
+bdid 25 rules commit time 1517089806 755178
+bdid 21 rules commit time 1517089806 760004
+bdid 4 rules commit time 1517089812 256675
+bdid 2 rules commit time 1517089812 260926
+bdid 3 rules commit time 1517089812 269996
+bdid 5 rules commit time 1517089812 270174
+bdid 6 rules commit time 1517089812 282213
+bdid 7 rules commit time 1517089812 289601
+begin time 1517089814 256741
+bdid 25 rules commit time 1517089814 444548
+bdid 22 rules commit time 1517089814 478450
+bdid 21 rules commit time 1517089814 486151
+bdid 5 rules commit time 1517089820 52656
+bdid 2 rules commit time 1517089820 52764
+bdid 4 rules commit time 1517089820 52889
+bdid 3 rules commit time 1517089820 58063
+bdid 6 rules commit time 1517089820 73159
+bdid 7 rules commit time 1517089820 80319
+begin time 1517089822 62009
+bdid 21 rules commit time 1517089822 215026
+bdid 22 rules commit time 1517089822 223260
+bdid 25 rules commit time 1517089822 273419
+bdid 4 rules commit time 1517089827 851099
+bdid 3 rules commit time 1517089827 856395
+bdid 5 rules commit time 1517089827 856607
+bdid 2 rules commit time 1517089827 861684
+bdid 7 rules commit time 1517089827 880483
+bdid 6 rules commit time 1517089827 882953
+begin time 1517089829 839436
+bdid 22 rules commit time 1517089830 25726
+bdid 25 rules commit time 1517089830 58079
+bdid 21 rules commit time 1517089830 88358
+bdid 4 rules commit time 1517089837 188599
+bdid 2 rules commit time 1517089837 199207
+bdid 5 rules commit time 1517089837 201446
+bdid 3 rules commit time 1517089837 207950
+bdid 6 rules commit time 1517089837 215678
+bdid 7 rules commit time 1517089837 222445
+begin time 1517089839 190951
+bdid 25 rules commit time 1517089839 296282
+bdid 21 rules commit time 1517089839 482456
+bdid 22 rules commit time 1517089839 498786
+bdid 4 rules commit time 1517089845 53273
+bdid 5 rules commit time 1517089845 59372
+bdid 2 rules commit time 1517089845 62976
+bdid 3 rules commit time 1517089845 65324
+bdid 6 rules commit time 1517089845 73594
+bdid 7 rules commit time 1517089845 80855
+begin time 1517089847 52394
+bdid 25 rules commit time 1517089847 161940
+bdid 22 rules commit time 1517089847 277024
+bdid 21 rules commit time 1517089847 284847
+bdid 4 rules commit time 1517089854 290292
+bdid 3 rules commit time 1517089854 295513
+bdid 5 rules commit time 1517089854 296951
+bdid 2 rules commit time 1517089854 301932
+bdid 6 rules commit time 1517089854 317736
+bdid 7 rules commit time 1517089854 326362
+begin time 1517089856 291867
+bdid 21 rules commit time 1517089856 476039
+bdid 22 rules commit time 1517089856 514404
+bdid 25 rules commit time 1517089856 526157
+bdid 4 rules commit time 1517089862 35695
+bdid 5 rules commit time 1517089862 40689
+bdid 2 rules commit time 1517089862 42423
+bdid 3 rules commit time 1517089862 47522
+bdid 6 rules commit time 1517089862 60147
+bdid 7 rules commit time 1517089862 67305
+begin time 1517089864 75553
+bdid 25 rules commit time 1517089864 241517
+bdid 21 rules commit time 1517089864 279334
+bdid 22 rules commit time 1517089864 293796
+bdid 4 rules commit time 1517089869 831921
+bdid 2 rules commit time 1517089869 832112
+bdid 3 rules commit time 1517089869 833670
+bdid 5 rules commit time 1517089869 835995
+bdid 6 rules commit time 1517089869 853092
+bdid 7 rules commit time 1517089869 859179
+begin time 1517089871 834245
+bdid 22 rules commit time 1517089871 904332
+bdid 21 rules commit time 1517089872 22709
+bdid 25 rules commit time 1517089872 143876
+bdid 5 rules commit time 1517089877 663077
+bdid 4 rules commit time 1517089877 668216
+bdid 2 rules commit time 1517089877 673726
+bdid 3 rules commit time 1517089877 676475
+bdid 6 rules commit time 1517089877 688801
+bdid 7 rules commit time 1517089877 698970
+begin time 1517089879 702624
+bdid 22 rules commit time 1517089879 844728
+bdid 21 rules commit time 1517089879 911548
+bdid 25 rules commit time 1517089879 912423
+bdid 4 rules commit time 1517089885 487154
+bdid 3 rules commit time 1517089885 487290
+bdid 2 rules commit time 1517089885 490340
+bdid 5 rules commit time 1517089885 490425
+bdid 6 rules commit time 1517089885 503210
+bdid 7 rules commit time 1517089885 504854
+begin time 1517089887 477909
+bdid 25 rules commit time 1517089887 542746
+bdid 21 rules commit time 1517089887 622157
+bdid 22 rules commit time 1517089887 636788
+bdid 2 rules commit time 1517089894 614663
+bdid 5 rules commit time 1517089894 625921
+bdid 4 rules commit time 1517089894 631736
+bdid 3 rules commit time 1517089894 633243
+bdid 6 rules commit time 1517089894 646104
+bdid 7 rules commit time 1517089894 649048
+begin time 1517089896 620687
+bdid 25 rules commit time 1517089896 750768
+bdid 21 rules commit time 1517089896 805092
+bdid 22 rules commit time 1517089896 806606
+bdid 4 rules commit time 1517089902 310028
+bdid 3 rules commit time 1517089902 317528
+bdid 5 rules commit time 1517089902 321844
+bdid 2 rules commit time 1517089902 327329
+bdid 6 rules commit time 1517089902 335271
+bdid 7 rules commit time 1517089902 340448
+begin time 1517089904 310557
+bdid 25 rules commit time 1517089904 468484
+bdid 21 rules commit time 1517089904 516076
+bdid 22 rules commit time 1517089904 597318
+bdid 4 rules commit time 1517089911 567325
+bdid 2 rules commit time 1517089911 578208
+bdid 5 rules commit time 1517089911 578355
+bdid 3 rules commit time 1517089911 583626
+bdid 6 rules commit time 1517089911 596411
+bdid 7 rules commit time 1517089911 599126
+begin time 1517089913 568527
+bdid 22 rules commit time 1517089913 668356
+bdid 21 rules commit time 1517089913 821720
+bdid 25 rules commit time 1517089913 842837
+bdid 2 rules commit time 1517089919 351831
+bdid 4 rules commit time 1517089919 359458
+bdid 3 rules commit time 1517089919 365404
+bdid 5 rules commit time 1517089919 373802
+bdid 6 rules commit time 1517089919 382887
+bdid 7 rules commit time 1517089919 392984
+begin time 1517089921 379558
+bdid 21 rules commit time 1517089921 604788
+bdid 25 rules commit time 1517089921 623700
+bdid 22 rules commit time 1517089921 679555
+bdid 4 rules commit time 1517089927 194568
+bdid 2 rules commit time 1517089927 207261
+bdid 3 rules commit time 1517089927 210341
+bdid 5 rules commit time 1517089927 210490
+bdid 6 rules commit time 1517089927 222904
+bdid 7 rules commit time 1517089927 226227
+begin time 1517089929 193900
+bdid 25 rules commit time 1517089929 362503
+bdid 22 rules commit time 1517089929 427305
+bdid 21 rules commit time 1517089929 464945
+bdid 4 rules commit time 1517089934 964797
+bdid 5 rules commit time 1517089934 969629
+bdid 2 rules commit time 1517089934 973588
+bdid 3 rules commit time 1517089934 984645
+bdid 6 rules commit time 1517089934 994549
+bdid 7 rules commit time 1517089934 999855
+begin time 1517089936 976758
+bdid 22 rules commit time 1517089937 143245
+bdid 21 rules commit time 1517089937 187838
+bdid 25 rules commit time 1517089937 241572
+bdid 2 rules commit time 1517089944 227338
+bdid 4 rules commit time 1517089944 227629
+bdid 5 rules commit time 1517089944 231367
+bdid 3 rules commit time 1517089944 233829
+bdid 6 rules commit time 1517089944 251963
+bdid 7 rules commit time 1517089944 258261
+begin time 1517089946 233408
+bdid 25 rules commit time 1517089946 422005
+bdid 21 rules commit time 1517089946 454163
+bdid 22 rules commit time 1517089946 512315
+bdid 2 rules commit time 1517089952 27010
+bdid 4 rules commit time 1517089952 31830
+bdid 5 rules commit time 1517089952 37039
+bdid 3 rules commit time 1517089952 40357
+bdid 6 rules commit time 1517089952 48239
+bdid 7 rules commit time 1517089952 57040
+begin time 1517089954 27205
+bdid 22 rules commit time 1517089954 232052
+bdid 25 rules commit time 1517089954 236103
+bdid 21 rules commit time 1517089954 265209
+bdid 4 rules commit time 1517089959 775137
+bdid 3 rules commit time 1517089959 780258
+bdid 2 rules commit time 1517089959 784571
+bdid 5 rules commit time 1517089959 784675
+bdid 6 rules commit time 1517089959 797027
+bdid 7 rules commit time 1517089959 803387
+begin time 1517089961 767579
+bdid 25 rules commit time 1517089961 998123
+bdid 21 rules commit time 1517089961 999314
+bdid 22 rules commit time 1517089962 5464
+bdid 4 rules commit time 1517089967 537388
+bdid 3 rules commit time 1517089967 540703
+bdid 2 rules commit time 1517089967 545912
+bdid 5 rules commit time 1517089967 547555
+bdid 6 rules commit time 1517089967 567084
+bdid 7 rules commit time 1517089967 573436
+begin time 1517089969 534403
+bdid 25 rules commit time 1517089969 697647
+bdid 22 rules commit time 1517089969 767718
+bdid 21 rules commit time 1517089969 819281
+bdid 4 rules commit time 1517089975 340681
+bdid 2 rules commit time 1517089975 347374
+bdid 3 rules commit time 1517089975 349952
+bdid 5 rules commit time 1517089975 354591
+bdid 6 rules commit time 1517089975 368948
+bdid 7 rules commit time 1517089975 369105
+begin time 1517089977 382778
+bdid 22 rules commit time 1517089977 504381
+bdid 21 rules commit time 1517089977 553960
+bdid 25 rules commit time 1517089977 583145
+bdid 2 rules commit time 1517089983 125679
+bdid 4 rules commit time 1517089983 127926
+bdid 5 rules commit time 1517089983 128760
+bdid 3 rules commit time 1517089983 132094
+bdid 6 rules commit time 1517089983 149035
+bdid 7 rules commit time 1517089983 155967
+begin time 1517089985 154565
+bdid 25 rules commit time 1517089985 280914
+bdid 22 rules commit time 1517089985 330769
+bdid 21 rules commit time 1517089985 344949
+bdid 2 rules commit time 1517089993 820087
+bdid 4 rules commit time 1517089993 821864
+bdid 5 rules commit time 1517089993 826483
+bdid 3 rules commit time 1517089993 829290
+bdid 6 rules commit time 1517089993 842678
+bdid 7 rules commit time 1517089993 845362
+begin time 1517089995 858262
+bdid 22 rules commit time 1517089995 982366
+bdid 25 rules commit time 1517089996 58015
+bdid 21 rules commit time 1517089996 106787
+bdid 4 rules commit time 1517090001 708639
+bdid 2 rules commit time 1517090001 715302
+bdid 3 rules commit time 1517090001 718039
+bdid 5 rules commit time 1517090001 718191
+bdid 6 rules commit time 1517090001 731937
+bdid 7 rules commit time 1517090001 738257
+begin time 1517090003 705687
+bdid 22 rules commit time 1517090003 876904
+bdid 21 rules commit time 1517090003 878934
+bdid 25 rules commit time 1517090003 923000
+bdid 3 rules commit time 1517090009 435468
+bdid 4 rules commit time 1517090009 440056
+bdid 2 rules commit time 1517090009 444813
+bdid 5 rules commit time 1517090009 449161
+bdid 6 rules commit time 1517090009 464302
+bdid 7 rules commit time 1517090009 467332
+begin time 1517090011 439024
+bdid 22 rules commit time 1517090011 585248
+bdid 21 rules commit time 1517090011 613301
+bdid 25 rules commit time 1517090011 654522
+bdid 4 rules commit time 1517090020 150997
+bdid 2 rules commit time 1517090020 154438
+bdid 5 rules commit time 1517090020 154530
+bdid 3 rules commit time 1517090020 160886
+bdid 7 rules commit time 1517090020 169201
+bdid 6 rules commit time 1517090020 173855
+begin time 1517090022 168067
+bdid 22 rules commit time 1517090022 318425
+bdid 25 rules commit time 1517090022 352422
+bdid 21 rules commit time 1517090022 398093
+bdid 3 rules commit time 1517090027 900336
+bdid 4 rules commit time 1517090027 904347
+bdid 2 rules commit time 1517090027 904427
+bdid 5 rules commit time 1517090027 910470
+bdid 6 rules commit time 1517090027 929721
+bdid 7 rules commit time 1517090027 937302
+begin time 1517090029 907367
+bdid 22 rules commit time 1517090030 48620
+bdid 21 rules commit time 1517090030 71837
+bdid 25 rules commit time 1517090030 72860
+bdid 2 rules commit time 1517090035 613308
+bdid 4 rules commit time 1517090035 617121
+bdid 5 rules commit time 1517090035 622948
+bdid 3 rules commit time 1517090035 623308
+bdid 6 rules commit time 1517090035 638400
+bdid 7 rules commit time 1517090035 640257
+begin time 1517090037 592659
+bdid 21 rules commit time 1517090037 707340
+bdid 22 rules commit time 1517090037 818835
+bdid 25 rules commit time 1517090037 841935
+bdid 4 rules commit time 1517090043 383641
+bdid 3 rules commit time 1517090043 389673
+bdid 5 rules commit time 1517090043 392830
+bdid 2 rules commit time 1517090043 394628
+bdid 7 rules commit time 1517090043 407421
+bdid 6 rules commit time 1517090043 412632
+begin time 1517090045 377261
+bdid 21 rules commit time 1517090045 551389
+bdid 25 rules commit time 1517090045 617423
+bdid 22 rules commit time 1517090045 636653
+bdid 4 rules commit time 1517090051 154996
+bdid 2 rules commit time 1517090051 158294
+bdid 3 rules commit time 1517090051 163288
+bdid 5 rules commit time 1517090051 163713
+bdid 6 rules commit time 1517090051 175609
+bdid 7 rules commit time 1517090051 181021
+begin time 1517090053 148738
+bdid 22 rules commit time 1517090053 296321
+bdid 21 rules commit time 1517090053 342291
+bdid 25 rules commit time 1517090053 379722
+bdid 4 rules commit time 1517090058 911621
+bdid 5 rules commit time 1517090058 911814
+bdid 2 rules commit time 1517090058 917902
+bdid 3 rules commit time 1517090058 922959
+bdid 6 rules commit time 1517090058 935171
+bdid 7 rules commit time 1517090058 940759
+begin time 1517090060 902176
+bdid 25 rules commit time 1517090060 991437
+bdid 21 rules commit time 1517090061 134516
+bdid 22 rules commit time 1517090061 152173
+bdid 4 rules commit time 1517090066 759419
+bdid 2 rules commit time 1517090066 759537
+bdid 3 rules commit time 1517090066 762781
+bdid 5 rules commit time 1517090066 767319
+bdid 6 rules commit time 1517090066 776560
+bdid 7 rules commit time 1517090066 778629
+begin time 1517090068 737430
+bdid 25 rules commit time 1517090068 904488
+bdid 22 rules commit time 1517090068 948031
+bdid 21 rules commit time 1517090068 956106
+bdid 4 rules commit time 1517090074 460449
+bdid 2 rules commit time 1517090074 465386
+bdid 5 rules commit time 1517090074 466927
+bdid 3 rules commit time 1517090074 472876
+bdid 6 rules commit time 1517090074 485731
+bdid 7 rules commit time 1517090074 489636
+begin time 1517090076 460169
+bdid 22 rules commit time 1517090076 608513
+bdid 25 rules commit time 1517090076 646221
+bdid 21 rules commit time 1517090076 693142
+bdid 2 rules commit time 1517090083 691719
+bdid 4 rules commit time 1517090083 691994
+bdid 5 rules commit time 1517090083 694661
+bdid 3 rules commit time 1517090083 697086
+bdid 6 rules commit time 1517090083 710726
+bdid 7 rules commit time 1517090083 717691
+begin time 1517090085 693103
+bdid 22 rules commit time 1517090085 827456
+bdid 21 rules commit time 1517090085 925063
+bdid 25 rules commit time 1517090085 950208
+bdid 2 rules commit time 1517090091 525427
+bdid 4 rules commit time 1517090091 525770
+bdid 5 rules commit time 1517090091 531776
+bdid 3 rules commit time 1517090091 533429
+bdid 6 rules commit time 1517090091 552958
+bdid 7 rules commit time 1517090091 553099
+begin time 1517090093 519184
+bdid 22 rules commit time 1517090093 647983
+bdid 25 rules commit time 1517090093 683602
+bdid 21 rules commit time 1517090093 702194
+bdid 4 rules commit time 1517090100 727444
+bdid 2 rules commit time 1517090100 727617
+bdid 3 rules commit time 1517090100 729611
+bdid 5 rules commit time 1517090100 729755
+bdid 6 rules commit time 1517090100 744450
+bdid 7 rules commit time 1517090100 752724
+begin time 1517090102 726873
+bdid 21 rules commit time 1517090102 858958
+bdid 22 rules commit time 1517090102 915752
+bdid 25 rules commit time 1517090102 964710
+bdid 2 rules commit time 1517090108 509682
+bdid 5 rules commit time 1517090108 509803
+bdid 4 rules commit time 1517090108 512169
+bdid 3 rules commit time 1517090108 512231
+bdid 6 rules commit time 1517090108 524466
+bdid 7 rules commit time 1517090108 529479
+begin time 1517090110 502941
+bdid 22 rules commit time 1517090110 638462
+bdid 21 rules commit time 1517090110 668292
+bdid 25 rules commit time 1517090110 824816
+bdid 4 rules commit time 1517090116 334181
+bdid 2 rules commit time 1517090116 337048
+bdid 5 rules commit time 1517090116 342472
+bdid 3 rules commit time 1517090116 344310
+bdid 6 rules commit time 1517090116 360284
+bdid 7 rules commit time 1517090116 361776
+begin time 1517090118 332368
+bdid 25 rules commit time 1517090118 468249
+bdid 21 rules commit time 1517090118 500733
+bdid 22 rules commit time 1517090118 572019
+bdid 2 rules commit time 1517090127 34590
+bdid 4 rules commit time 1517090127 37211
+bdid 5 rules commit time 1517090127 37388
+bdid 3 rules commit time 1517090127 46670
+bdid 6 rules commit time 1517090127 53419
+bdid 7 rules commit time 1517090127 55454
+begin time 1517090129 32889
+bdid 25 rules commit time 1517090129 161424
+bdid 21 rules commit time 1517090129 178332
+bdid 22 rules commit time 1517090129 316649
+bdid 4 rules commit time 1517090134 837515
+bdid 2 rules commit time 1517090134 841811
+bdid 5 rules commit time 1517090134 841941
+bdid 3 rules commit time 1517090134 844522
+bdid 6 rules commit time 1517090134 860322
+bdid 7 rules commit time 1517090134 869518
+begin time 1517090136 838605
+bdid 25 rules commit time 1517090136 990488
+bdid 22 rules commit time 1517090137 26824
+bdid 21 rules commit time 1517090137 60700
+bdid 2 rules commit time 1517090142 594011
+bdid 4 rules commit time 1517090142 594242
+bdid 5 rules commit time 1517090142 606598
+bdid 6 rules commit time 1517090142 617545
+bdid 3 rules commit time 1517090142 619070
+bdid 7 rules commit time 1517090142 627731
+begin time 1517090144 630180
+bdid 25 rules commit time 1517090144 773950
+bdid 21 rules commit time 1517090144 831525
+bdid 22 rules commit time 1517090144 870830
+bdid 4 rules commit time 1517090150 373023
+bdid 5 rules commit time 1517090150 385141
+bdid 3 rules commit time 1517090150 389524
+bdid 2 rules commit time 1517090150 392327
+bdid 6 rules commit time 1517090150 400412
+bdid 7 rules commit time 1517090150 406837
+begin time 1517090152 374102
+bdid 22 rules commit time 1517090152 489129
+bdid 21 rules commit time 1517090152 572176
+bdid 25 rules commit time 1517090152 583382
+bdid 4 rules commit time 1517090158 97114
+bdid 5 rules commit time 1517090158 100437
+bdid 3 rules commit time 1517090158 108825
+bdid 2 rules commit time 1517090158 108947
+bdid 7 rules commit time 1517090158 122406
+bdid 6 rules commit time 1517090158 124996
+begin time 1517090160 93038
+bdid 25 rules commit time 1517090160 206781
+bdid 21 rules commit time 1517090160 257607
+bdid 22 rules commit time 1517090160 263804
+bdid 4 rules commit time 1517090168 733683
+bdid 2 rules commit time 1517090168 745495
+bdid 5 rules commit time 1517090168 745637
+bdid 3 rules commit time 1517090168 746587
+bdid 7 rules commit time 1517090168 761088
+bdid 6 rules commit time 1517090168 768439
+begin time 1517090170 747087
+bdid 25 rules commit time 1517090170 879601
+bdid 22 rules commit time 1517090170 905709
+bdid 21 rules commit time 1517090171 44865
+bdid 4 rules commit time 1517090176 550744
+bdid 5 rules commit time 1517090176 556022
+bdid 2 rules commit time 1517090176 575222
+bdid 3 rules commit time 1517090176 579229
+bdid 6 rules commit time 1517090176 583388
+bdid 7 rules commit time 1517090176 586526
+begin time 1517090178 589299
+bdid 22 rules commit time 1517090178 752433
+bdid 21 rules commit time 1517090178 754075
+bdid 25 rules commit time 1517090178 786087
+bdid 4 rules commit time 1517090184 307090
+bdid 3 rules commit time 1517090184 315330
+bdid 2 rules commit time 1517090184 315912
+bdid 5 rules commit time 1517090184 326496
+bdid 6 rules commit time 1517090184 333167
+bdid 7 rules commit time 1517090184 341035
+begin time 1517090186 339949
+bdid 22 rules commit time 1517090186 399243
+bdid 21 rules commit time 1517090186 502950
+bdid 25 rules commit time 1517090186 525333
+bdid 4 rules commit time 1517090192 38755
+bdid 2 rules commit time 1517090192 41800
+bdid 5 rules commit time 1517090192 48726
+bdid 3 rules commit time 1517090192 56536
+bdid 7 rules commit time 1517090192 64841
+bdid 6 rules commit time 1517090192 69315
+begin time 1517090194 36069
+bdid 25 rules commit time 1517090194 108201
+bdid 21 rules commit time 1517090194 192190
+bdid 22 rules commit time 1517090194 271436
+bdid 4 rules commit time 1517090201 273211
+bdid 5 rules commit time 1517090201 281692
+bdid 3 rules commit time 1517090201 288106
+bdid 2 rules commit time 1517090201 294790
+bdid 6 rules commit time 1517090201 303954
+bdid 7 rules commit time 1517090201 307713
+begin time 1517090203 280708
+bdid 22 rules commit time 1517090203 340443
+bdid 21 rules commit time 1517090203 440479
+bdid 25 rules commit time 1517090203 546360

@@ -7,9 +7,11 @@ import copy
 import subprocess
 import time
 import random
+import os
 from mininet.cli import CLI
 from time_generate import *
 from read_all import *
+import threading
 
 PRTMAX = 100
 
@@ -58,7 +60,7 @@ def path_deploy_time_all(old_path, new_path, flow, state_cur, prt, out_port, clo
         state_next = state_update(rule_set, state_cur)
 
     if proto == 1:
-        clk = clock + 1
+        clk = clock
         #print flow
         rule_set = rule_construct(old_path, new_path, flow, state_cur, prt, out_port, clk)
         state_next = state_update(rule_set, state_cur)
@@ -79,6 +81,15 @@ def path_deploy_time_all(old_path, new_path, flow, state_cur, prt, out_port, clo
 
     rule_set = set_clean(rule_set)
 
+
+
+    if old_path:
+        rule_set_final = {}
+        rule_set_final['rule_set_first'] = rule_set
+        rule_set_final['rule_set_second'] = sb_rule_construct(old_path, new_path, flow, clk)
+        rule_set_idx = ['rule_set_first', 'rule_set_second']
+        return {'state': state_next, 'bdid': bdid, 'clk': clk, 'rule_set': rule_set_final, 'rule_set_idx': rule_set_idx}
+
     if not rule_set.keys():
         return {'state': state_next, 'bdid': bdid, 'clk': clk, 'dpid': []}
 
@@ -97,15 +108,19 @@ def path_deploy_time_all_coco(old_path, new_path, flow, state_cur, prt, out_port
 
     if proto == 3:
         clk = clock
-        rule_set = rule_construct_coco_third(old_path, new_path, flow, state_cur, prt, out_port_old, out_port_new, clk)
+        rule_set = rule_construct_coco_final(old_path, new_path, flow, state_cur, prt, out_port_old, out_port_new, clk)
+        #rule_set = rule_construct_coco_third(old_path, new_path, flow, state_cur, prt, out_port_old, out_port_new, clk)
         if old_path:
             state_next = state_update(rule_set['rule_set_first'], state_cur)
             state_next = state_update(rule_set['rule_set_second'], state_next)
             state_next = state_update(rule_set['rule_set_third'], state_next)
-            rule_set_idx = ['rule_set_first', 'rule_set_second', 'rule_set_third']
+            state_next = state_update(rule_set['rule_set_fourth'], state_next)
+            rule_set_idx = ['rule_set_first', 'rule_set_second', 'rule_set_third', 'rule_set_fourth']
 
             for i in range(len(rule_set_idx)):
                 rule_set[rule_set_idx[i]] = set_clean(rule_set[rule_set_idx[i]])
+
+            return {'state': state_next, 'bdid': bdid, 'clk': clk, 'rule_set': rule_set, 'rule_set_idx': rule_set_idx}
 
             dpid1 = []
 
@@ -128,7 +143,14 @@ def path_deploy_time_all_coco(old_path, new_path, flow, state_cur, prt, out_port
                 switch_write_all(dp, rule_set['rule_set_third'][dp], bdid, 3)
                 dpid3.append(dp)
 
-            return {'state': state_next, 'bdid': bdid, 'clk': clk, 'dpid1': dpid1, 'dpid2': dpid2, 'dpid3': dpid3}
+            dpid4 = []
+
+            for dp in rule_set['rule_set_fourth'].keys():
+                bdid = bdid + 1
+                switch_write_all(dp, rule_set['rule_set_fourth'][dp], bdid, 4)
+                dpid4.append(dp)
+
+            return {'state': state_next, 'bdid': bdid, 'clk': clk, 'dpid1': dpid1, 'dpid2': dpid2, 'dpid3': dpid3, 'dpid4': dpid4}
 
         else:
             state_next = state_update(rule_set, state_cur)
@@ -153,7 +175,7 @@ def path_deploy_time_all_cu(old_path, new_path, flow, state_cur, prt, out_port_o
 
     if proto == 2:
         if old_path:
-            clk = clock + 1
+            clk = clock
             del_rule = rule_construct_cu([], old_path, flow, state_cur, prt, out_port_old, clk-1)
             ret_rule = rule_construct_cu(old_path, new_path, flow, state_cur, prt, out_port_new, clk)
             add_rule = ret_rule['rule_set']
@@ -175,6 +197,15 @@ def path_deploy_time_all_cu(old_path, new_path, flow, state_cur, prt, out_port_o
             first_rule = set_clean(first_rule)
             del_rule = set_clean(del_rule)
 
+
+            rule_set = {}
+            rule_set['rule_set_first'] = add_rule
+            rule_set['rule_set_second'] = first_rule
+            rule_set['rule_set_third'] = del_rule
+
+            rule_set_idx = ['rule_set_first', 'rule_set_second', 'rule_set_third']
+
+            return {'state': state_next, 'bdid': bdid, 'clk': clk, 'rule_set': rule_set, 'rule_set_idx': rule_set_idx}
 
             dpid1 = []
 
@@ -200,7 +231,7 @@ def path_deploy_time_all_cu(old_path, new_path, flow, state_cur, prt, out_port_o
             return {'state': state_next, 'bdid': bdid, 'clk': clk, 'dpid1': dpid1, 'dpid2': dpid2, 'dpid3': dpid3}
 
         else:
-            clk = clock + 1
+            clk = clock
             rule_set = rule_construct_cu(old_path, new_path, flow, state_cur, prt, out_port_new, clk)
             state_next = state_update(rule_set, state_cur)
 
@@ -222,7 +253,7 @@ def path_deploy_time_all_cu(old_path, new_path, flow, state_cur, prt, out_port_o
 
 
 def script_init_all(K):
-    for step in range(3):
+    for step in range(4):
         for core in range(pow((K/2),2)):
             dp = int2dpid(1, core)
             filepath = "/home/shengliu/Workspace/mininet/haha/API/cmd/cmd%d/%s.sh" %((step+1), str(dp))
@@ -251,6 +282,17 @@ def switch_write_all(dp, sw_rule, bdid, step):
         script_write(filepath, bundleAddMsg(dp, bdid, r.get_match(), r.get_rtmp(), r.get_ttmp(), r.get_action(), table_id, r.get_prt(), "add"))
     script_write(filepath, bundleCtrlMsg(dp, bdid, "commit"))
 
+
+def empty_directory(folder):
+    for the_file in os.listdir(folder):
+        file_path = os.path.join(folder, the_file)
+        try:
+            if os.path.isfile(file_path):
+                open(file_path, 'w').close()
+                #os.unlink(file_path)
+            #elif os.path.isdir(file_path): shutil.rmtree(file_path)
+        except Exception as e:
+            print(e)
 
 
 def switch_deploy_all(dp_set, step, if_delay, sb_set=[]):
@@ -294,11 +336,44 @@ def switch_deploy_all(dp_set, step, if_delay, sb_set=[]):
                         subprocess.Popen(['python', '/home/shengliu/Workspace/mininet/haha/API/delay_deploy.py', '%d' %rad])
 
 
-def switch_deploy_all_coco(dp_set, step, if_delay):
+class writeThread (threading.Thread):
+   def __init__(self, filepath, delay=0):
+      threading.Thread.__init__(self)
+      self.filepath = filepath
+      self.delay = delay
+
+   def run(self):
+       if self.delay:
+           time.sleep(self.delay)
+       p = subprocess.Popen("%s" %self.filepath)
+       p.wait()
+
+
+def switch_deploy_all_coco_new(dp_set, step, if_delay):
     if not if_delay:
         for dp in dp_set:
             filepath = "/home/shengliu/Workspace/mininet/haha/API/cmd/cmd%d/%s.sh" %(step, str(dp))
             subprocess.Popen("%s" %filepath)
+            time.sleep(0.3)
+    else:
+        delay_list = delay_generate_all(dp_set)
+        thread_list = []
+        for dp in dp_set:
+            filepath = "/home/shengliu/Workspace/mininet/haha/API/cmd/cmd%d/%s.sh" %(step, str(dp))
+            ted = writeThread(filepath, delay_list[dp])
+            ted.start()
+            thread_list.append(ted)
+        #print thread_list
+        for t in thread_list:
+            t.join()
+
+
+
+def switch_deploy_all_coco(dp_set, step, if_delay):
+    if not if_delay:
+        for dp in dp_set:
+            filepath = "/home/shengliu/Workspace/mininet/haha/API/cmd/cmd%d/%s.sh" %(step, str(dp))
+            subprocess.call("%s" %filepath)
             time.sleep(0.3)
     else:
         delay_list = delay_generate_all(dp_set)
@@ -322,7 +397,7 @@ def switch_deploy_all_coco(dp_set, step, if_delay):
 
 
 
-def get_flow_list(filepath, K, t):
+def get_flow_list(filepath, K, t, num=30):
     path_list = path_read_time(filepath, K)
     j = 0
     t = 0
@@ -330,7 +405,7 @@ def get_flow_list(filepath, K, t):
     flow_list = {}
     #for j in range(len(path_list['flow'])):
     #while j < len(path_list['flow']) and path_list['time'][j] >= 600*t and path_list['time'][j] < 600*(t+1):
-    while j < len(path_list['flow']) and len(flow_list.keys()) < 50:
+    while j < len(path_list['flow']) and len(flow_list.keys()) < num:
         i = path_list['flow'][j]
         f = match_parse(i)
         old_path = path_list['old_path'][j]['path']
@@ -365,7 +440,17 @@ def get_flow_list(filepath, K, t):
                 flow_list[f_reverse]['out_port_new'] = out_port_construct(new_path, path_list['new_path'][j]['in_port'])
 
         j = j + 1
+    print "flow list:"
     print len(flow_list)
+    print "all items searched:"
+    print j
+    ct = 0
+    for f in flow_list.keys():
+        if flow_list[f]['old_path'] != flow_list[f]['new_path']:
+            ct = ct + 1
+
+    print "real flow num:"
+    print ct
     return flow_list
 
 
@@ -401,14 +486,24 @@ def get_flow_list_all(filepath, K, flow_list_cmp):
                 flow_list[f_reverse]['out_port_new'] = out_port_construct(new_path, path_list['new_path'][j]['in_port'])
                 #ct = ct + 1
         j = j + 1
+    print "flow list:"
+    print len(flow_list)
+    print "all items searched:"
+    print j
+    ct = 0
+    for f in flow_list.keys():
+        if flow_list[f]['old_path'] != flow_list[f]['new_path']:
+            ct = ct + 1
 
+    print "real flow num:"
+    print ct
     return flow_list
 
-def snapshot_deploy(filepath, K, t):
+def snapshot_deploy(flow_list, filepath, K, t, fat_tree_net):
 
     time_file_generate()
 
-    flow_list = get_flow_list(filepath, K, t)
+    #flow_list = get_flow_list(filepath, K, t, 104)
     #print flow_list
     script_init_all(K)
 
@@ -431,6 +526,7 @@ def snapshot_deploy(filepath, K, t):
         new_path = flow_list[i]['new_path']
         out_port_old = flow_list[i]['out_port_old']
         out_port_new = flow_list[i]['out_port_new']
+
 
         if proto == 0 or proto == 1:
             deploy_ret = path_deploy_time_all([], old_path, flow, state_cur, priority, out_port_old, clk, bdid, 1, proto)
@@ -476,10 +572,24 @@ def snapshot_deploy(filepath, K, t):
 
 
     #print dpid1
-    switch_deploy_all(dpid1, 1, 0, [])
-    script_init_all(K)
+
+
+    #switch_deploy_all(dpid1, 1, 0, [])
+    switch_deploy_all_coco_new(dpid1, 1, 1)
+
     time.sleep(10)
-    dpid1 = []
+    script_init_all(K)
+    clk = clk+1
+
+    #merge_file()
+    #CLI(fat_tree_net)
+    #script_init_all(K)
+    dpid1_all = []
+    dpid2_all = []
+    time_dir = '/home/shengliu/Workspace/mininet/haha/API/time/'
+    empty_directory(time_dir)
+    #dpid1 = []
+    rule_set_all = {}
 
     for i in flow_list.keys():
         flow = flow_list[i]['flow']
@@ -494,18 +604,44 @@ def snapshot_deploy(filepath, K, t):
                 state_cur = deploy_ret['state']
                 clk = deploy_ret['clk']
                 bdid = deploy_ret['bdid']
-                dpid = deploy_ret['dpid']
-                for b in dpid:
-                    if b not in dpid1:
-                        dpid1.append(b)
+                rule_set = deploy_ret['rule_set']
+                rule_set_idx = deploy_ret['rule_set_idx']
+                dpid1 = rule_set[rule_set_idx[0]].keys()
+                dpid2 = rule_set[rule_set_idx[1]].keys()
+                rule_set_all = rule_set_merge(rule_set_all, rule_set)
 
-                match = {}
-                match['ipv4_dst'] = flow['ipv4_dst']
-                match['ipv4_src'] = flow['ipv4_src']
-                match["eth_type"] = 2048
-                sb_set[i] = {}
-                sb_set[i]['requisite'] = [old_path[1], old_path[2]]
-                sb_set[i]['rule'] = rule(old_path[2], match, clk, clk, -1, 0, PRTMAX)
+                for b in dpid1:
+                    if b not in dpid1_all:
+                        dpid1_all.append(b)
+                for b in dpid2:
+                    if b not in dpid2_all:
+                        dpid2_all.append(b)
+
+
+    for q in range(len(rule_set_idx)):
+        for dp in rule_set_all[rule_set_idx[q]].keys():
+            bdid = bdid + 1
+            switch_write_all(dp, rule_set_all[rule_set_idx[q]][dp], bdid, 1+q)
+
+                # dpid = deploy_ret['dpid']
+                # for b in dpid:
+                #     if b not in dpid1_all:
+                #         dpid1_all.append(b)
+                #
+                # sb_set = sb_rule_construct(old_path, new_path, flow, clk)
+                # for dp in sb_set.keys():
+                #     bdid = bdid + 1
+                #     switch_write_all(dp, sb_set[dp], bdid, 2)
+                # for b in sb_set:
+                #     if b not in dpid2_all:
+                #         dpid2_all.append(b)
+                # match = {}
+                # match['ipv4_dst'] = flow['ipv4_dst']
+                # match['ipv4_src'] = flow['ipv4_src']
+                # match["eth_type"] = 2048
+                # sb_set[i] = {}
+                # sb_set[i]['requisite'] = [old_path[1], old_path[2]]
+                # sb_set[i]['rule'] = rule(old_path[2], match, clk, clk, -1, 0, PRTMAX)
         #if proto == 2:
             #deploy_ret = path_deploy_time_cu(fat_tree_net, old_path, new_path, flow, state_cur, priority, out_port_old, out_port_new, clk, bdid, 1, proto)
 
@@ -516,19 +652,22 @@ def snapshot_deploy(filepath, K, t):
 
         #print dpid
 
-
+    subprocess.call('/home/shengliu/Workspace/mininet/haha/API/time_measure')
+    switch_deploy_all_coco_new(dpid1_all, 1, 1)
+    #time.sleep(0.3)
+    switch_deploy_all_coco_new(dpid2_all, 2, 1)
 
     #print dpid1
-    switch_deploy_all(dpid1, 1, 1, sb_set)
+    #switch_deploy_all(dpid1, 1, 1, sb_set)
     merge_file()
     return 'True'
 
 
-def snapshot_deploy_coco(filepath, K, t, proto):
+def snapshot_deploy_coco(flow_list, filepath, K, t, proto):
 
     time_file_generate()
 
-    flow_list = get_flow_list(filepath, K, t)
+
     #print flow_list
 
     script_init_all(K)
@@ -602,12 +741,20 @@ def snapshot_deploy_coco(filepath, K, t, proto):
                     dpid1.append(b)
     """
     #print dpid1
-    switch_deploy_all_coco(dpid1, 1, 0)
-    script_init_all(K)
+    switch_deploy_all_coco_new(dpid1, 1, 1)
+    #switch_deploy_all_coco(dpid1, 1, 1)
+
     time.sleep(10)
+    script_init_all(K)
+    time_dir = '/home/shengliu/Workspace/mininet/haha/API/time/'
+    empty_directory(time_dir)
     dpid1_all = []
     dpid2_all = []
     dpid3_all = []
+    dpid4_all = []
+    rule_set_all = {}
+    if proto == 2:
+        clk = clk + 1
 
     for i in flow_list.keys():
         flow = flow_list[i]['flow']
@@ -622,9 +769,16 @@ def snapshot_deploy_coco(filepath, K, t, proto):
                 state_cur = deploy_ret['state']
                 clk = deploy_ret['clk']
                 bdid = deploy_ret['bdid']
-                dpid1 = deploy_ret['dpid1']
-                dpid2 = deploy_ret['dpid2']
-                dpid3 = deploy_ret['dpid3']
+                rule_set = deploy_ret['rule_set']
+                rule_set_idx = deploy_ret['rule_set_idx']
+                dpid1 = rule_set[rule_set_idx[0]].keys()
+                dpid2 = rule_set[rule_set_idx[1]].keys()
+                dpid3 = rule_set[rule_set_idx[2]].keys()
+                #dpid4 = rule_set[rule_set_idx[3]].keys()
+                rule_set_all = rule_set_merge(rule_set_all, rule_set)
+                #dpid1 = deploy_ret['dpid1']
+                #dpid2 = deploy_ret['dpid2']
+                #dpid3 = deploy_ret['dpid3']
                 for b in dpid1:
                     if b not in dpid1_all:
                         dpid1_all.append(b)
@@ -640,9 +794,17 @@ def snapshot_deploy_coco(filepath, K, t, proto):
                 state_cur = deploy_ret['state']
                 clk = deploy_ret['clk']
                 bdid = deploy_ret['bdid']
-                dpid1 = deploy_ret['dpid1']
-                dpid2 = deploy_ret['dpid2']
-                dpid3 = deploy_ret['dpid3']
+                rule_set = deploy_ret['rule_set']
+                rule_set_idx = deploy_ret['rule_set_idx']
+                dpid1 = rule_set[rule_set_idx[0]].keys()
+                dpid2 = rule_set[rule_set_idx[1]].keys()
+                dpid3 = rule_set[rule_set_idx[2]].keys()
+                dpid4 = rule_set[rule_set_idx[3]].keys()
+                rule_set_all = rule_set_merge(rule_set_all, rule_set)
+                #dpid1 = deploy_ret['dpid1']
+                #dpid2 = deploy_ret['dpid2']
+                #dpid3 = deploy_ret['dpid3']
+                #dpid4 = deploy_ret['dpid4']
                 for b in dpid1:
                     if b not in dpid1_all:
                         dpid1_all.append(b)
@@ -652,19 +814,44 @@ def snapshot_deploy_coco(filepath, K, t, proto):
                 for b in dpid3:
                     if b not in dpid3_all:
                         dpid3_all.append(b)
+                for b in dpid4:
+                    if b not in dpid4_all:
+                        dpid4_all.append(b)
+
+    for q in range(len(rule_set_idx)):
+        for dp in rule_set_all[rule_set_idx[q]].keys():
+            bdid = bdid + 1
+            switch_write_all(dp, rule_set_all[rule_set_idx[q]][dp], bdid, 1+q)
+
 
 
     subprocess.call('/home/shengliu/Workspace/mininet/haha/API/time_measure')
-    switch_deploy_all_coco(dpid1_all, 1, 1)
-    time.sleep(0.3)
-    switch_deploy_all_coco(dpid2_all, 2, 1)
-    time.sleep(0.3)
-    switch_deploy_all_coco(dpid3_all, 3, 1)
+    switch_deploy_all_coco_new(dpid1_all, 1, 1)
+    #time.sleep(0.3)
+    switch_deploy_all_coco_new(dpid2_all, 2, 1)
+    #time.sleep(0.3)
+    switch_deploy_all_coco_new(dpid3_all, 3, 1)
+    if proto == 3:
+        switch_deploy_all_coco_new(dpid4_all, 4, 1)
 
     merge_file()
     return 'True'
 
 
+def rule_set_merge(rule_set_all, rule_set):
+    rule_set_final = rule_set_all
+    for i in rule_set.keys():
+        if i not in rule_set_all.keys():
+            rule_set_final[i] = copy.deepcopy(rule_set[i])
+        else:
+            for j in rule_set[i].keys():
+                if j in rule_set_final[i].keys():
+                    rule_set_final[i][j]['add'] = rule_set_all[i][j]['add'] + rule_set[i][j]['add']
+                    rule_set_final[i][j]['del'] = rule_set_all[i][j]['del'] + rule_set[i][j]['del']
+                else:
+                    rule_set_final[i][j] = copy.deepcopy(rule_set[i][j])
+
+    return rule_set_final
 
 
 if __name__ == '__main__':

@@ -17,7 +17,7 @@ int main()
 
   //timersub(&tval_after, &tval_before, &tval_result);
 
-  filep = fopen("/home/shengliu/Workspace/mininet/haha/API/time/debug_0.txt", "aw+");
+  filep = fopen("/home/shengliu/Workspace/mininet/haha/API/time/debug.txt", "aw+");
   fprintf(filep, "begin time %ld %ld\n", (long int)tval_cur.tv_sec, (long int)tval_cur.tv_usec);
   fclose(filep);
 

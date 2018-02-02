@@ -537,19 +537,20 @@ def path_deploy_time(old_path, new_path, flow, state_cur, prt, out_port, clock, 
         for dp in rule_set.keys():
             bdid = bdid_list[dp]
             switch_deploy(dp, rule_set[dp], bdid)
-            if dp == old_path[2] or dp == old_path[1]:
+            if proto and (dp == old_path[2] or dp == old_path[1]):
                 if flag == 1:
                     subprocess.Popen(['python', '/home/shengliu/Workspace/mininet/haha/API/delay_deploy.py'])
                 else:
                     flag = 1
         return {'state': state_next, 'bdid': bdid, 'clk': clk}
 
-    filepath = "/home/shengliu/Workspace/mininet/haha/cmd_test.sh"
-    sb_set = sb_rule_construct(old_path, new_path, flow, clk)
-    table_id = 0
-    script_init(filepath)
-    for r in sb_set:
-        script_write(filepath, addTMPRule(r.get_dpid(), r.get_match(), r.get_rtmp(), r.get_ttmp(), -1, table_id, PRTMAX, "delete_strict"))
+    if proto:
+        filepath = "/home/shengliu/Workspace/mininet/haha/cmd_test.sh"
+        sb_set = sb_rule_construct(old_path, new_path, flow, clk)
+        table_id = 0
+        script_init(filepath)
+        for r in sb_set:
+            script_write(filepath, addTMPRule(r.get_dpid(), r.get_match(), r.get_rtmp(), r.get_ttmp(), -1, table_id, PRTMAX, "delete_strict"))
 
     subprocess.call('/home/shengliu/Workspace/mininet/haha/API/time_measure')
 
@@ -577,7 +578,7 @@ def path_deploy_time(old_path, new_path, flow, state_cur, prt, out_port, clock, 
         #bdid = bdid + 1
         bdid = bdid_list[dp]
         switch_deploy(dp, rule_set[dp], bdid)
-        if dp == old_path[2] or dp == old_path[1]:
+        if proto and (dp == old_path[2] or dp == old_path[1]):
             if flag == 1:
                 subprocess.Popen(['python', '/home/shengliu/Workspace/mininet/haha/API/delay_deploy.py'])
             else:
@@ -771,17 +772,19 @@ def path_deploy_third(fat_tree_net, old_path, new_path, flow, state_cur, prt, ou
     if proto == 3:
         clk = clock
         #clk = 0
-        rule_set = rule_construct_coco_third(old_path, new_path, flow, state_cur, prt, out_port_old, out_port_new, clk)
+        rule_set = rule_construct_coco_final(old_path, new_path, flow, state_cur, prt, out_port_old, out_port_new, clk)
+        #rule_set = rule_construct_coco_third(old_path, new_path, flow, state_cur, prt, out_port_old, out_port_new, clk)
         state_next = state_update(rule_set['rule_set_first'], state_cur)
         state_next = state_update(rule_set['rule_set_second'], state_next)
         state_next = state_update(rule_set['rule_set_third'], state_next)
+        state_next = state_update(rule_set['rule_set_fourth'], state_next)
 
 
     rule_set['rule_set_first'][old_path[2]] = {}
     rule_set['rule_set_first'][old_path[2]]['add'] = [rule(old_path[2], {}, 1, 1, 0, 0, 3)]
     rule_set['rule_set_first'][old_path[2]]['del'] = []
 
-    rule_set_idx = ['rule_set_first', 'rule_set_second', 'rule_set_third']
+    rule_set_idx = ['rule_set_first', 'rule_set_second', 'rule_set_third', 'rule_set_fourth']
 
     #print rule_set['rule_set_first']
 
@@ -819,7 +822,7 @@ def path_deploy_third(fat_tree_net, old_path, new_path, flow, state_cur, prt, ou
             bdid = bdid_list[dp]
             switch_deploy(dp, rule_set[rule_set_idx[i]][dp], bdid)
 
-        #CLI(fat_tree_net)
+    #CLI(fat_tree_net)
 
 
     return {'state': state_next, 'bdid': bdid, 'clk': clk}
@@ -1354,7 +1357,7 @@ def test_run_link(K, fat_tree_net, pkt_rate, proto, nt):
     #print out
 
     ping_ret_o = h_src.cmd('echo')
-    print ping_ret_o
+    #print ping_ret_o
     #state_cur = clear_sb_rules(filepath, old_path, new_path, flow, state_cur, clk)
     #state_cur.print_state()
     #print 'change route'
@@ -1447,7 +1450,7 @@ def test_run_time(K, fat_tree_net, pkt_rate, proto, nt):
         deploy_ret = path_deploy_time_cu(fat_tree_net, old_path, new_path, flow, state_cur, priority, out_port_old, out_port_new, clk, bdid, 1, proto)
 
     if proto == 3:
-        deploy_ret = path_deploy_third(fat_tree_net, old_path, new_path, flow, state_cur, priority, out_port_old, out_port_new, clk, bdid, 0, proto)
+        deploy_ret = path_deploy_third(fat_tree_net, old_path, new_path, flow, state_cur, priority, out_port_old, out_port_new, clk, bdid, 1, proto)
 
     state_cur = deploy_ret['state']
     clk = deploy_ret['clk']

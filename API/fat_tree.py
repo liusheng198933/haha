@@ -5,8 +5,9 @@ from mininet.node import Controller, OVSKernelSwitch, RemoteController, Ryu
 from util import *
 from test_main import *
 from test_main_all import *
+from shutil import copyfile
 
-KNUM = 8
+KNUM = 4
 
 class FatTree( Topo ):
 
@@ -96,21 +97,34 @@ def createTopo():
 
     CLI(fat_tree_net)
     #fat_tree_net.stop()
-    for b in range(3, 4):
+    for b in range(6, 12):
         pkt_rate = 1000*b
         q = 0
         tt = 0
         filepath = '/home/shengliu/Workspace/mininet/haha/API/flow_update.tsv'
-        #result = snapshot_deploy(filepath, K, 0)
-        snapshot_deploy_coco(filepath, K, 0, 3)
+        #result = snapshot_deploy(filepath, K, 0, fat_tree_net)
+        #flow_list = get_flow_list(filepath, K, 0, 104)
+        #for hehe in range(300):
+            # if hehe % 3 == 0:
+            #     snapshot_deploy(flow_list, filepath, K, 0, fat_tree_net)
+            # if hehe % 3 == 1:
+            #     snapshot_deploy_coco(flow_list, filepath, K, 0, 2)
+            # if hehe % 3 == 2:
+            #     snapshot_deploy_coco(flow_list, filepath, K, 0, 3)
+            # #CLI(fat_tree_net)
+            # fpath1 = "/home/shengliu/Workspace/mininet/haha/API/time/debug.txt"
+            # fpath2 = "/home/shengliu/Workspace/result/%d/r_%d.txt" %(hehe % 3, hehe)
+            # fp2 = open(fpath2, 'w+')
+            # fp2.close()
+            # copyfile(fpath1, fpath2)
 
-        while tt < 0:
+        while tt < 100:
             result = 'False'
             while result != 'True':
                 print 'idx: %d' %q
                 #result = test_run(K, fat_tree_net, pkt_rate, 3, 12)
-                result = test_run_time(K, fat_tree_net, pkt_rate, 3, q)
-                #result = test_run_link(K, fat_tree_net, pkt_rate, 3, 12)
+                #result = test_run_time(K, fat_tree_net, pkt_rate, 0, q)
+                result = test_run_link(K, fat_tree_net, pkt_rate, 0, 12)
 
                 if result == 'Error':
                     q = q + 1

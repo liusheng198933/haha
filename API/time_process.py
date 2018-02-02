@@ -1,13 +1,19 @@
 import matplotlib.pyplot as plt
 
 
-if __name__ == '__main__':
-    filepath = "/home/shengliu/Workspace/mininet/haha/API/time/debug.txt"
+def draw_graph(proto, color):
+    if proto == 0:
+        filepath = "/home/shengliu/Workspace/mininet/haha/API/time/debug.txt"
+    #proto = "cu2"
+    else:
+        filepath = "/home/shengliu/Workspace/result/zhen ovs/debug_%s.txt" %proto
+    filepath = "/home/shengliu/Workspace/result/0/r_0.txt"
     fp = open(filepath, 'r')
     cxt = fp.readlines()
     bid_list = {}
     time_point = {}
-    time_point[0] = 80 + 32 + 5 * 50
+    #time_point[0] = 80 + 32 + 5 * 50
+    time_point[0] = 0
     rule_num = time_point[0]
     for ln in cxt:
         if 'bundle add' in ln:
@@ -44,6 +50,7 @@ if __name__ == '__main__':
                     ct = ct + 1
 
     print ct
+    print time_point
     x_list = []
     y_list = []
     for i in time_point.keys():
@@ -52,7 +59,25 @@ if __name__ == '__main__':
     for i in x_list:
         rule_num = rule_num + time_point[i]
         y_list.append(rule_num)
+    print x_list
+    print y_list
     print max(x_list)
     print max(y_list)
-    plt.plot(x_list, y_list, 'ro')
+
+    # fp = open('/home/shengliu/Workspace/result/result_%s.txt' %proto, 'w')
+    # for i in range(len(x_list)):
+    #     fp.write('%f ' %x_list[i])
+    # fp.write('\n\n')
+    # for i in range(len(y_list)):
+    #     fp.write('%d ' %(y_list[i]+680))
+    # fp.close()
+
+    plt.plot(x_list, y_list, color)
+
+
+if __name__ == '__main__':
+
+    draw_graph('cu', 'bo')
+    draw_graph('coco', 'go')
+    draw_graph(0, 'ro')
     plt.show()

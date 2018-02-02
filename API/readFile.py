@@ -1,5 +1,6 @@
 from util import *
-
+import numpy
+import matplotlib.pyplot as plt
 
 def path_read(filepath, K):
     # return list of old path, new path and its corresponding flow (ip_src and ip_dst)
@@ -143,6 +144,46 @@ def process_time_coco(filepath):
         return {'update': update_time_list, 'persist': persist_time_list}
 
 
+def process_time_coco_new(filepath):
+    # return list of old path, new path and its corresponding flow (ip_src and ip_dst)
+    with open(filepath, 'r') as f:
+        content = f.readlines()
+        update_time_list = []
+        persist_time_list = []
+        for i in range(len(content)):
+            if content[i].startswith('begin time'):
+                ret = content[i:i+50]
+                sec = float(ret[0].split()[2])
+                micro = float(ret[0].split()[3])
+                basic_time = sec + micro/1000000
+                rule_num = 0
+                install_time = {}
+                #install_time['25'] = basic_time
+                persist_time = {}
+                for j in range(len(ret)):
+                    if 'rules commit' in ret[j]:
+                        sec = float(ret[j].split()[5])
+                        micro = float(ret[j].split()[6])
+                        if ret[j].split()[1] in ['21', '23', '24', '25'] and rule_num <= 4:
+                            install_time[ret[j].split()[1]] = sec + micro/1000000
+                        if ret[j].split()[1] in ['21', '25', '23', '24'] and rule_num > 8:
+                            persist_time[ret[j].split()[1]] = sec + micro/1000000 - install_time[ret[j].split()[1]]
+                        if rule_num < 17:
+                            rule_num = rule_num + 1
+                        else:
+                            sec = float(ret[j].split()[5])
+                            micro = float(ret[j].split()[6])
+                            fin_time = sec + micro/1000000
+                #print persist_time
+                #print install_time
+                #print persist_time
+                if i+50 < len(content) and rule_num == 17 and content[i+50].startswith('add'):
+                    #for j in persist_time.keys():
+                        #persist_time_list.append(1000 * persist_time[j])
+                    update_time_list.append(1000 * (fin_time - basic_time))
+        return {'update': update_time_list, 'persist': persist_time_list}
+
+
 def process_time_cu(filepath):
     # return list of old path, new path and its corresponding flow (ip_src and ip_dst)
     with open(filepath, 'r') as f:
@@ -218,6 +259,37 @@ def process_time(filepath):
                     print content[i:i+10]
         return {'update': update_time_list, 'persist': persist_time_list}
 
+def process_time_new(filepath):
+    # return list of old path, new path and its corresponding flow (ip_src and ip_dst)
+    with open(filepath, 'r') as f:
+        content = f.readlines()
+        update_time_list = []
+        persist_time_list = []
+        for i in range(len(content)):
+            if content[i].startswith('begin time'):
+                ret = content[i:i+4]
+                sec = float(ret[0].split()[2])
+                micro = float(ret[0].split()[3])
+                basic_time = sec + micro/1000000
+                rule_num = 0
+                print basic_time
+                for j in range(len(ret)):
+                    if 'rules commit' in ret[j]:
+                        if rule_num < 2:
+                            rule_num = rule_num + 1
+                        else:
+                            sec = float(ret[j].split()[5])
+                            micro = float(ret[j].split()[6])
+                            fin_time = sec + micro/1000000
+                if rule_num == 2:
+                    print fin_time
+                    update_time_list.append(1000 * (fin_time - basic_time))
+                    print update_time_list
+                    #persist_time_list.append(1000 * (del_time - install_time))
+                #if del_time - install_time < 0:
+                    #print content[i:i+10]
+        return {'update': update_time_list, 'persist': persist_time_list}
+
 
 
 def get_host_IP(port_ID, dpid, K):
@@ -247,15 +319,32 @@ def switch_id_parse(sw_str, K):
 
 
 if __name__ == '__main__':
-    ret = process_time_coco('result.txt')
+    #ret = process_time_coco_new('update_result_coco.txt')
+    ret = process_time_new('result.txt')
     utime = ret['update']
     ptime = ret['persist']
     print utime
-    print ptime
+    #print ptime
     print len(utime)
-    print len(ptime)
+    #print len(ptime)
     print sum(utime)/len(utime)
-    print sum(ptime)/len(ptime)
+    #print sum(ptime)/len(ptime)
+
+    #for i in range(len(utime)):
+    #    if utime[len(utime)-i-1] <= 0:
+    #        del utime[len(utime)-i-1]
+
+    print len(utime)
+
+    fp = open('matu_org.txt', 'w')
+    for item in utime:
+        fp.write("%f " % item)
+    fp.close()
+
+
+    plt.plot(numpy.sort(utime), numpy.linspace(0, 1, len(utime), endpoint=False))
+
+    plt.show()
 
     """
     fp = open('matu_cu.txt', 'w')
